@@ -45,3 +45,4 @@ License.
 ## For Chinese Users
 
 * [Seafile 服务器手册中文版](chinese.md)
+
