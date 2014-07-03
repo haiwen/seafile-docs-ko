@@ -1,0 +1,26 @@
+# Seafile
+
+## Administration
+#### Manage/Maintain Seafile Server
+
+This manual explains how seahub administrator manages file libraries and users in Seafile server.
+
+#### User and File Libraries Management
+
+When you setup seahub website, you should have setup a admin account. After you logged in a admin, you may add/delete users and file libraries.
+
+#### Resetting User Password
+
+Administrator can reset password for a user in "System Admin" page.
+
+In a private server, the default setting doesn't support users to reset their password by email. If you want to enable this, you have first to [[Seafile-server-configuration-options|set up notification email]].
+
+#### Forgot Admin Account or Password?
+
+You may run <code>reset-admin.sh</code> script under seafile-server directory. This script would help you reset the admin account and password.
+
+## Tools
+
+* [Seafile CLI](maintain/seafile_cli.md)
+* [Seafile FSCK](maintain/seafile_fsck.md)
+* [Seafile GC](maintain/seafile_gc.md)
