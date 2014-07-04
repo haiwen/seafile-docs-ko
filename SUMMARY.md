@@ -2,30 +2,36 @@
 
 * [Overview](overview/README.md)
    * [Roadmap](roadmap.md)
-   * [Contribution](contribution.md)
    * [FAQ](faq.md)
    * [Changelog](changelog.md)
-* [Deploy](deploy/README.md)
-   * [Client](deploy/client.md)
-   * [Server](deploy/server.md)
-       * [Server Configuration](deploy/server_configuration.md)
-       * [Common Problems for Setting up Server](deploy/common_problems_for_setting_up_server.md)
-       * [Deploy with apache](deploy/deploy_with_apache.md)
-       * [Deploy with nginx](deploy/deploy_with_nginx.md)
-   * [Firewall/NAT settings](deploy/using_firewall.md)
-   * [Upgrade](deploy/upgrade.md)
-       * [Upgrade with MySQL or PostgreSQL](deploy/upgrade_with_mysql_or_postgresql.md)
-   * [Customize database](deploy/db.md)
-       * [Using MySQL](deploy/using_mysql.md)
-       * [Using PostgreSQL](deploy/using_postgresql.md)
-       * [Migrate From SQLite to MySQL](deploy/migrate_from_sqlite_to_mysql.md)
-   * [Using LDAP](deploy/using_ldap.md)
-   * [Using Fuse](deploy/using_fuse.md)
-* [Maintain](maintain/README.md)
-   * [Seafile CLI](maintain/seafile_cli.md)
+   * [Contribution](contribution.md)
+* [Deploying and Upgrading Seafile](deploy/README.md)
+   * [Components Overview]
+   * [Deploying Seafile with SQLite]
+   * [Deploying Seafile with MySQL]
+   * [Config Seahub with Nginx](deploy/deploy_with_nginx.md)
+   * [Enabling Https with Nginx](deploy/https_with_nginx.md)
+   * [Config Seahub with Apache](deploy/deploy_with_apache.md)
+   * [Enabling Https with Apache](deploy/https_with_apache.md)
+   * [Configure Seafile to use LDAP](deploy/using_ldap.md)
+   * [Start Seafile at System Bootup]
+   * [Firewall settings](deploy/using_firewall.md)
+   * Other Deployment Issues
+      * [Add Memcached]
+      * [Deploy Seafile behind NAT]
+      * [Deploy Seahub at Non-root domain]
+      * [Migrate From SQLite to MySQL](deploy/migrate_from_sqlite_to_mysql.md)
+   * [Common Problems for Setting up Server](deploy/common_problems_for_setting_up_server.md)
+* [Deploy Seafile Pro Edition]
+* [Server Configuration](deploy/server_configuration.md)
+* [WebDAV and FUSE extention]
+* [Administration](maintain/README.md)
    * [Seafile FSCK](maintain/seafile_fsck.md)
    * [Seafile GC](maintain/seafile_gc.md)
-* [Develop](develop/README.md)
+* [Security]
+* [Client](client/client.md)
+   * [Seafile CLI](client/seafile_cli.md)
+* [Developing](develop/README.md)
    * [How to Build Seafile](build_seafile/README.md)
        * [Linux](build_seafile/linux.md)
        * [Windows](build_seafile/windows.md)
@@ -38,17 +44,3 @@
    * [Data Model](develop/data_model.md)
    * [Server Components](develop/server-components.md)
    * [Sync algorithm](develop/sync_algorithm.md)
-* [For Chinese Users](chinese/README.md)
-   * [基本](chinese/index_basic.md)
-       * [Seafile 服务器概览](chinese/server.md)
-       * [Seafile 服务器端软件的下载、初始化配置](chinese/deploy.md)
-       * [Seafile 服务器管理](chinese/manage.md)
-       * [Seafile 服务器端软件的升级](chinese/upgrade.md)
-       * [Seafile Windows 版服务器](chinese/windows.md)
-   * [高级](chinese/index_advanced.md)
-       * [Seafile 服务器配置详细说明](chinese/configuration.md)
-       * [Seafile 相关的防火墙设置](chinese/nat.md)
-       * [Seafile 服务器端数据备份](chinese/backup.md)
-       * [Seafile web界面启用Https](chinese/enable_https.md)
-       * [建立单机开发环境](chinese/dev_env.md)
-
