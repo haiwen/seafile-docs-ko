@@ -6,8 +6,8 @@
    * [Changelog](changelog.md)
    * [Contribution](contribution.md)
 * [Deploying and Upgrading Seafile](deploy/README.md)
-   * [Components Overview]
-   * [Deploying Seafile with SQLite]
+   * [Components Overview](deploy/components.md)
+   * [Deploying Seafile with SQLite](deploy/using_sqlite.md)
    * [Deploying Seafile with MySQL]
    * [Config Seahub with Nginx](deploy/deploy_with_nginx.md)
    * [Enabling Https with Nginx](deploy/https_with_nginx.md)
@@ -44,3 +44,4 @@
    * [Data Model](develop/data_model.md)
    * [Server Components](develop/server-components.md)
    * [Sync algorithm](develop/sync_algorithm.md)
+
