@@ -16,6 +16,7 @@
    * [Configure Seafile to use LDAP](deploy/using_ldap.md)
    * [Start Seafile at System Bootup]
    * [Firewall settings](deploy/using_firewall.md)
+   * [Logrotate](deploy/using_logrotate.md)
    * Other Deployment Issues
       * [Add Memcached]
       * [Deploy Seafile behind NAT]
