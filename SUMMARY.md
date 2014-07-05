@@ -8,7 +8,7 @@
 * [Deploying and Upgrading Seafile](deploy/README.md)
    * [Components Overview](deploy/components.md)
    * [Deploying Seafile with SQLite](deploy/using_sqlite.md)
-   * [Deploying Seafile with MySQL]
+   * [Deploying Seafile with MySQL](deploy/using_mysql.md)
    * [Config Seahub with Nginx](deploy/deploy_with_nginx.md)
    * [Enabling Https with Nginx](deploy/https_with_nginx.md)
    * [Config Seahub with Apache](deploy/deploy_with_apache.md)
