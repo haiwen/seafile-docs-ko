@@ -25,13 +25,6 @@ License.
 * [Roadmap](roadmap.md)
 * [Contribution](contribution.md)
 
-## Deploy Seafile Client/Server
-
-* [Client](deploy/client.md)
-* [Server](deploy/server.md)
-* [Upgrade](deploy/upgrade.md)
-* [Customize database](deploy/db.md)
-
 
 ## Contact information
 * Twitter: @seafile https://twitter.com/seafile
@@ -40,12 +33,7 @@ License.
 
 ## More Documents
 
-* [Seafile Client FAQ](https://seacloud.cc/group/3/wiki/)
-* [FAQ for Security Features](https://seacloud.cc/group/3/wiki/faq-for-security-features/)
-* [Seacloud.cc wiki](https://seacloud.cc/group/3/wiki_pages/)
-* [Seafile github repo wiki](https://github.com/haiwen/seafile/wiki)
+* [Wiki containing general information of Seafile](https://seacloud.cc/group/3/wiki/)
 
-## For Chinese Users
 
-* [Seafile 服务器手册中文版](chinese.md)
 
