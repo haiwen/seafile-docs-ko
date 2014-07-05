@@ -19,7 +19,7 @@
    * Other Deployment Issues
       * [Add Memcached]
       * [Deploy Seafile behind NAT](deploy/deploy_Seafile_behind_NAT.md)
-      * [Deploy Seahub at Non-root domain]
+      * [Deploy Seahub at Non-root domain](deploy/deploy_Seahub_at_Non-root_domain.md)
       * [Migrate From SQLite to MySQL](deploy/migrate_from_sqlite_to_mysql.md)
    * [Common Problems for Setting up Server](deploy/common_problems_for_setting_up_server.md)
 * [Deploy Seafile Pro Edition]
