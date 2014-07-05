@@ -18,7 +18,7 @@
    * [Firewall settings](deploy/using_firewall.md)
    * Other Deployment Issues
       * [Add Memcached]
-      * [Deploy Seafile behind NAT]
+      * [Deploy Seafile behind NAT](deploy/deploy_Seafile_behind_NAT.md)
       * [Deploy Seahub at Non-root domain]
       * [Migrate From SQLite to MySQL](deploy/migrate_from_sqlite_to_mysql.md)
    * [Common Problems for Setting up Server](deploy/common_problems_for_setting_up_server.md)
