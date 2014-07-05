@@ -8,15 +8,15 @@ To achieve this, you need:
 
 ### Table of Contents
 
-- [Setup the server](Deploy-seafile-server-behind-nat#setup-the-server)
-- [Setup port forwarding in your router](Deploy-seafile-server-behind-nat#setup-port-forwarding-in-your-router)
-- [Use a dynamic dns serivce](Deploy-seafile-server-behind-nat#use-a-dynamic-dns-serivce)
-- [Modify your seafile configuration](Deploy-seafile-server-behind-nat#modify-your-seafile-configuration)
+- [Setup the server](deploy_Seafile_behind_NAT#setup-the-server)
+- [Setup port forwarding in your router](deploy_Seafile_behind_NAT#setup-port-forwarding-in-your-router)
+- [Use a dynamic dns serivce](deploy_Seafile_behind_NAT#use-a-dynamic-dns-serivce)
+- [Modify your seafile configuration](deploy_Seafile_behind_NAT#modify-your-seafile-configuration)
 
 
 ## Setup the server
 
-First, you should follow the guide on [[Download and Setup Seafile Server]] to setup your Seafile server. 
+First, you should follow the guide on [Download and Setup Seafile Server](using_sqlite.md) to setup your Seafile server. 
 
 Before you continue, make sure:
 
