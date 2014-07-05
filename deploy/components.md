@@ -10,15 +10,19 @@
 
 The picture below shows how Seafile desktop client syncs files with Seafile server:
 
-![Seafile Sync](images/seafile-sync-arch.png)
+![Seafile Sync](../images/seafile-sync-arch.png)
 
+The picture below shows how Seafile mobile client interacts with Seafile server:
 
-![Seafile Sync](images/mobile-arch.png)
+![How mobile clients connect Seafile](../images/mobile-arch.png)
 
-![Seafile Sync](images/mobile-nginx-arch.png)
+The picture below shows how Seafile mobile client interacts with Seafile server if the server is configured behind Nginx/Apache:
+
+![How seafile configured behind Nginx/Apache](../images/mobile-nginx-arch.png)
 
 ## Client
 
+- **Applet** (`seafile-applet`): The GUI front-end
 - **Seafile daemon** (``seafile``): data service daemon for client
 - **Ccnet daemon** (``ccnet``): networking service daemon for client
 

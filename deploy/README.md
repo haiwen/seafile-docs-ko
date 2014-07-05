@@ -1,5 +1,3 @@
-# Seafile
-
 ## Deploying Seafile
 
 Here we describe how to deploy Seafile from prebuild binary packages.
