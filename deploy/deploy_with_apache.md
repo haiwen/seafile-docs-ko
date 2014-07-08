@@ -1,5 +1,5 @@
 # Seafile
-## Deploy with apache
+## Deploy with Apache
 
 ## Prepare
 
