@@ -19,7 +19,7 @@ For debian, the default directory for logrotate should be ``/etc/logrotate.d/``
 ## Sample configuration
 
 Assuming your ccnet-server's logfile is `/home/haiwen/logs/ccnet.log`, and your
-ccnet-server's pidfile for ccnet-server is ``/home/haiwen/ccnet.pid``.
+ccnet-server's pidfile for ccnet-server is ``/home/haiwen/pids/ccnet.pid``.
 
 Assuming your seaf-server's logfile is setup to ``/home/haiwen/logs/seaf-server.log``, and your
 seaf-server's pidfile for seaf-server is setup to ``/home/haiwen/pids/seaf-server.pid``:
@@ -50,7 +50,7 @@ The configuration for logroate could be like this:
         notifempty
         sharedscripts
         postrotate
-                [ ! -f /home/haiwen/ccnet.pid ] || kill -USR1 `cat /home/haiwen/ccnet.pid`
+                [ ! -f /home/haiwen/pids/ccnet.pid ] || kill -USR1 `cat /home/haiwen/pids/ccnet.pid`
         endscript
 }
 ```
