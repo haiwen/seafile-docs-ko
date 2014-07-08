@@ -1,7 +1,8 @@
 # Seafile
 ## Server Configuration
 
-This manual explains how to change various config options for Seafile server. We assume that you've [[Download-and-setup-seafile-server|setup Seafile server]].
+This manual explains how to change various config options for Seafile server. We
+assume that you've [Download-and-setup-seafile-server](using_sqlite.md).
 
 ## Seafile Network Configurations (ccnet.conf)
 
@@ -39,7 +40,7 @@ PORT=13419
 
 </pre>
 
-'''Note''': You should restart seafile so that your changes take effect.
+**Note**: You should restart seafile so that your changes take effect.
 
 <pre>
 cd seafile-server
@@ -88,7 +89,7 @@ max_upload_size=200
 max_download_dir_size=200
 </pre>
 
-'''Note''': You need to restart seafile and seahub so that your changes take effect.
+**Note**: You need to restart seafile and seahub so that your changes take effect.
 <pre>
 ./seahub.sh restart
 ./seafile.sh restart
@@ -123,9 +124,9 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 </pre>
 
-'''Note1''': If your Email service still can not work, you may checkout the log file <code>logs/seahub.log</code> to see what may cause the problem. For complete email notification list, please refer to [[Email notification list]].
+**Note**: If your Email service still can not work, you may checkout the log file <code>logs/seahub.log</code> to see what may cause the problem. For complete email notification list, please refer to [Email notification list](customize_email_notifications.md).
 
-'''Note2''': If you want to use the Email service without authentication leaf <code>EMAIL_HOST_USER</code> and <code>EMAIL_HOST_PASSWORD</code> '''blank''' (<code>''</code>). (But notice that the emails then will be sent without a <code>From:</code> address.)
+**Note2**: If you want to use the Email service without authentication leaf <code>EMAIL_HOST_USER</code> and <code>EMAIL_HOST_PASSWORD</code> **blank** (<code>''</code>). (But notice that the emails then will be sent without a <code>From:</code> address.)
 
 #### Cache
 
@@ -208,7 +209,7 @@ FORCE_SERVER_CRYPTO = True
 
 </pre>
 
-'''Note''':
+**Note**:
 
 * You need to restart seahub so that your changes take effect.
 * If your changes don't take effect, You may need to delete 'seahub_setting.pyc'. (A cache file)
