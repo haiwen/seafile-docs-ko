@@ -24,6 +24,21 @@
       * [Migrate From SQLite to MySQL](deploy/migrate_from_sqlite_to_mysql.md)
    * [Common Problems for Setting up Server](deploy/common_problems_for_setting_up_server.md)
 * [Deploy Seafile Pro Edition]
+   * [Download and Setup Seafile Professional Server](deploy_pro/download_and_setup_seafile_professional_server.md)
+   * [Migrate from Seafile Community Server](deploy_pro/migrate_from_seafile_community_server.md)
+   * [Upgrading Seafile Professional Server](deploy_pro/upgrading_seafile_professional_server.md)
+   * [Setup With Amazon S3](deploy_pro/setup_with_mazon_S3.md)
+   * [Setup With OpenStackSwift](deploy_pro/setup_with_OpenStackSwift.md)
+   * [Setup With Ceph](deploy_pro/setup_with_Ceph.md)
+   * [Configurable Options](deploy_pro/configurable_options.md)
+   * Other Deployment Issues
+      * [Use existing ElasticSearch server](deploy_pro/use_existing_ElasticSearch_server.md)
+      * [Details about File Search](deploy_pro/details_about_file_search.md)
+      * [Deploy in a cluster](deploy_pro/deploy_in_a_cluster.md)
+      * [Enable search and background tasks in a cluster](deploy_pro/enable_search_and_background_tasks_in_a_cluster.md)
+   * [FAQ](deploy_pro/FAQ_for_seafile_pro_server.md)
+   * [Changelog](deploy_pro/changelog_for_seafile_pro_server.md)
+   * [License](deploy_pro/seafile_professional_sdition_software_license_agreement.md)
 * [Server Configuration](deploy/server_configuration.md)
 * [WebDAV and FUSE extention]
 * [Administration](maintain/README.md)
