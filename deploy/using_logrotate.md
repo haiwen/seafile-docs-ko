@@ -18,19 +18,15 @@ For debian, the default directory for logrotate should be ``/etc/logrotate.d/``
 
 ## Sample configuration
 
-Assuming your ccnet-server's logfile is setup to ``/var/log/ccnet-server.log``, and your
-ccnet-server's pidfile for ccnet-server is setup to ``/var/run/ccnet-server.pid`` :
+Assuming your ccnet-server's logfile is `/home/haiwen/logs/ccnet.log`, and your
+ccnet-server's pidfile for ccnet-server is ``/home/haiwen/ccnet.pid``.
 
-- ``ccnet-server  -c where_ccnet_configure_dir_is -P /var/run/ccnet-server.pid -f /var/log/ccnet-server.log``
-
-Assuming your seaf-server's logfile is setup to ``/var/log/seaf-server.log``, and your
-seaf-server's pidfile for seaf-server is setup to ``/var/run/seaf-server.pid``:
-
-- ``seaf-server -d where_seafile_data_dir_is -P /var/run/seaf-server.pid -f -l /var/log/seaf-server.log``
+Assuming your seaf-server's logfile is setup to ``/home/haiwen/logs/seaf-server.log``, and your
+seaf-server's pidfile for seaf-server is setup to ``/home/haiwen/pids/seaf-server.pid``:
 
 The configuration for logroate could be like this:
 ```
-/var/log/seaf-server.log
+/home/haiwen/logs/seaf-server.log
 {
         daily
         missingok
@@ -40,11 +36,11 @@ The configuration for logroate could be like this:
         notifempty
         sharedscripts
         postrotate
-                [ ! -f /var/run/seaf-server.pid ] || kill -USR1 `cat /var/run/seaf-server.pid`
+                [ ! -f /home/haiwen/pids/seaf-server.pid ] || kill -USR1 `cat /home/haiwen/pids/seaf-server.pid`
         endscript
 }
 
-/var/log/ccnet-server.log
+/home/haiwen/logs/ccnet.log
 {
         daily
         missingok
@@ -54,7 +50,7 @@ The configuration for logroate could be like this:
         notifempty
         sharedscripts
         postrotate
-                [ ! -f /var/run/ccnet-server.pid ] || kill -USR1 `cat /var/run/ccnet-server.pid`
+                [ ! -f /home/haiwen/ccnet.pid ] || kill -USR1 `cat /home/haiwen/ccnet.pid`
         endscript
 }
 ```
@@ -63,4 +59,4 @@ You can save this file, for example in debian, to ``/etc/logrotate.d/seafile``
 
 ## That's it
 
-   You now gets all the things done, just sit and enjoy your time :-D
+You now gets all the things done, just sit and enjoy your time :-D
