@@ -1,4 +1,4 @@
-#Details about File Search
+# Details about File Search
 ## <a id="search-opt"></a>Search Options
 
 Following options should be set in file **seafevents.conf**, and need to restart seafile and seahub to take affect.

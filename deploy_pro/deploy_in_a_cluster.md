@@ -1,4 +1,4 @@
-#Deploy in a cluster
+# Deploy in a cluster
 ## <a id="wiki-arch"></a> Architecture
 
 The Seafile cluster solution employs a 3-tier architecture:

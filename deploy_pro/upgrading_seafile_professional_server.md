@@ -1,4 +1,4 @@
-#Upgrading Seafile Professional Server
+# Upgrading Seafile Professional Server
 
 This page is for users who use the pre-compiled seafile server package. 
 

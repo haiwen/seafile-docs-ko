@@ -1,4 +1,4 @@
-#License
+# Seafile Professional Edition Software License Agreement
 ```
 Seafile Professional Edition
 SOFTWARE LICENSE AGREEMENT

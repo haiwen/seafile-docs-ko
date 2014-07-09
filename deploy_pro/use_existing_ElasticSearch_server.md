@@ -1,4 +1,4 @@
-#Use existing ElasticSearch server
+# Use existing ElasticSearch server
 The search module use an elasticsearch server bundled within the seafile pro server tarball. However, you may have an existing Elasitcsearch server or cluster running in your company. In this situation, you can change the config file to use your existing ES server or cluster.
 
 This feature is added since `Seafile Professional Server 2.0.5`.
