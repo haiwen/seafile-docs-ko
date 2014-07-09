@@ -1,4 +1,5 @@
 # Administration
+
 #### Manage/Maintain Seafile Server
 
 This manual explains how seahub administrator manages file libraries and users in Seafile server.
@@ -19,6 +20,5 @@ You may run <code>reset-admin.sh</code> script under seafile-server directory. T
 
 ## Tools
 
-* [Seafile CLI](maintain/seafile_cli.md)
 * [Seafile FSCK](maintain/seafile_fsck.md)
 * [Seafile GC](maintain/seafile_gc.md)

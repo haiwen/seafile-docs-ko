@@ -57,8 +57,6 @@
    * [Seafile FSCK](maintain/seafile_fsck.md)
    * [Seafile GC](maintain/seafile_gc.md)
 * [Security]
-* [Client](client/client.md)
-   * [Seafile CLI](client/seafile_cli.md)
 * [Developing](develop/README.md)
    * [How to Build Seafile](build_seafile/README.md)
        * [Linux](build_seafile/linux.md)
