@@ -1,3 +1,4 @@
+# Download and Setup Seafile Professional Server
 ## <a id="wiki-preparation"></a>Preparation ##
 
 ### Minimum System Requirement ###
@@ -76,7 +77,7 @@ sudo pip install setuptools --no-use-wheel --upgrade
 
 ### Install other libraries as required in the community edition
 
-See [Download and Setup Seafile Server With MySQL](https://github.com/haiwen/seafile/wiki/Download-and-Setup-Seafile-Server-with-MySQL).
+See [Download and Setup Seafile Server With MySQL](../deploy/using_mysql.md).
 
 ## <a id="wiki-download-and-setup"></a>Download and Setup Seafile Professional Server ##
 
@@ -115,7 +116,7 @@ You should notice the difference between the names of the Community Server and P
 
 ### Setup ###
 
-The setup process of Seafile Professional Server is the same as the Seafile Community Server. See [Download and Setup Seafile Server With MySQL](https://github.com/haiwen/seafile/wiki/Download-and-Setup-Seafile-Server-with-MySQL).
+The setup process of Seafile Professional Server is the same as the Seafile Community Server. See [Download and Setup Seafile Server With MySQL](../deploy/using_mysql.md).
 
 After you have succesfully setup Seafile Professional Server, you would have a directory layout like this:
 

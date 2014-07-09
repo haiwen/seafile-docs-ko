@@ -1,3 +1,4 @@
+#Setup With OpenStackSwift
 Starting from professional server 2.0.5, Seafile can use S3-compatible cloud storage (such as OpenStack/Swift) as backend. This document will use Swift as example.
 
 ## Seafile Server Preparation

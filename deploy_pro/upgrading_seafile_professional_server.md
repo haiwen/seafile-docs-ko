@@ -1,9 +1,10 @@
+#Upgrading Seafile Professional Server
 
 This page is for users who use the pre-compiled seafile server package. 
 
 - If you [build seafile server from source](https://github.com/haiwen/seafile/wiki/Build-and-deploy-seafile-server-from-source), please read the **Upgrading Seafile Server** section on that page, instead of this one.
 
-- After upgrading, you may need to clean [seahub cache](https://github.com/haiwen/seafile/wiki/Seafile-server-configuration-options#wiki-Cache) if it doesn't behave as expect.
+- After upgrading, you may need to clean [seahub cache](../deploy/add_memcached.md) if it doesn't behave as expect.
 
 ## Major Continuous Upgrade (like from 1.2.x to 1.3.y)
 

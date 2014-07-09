@@ -1,3 +1,4 @@
+#FAQ
 ## <a id="wiki-search-faq"></a>FAQ about Search ##
 
 - However I tried, files in an encrypted library aren't listed in the search results 

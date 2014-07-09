@@ -1,3 +1,4 @@
+#Deploy in a cluster
 ## <a id="wiki-arch"></a> Architecture
 
 The Seafile cluster solution employs a 3-tier architecture:
@@ -8,7 +9,7 @@ The Seafile cluster solution employs a 3-tier architecture:
 
 This architecture scales horizontally. That is, you can handle more traffic by adding more machines. The architecture is presented in the following picture.
 
-[[images/seafile-cluster.png]]
+![seafile-cluster](../images/seafile-cluster.png)
 
 ## <a id="wiki-preparation"></a>Preparation
 
@@ -80,7 +81,7 @@ haiwen
 ```
 ### Setup Seafile Config
 
-The setup process of Seafile Professional Server is the same as the Seafile Community Server. See [Download and Setup Seafile Server With MySQL](https://github.com/haiwen/seafile/wiki/Download-and-Setup-Seafile-Server-with-MySQL) in the community wiki.
+The setup process of Seafile Professional Server is the same as the Seafile Community Server. See [Download and Setup Seafile Server With MySQL](../deploy/using_mysql.md) in the community wiki.
 
 Note: **Use the load balancer's address or domain name for the server address. Don't use the local IP address of each Seafile server machine. This assures the user will always access your service via the load balancers.**
 
@@ -180,7 +181,7 @@ You'll usually want to use Nginx/Apache and https for web access. You need to se
 
 ## Firewall Settings
 
-Beside [standard ports of a seafile server](https://github.com/haiwen/seafile/wiki/Firewall-settings-for-seafile-server), there are 2 firewall rule changes for Seafile cluster:
+Beside [standard ports of a seafile server](../deploy/using_firewall.md), there are 2 firewall rule changes for Seafile cluster:
 
 * On each Seafile server machine, you should open the health check port (default 11001);
 * On the memcached server, you should open the port 11211. For security, only the Seafile servers should be allow to access this port.
@@ -196,11 +197,11 @@ In the AWS ELB management console, after you've added the Seafile server instanc
 
 First you should setup TCP listeners
 
-[[images/elb-listeners.png]]
+![elb-listeners](../images/elb-listeners.png)
 
 Then you setup health check
 
-[[images/elb-health-check.png]]
+![elb-health-check](../images/elb-health-check.png)
 
 ### HAProxy
 

@@ -1,4 +1,4 @@
-
+#Enable search and background tasks in a cluster
 In the seafile cluster, only one server should run the background tasks, including:
 
 - indexing files for search

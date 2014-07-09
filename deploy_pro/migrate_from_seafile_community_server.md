@@ -1,3 +1,4 @@
+# Migrate from Seafile Community Server
 ## <a id="wiki-restriction"></a>Restriction ##
 
 It's quite likely you have deployed the Seafile Community Server and want to switch to the Professional Server, or vice versa. But there is some restriction:
