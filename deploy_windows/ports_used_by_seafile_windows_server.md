@@ -1,15 +1,15 @@
 # Ports used by Seafile Windows Server
 
 Seafile server has several components, so several TCP ports are used.
-##The two configuration files
+## The two configuration files
 
 All ports related configuration are recorded in ``ccnet.conf`` and ``seafile.conf``.
-###How to open ``ccnet.conf``
+### How to open ``ccnet.conf``
 
 - Right click the seafile server trayicon, choose __Open seafile-server folder__
 - Open the folder ``ccnet`` under ``seafile-server`` folder. The file ``ccnet.conf`` is there.
 
-###How to open ``seafile.conf``
+### How to open ``seafile.conf``
 
 - Right click the seafile server trayicon, choose __Open seafile-server folder__
 - Open the folder ``seafile-data`` under ``seafile-server`` folder. The file ``seafile.conf`` is there.
@@ -17,7 +17,7 @@ All ports related configuration are recorded in ``ccnet.conf`` and ``seafile.con
 In the following section we list the TCP ports used by each of seafile components, as well as how to change them (For example, some port may have already been used by some other application).
 
 **Note**: If you change any of the ports, you have to restart seafile server.
-##ccnet
+## ccnet
 
 ccnet is the networking service for seafile server
 
@@ -28,7 +28,7 @@ ccnet is the networking service for seafile server
 [Network]
 PORT = 10001
 ```
-##seaf-server
+## seaf-server
 
 seaf-server provides the data service for seafile server
 
@@ -40,7 +40,7 @@ seaf-server provides the data service for seafile server
 [network]
 port=22001
 ```
-###seafile httpserver
+### seafile httpserver
 
 seafile httpserver handles raw file upload/download for Seahub
 
@@ -51,7 +51,7 @@ seafile httpserver handles raw file upload/download for Seahub
 [httpserver]
 port=8082
 ```
-###seahub
+### seahub
 
 seahub is the web interface of seafile server.
 
