@@ -1,5 +1,4 @@
-# Seafile
-## Data Model
+# Data Model
 
 Seafile internally uses a data model similar to GIT's. It consists of `Repo`, `Branch`, `Commit`, `FS`, and `Block`.
 
@@ -9,7 +8,7 @@ A repo is also called a library. Every repo has an unique id (UUID), and attribu
 
 ## Branch
 
-Unlike git, only two predefined branches is used, i.e., `local` and `master`. 
+Unlike git, only two predefined branches is used, i.e., `local` and `master`.
 
 In PC client, modifications will first be committed to the `local` branch.
 Then the `master` branch is downloaded from server, and merged into `local` branch.

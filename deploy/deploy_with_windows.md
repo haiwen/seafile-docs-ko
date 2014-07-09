@@ -1,5 +1,4 @@
-# Seafile
-## Deploy with Windows
+# Deploy with Windows
 
 ## Download/Uncompress
 ###Install Python 2.7

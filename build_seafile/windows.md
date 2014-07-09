@@ -1,2 +1,1 @@
-#Seafile
-## Windows
+# Windows

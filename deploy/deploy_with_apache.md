@@ -1,5 +1,4 @@
-# Seafile
-## Deploy with Apache
+# Config Seahub with Apache
 
 ## Prepare
 

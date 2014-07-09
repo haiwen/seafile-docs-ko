@@ -1,5 +1,4 @@
-# Seafile
-## Client
+# Client
 This manual explains how to setup and run Seafile client from a pre-built package.
 
 ## Components

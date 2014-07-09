@@ -1,5 +1,4 @@
-# Seafile
-## Linux
+# Linux
 
 #### Preparation
 

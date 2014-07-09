@@ -1,5 +1,4 @@
-# Seafile
-## Server
+# Server
 
 ## Preparation
 

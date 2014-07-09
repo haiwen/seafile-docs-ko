@@ -1,5 +1,4 @@
-#Seafile
-## Mac OS X
+# Mac OS X
 
 Setup development environment
 -----------------------------

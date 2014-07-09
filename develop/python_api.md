@@ -1,5 +1,4 @@
-# Seafile
-## Python API
+# Python API
 
 <p><div class="toc">
 <ul>
@@ -172,7 +171,7 @@ If you execute script file successfully, you will see these output, and of cours
     OK, verifying...
     Origin library(c8bbb088): 10 files. New Library(4d6f4837): 10 files.
     ************************************************************
-    
+
 ##<a id="List Of Seafile-API"></a>List Of Seafile-API
 This list is based on **seafile-server-3.0.3**, and parameter was omitted.
 

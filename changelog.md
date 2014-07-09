@@ -1,5 +1,4 @@
-# Seafile
-## Changelog
+# Changelog
 
 ####v3.0.4 Server
 

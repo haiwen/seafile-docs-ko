@@ -1,5 +1,4 @@
-# Seafile
-## Enabling Https with Nginx
+# Enabling Https with Nginx
 
 Here we use self-signed SSL digital certificate for free. If you use a paid ssl certificate from some authority, just skip the first step.
 
@@ -23,7 +22,7 @@ Assume you have configured nginx as
 ```nginx
     server {
         listen       80;
-        server_name  www.yourdoamin.com; 
+        server_name  www.yourdoamin.com;
         rewrite ^ https://$http_host$request_uri? permanent;	# force redirect http to https
     }
 
@@ -32,7 +31,7 @@ Assume you have configured nginx as
         ssl on;
         ssl_certificate /etc/ssl/cacert.pem;	# path to your cacert.pem
         ssl_certificate_key /etc/ssl/privkey.pem;	# path to your privkey.pem
-        server_name www.yourdoamin.com;    
+        server_name www.yourdoamin.com;
         # ......
         fastcgi_param   HTTPS               on;
         fastcgi_param   HTTP_SCHEME         https;
@@ -55,12 +54,12 @@ Here is the sample configuration file:
         ssl on;
         ssl_certificate /etc/ssl/cacert.pem;            # path to your cacert.pem
         ssl_certificate_key /etc/ssl/privkey.pem;	# path to your privkey.pem
-        server_name www.yourdoamin.com;    
+        server_name www.yourdoamin.com;
         location / {
             fastcgi_pass    127.0.0.1:8000;
             fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
             fastcgi_param   PATH_INFO           $fastcgi_script_name;
-     
+
             fastcgi_param   SERVER_PROTOCOL	$server_protocol;
             fastcgi_param   QUERY_STRING        $query_string;
             fastcgi_param   REQUEST_METHOD      $request_method;
@@ -71,10 +70,10 @@ Here is the sample configuration file:
             fastcgi_param   SERVER_NAME         $server_name;
             fastcgi_param   HTTPS               on;
             fastcgi_param   HTTP_SCHEME         https;
-     
+
             access_log      /var/log/nginx/seahub.access.log;
     	    error_log       /var/log/nginx/seahub.error.log;
-        }       
+        }
         location /seafhttp {
             rewrite ^/seafhttp(.*)$ $1 break;
             proxy_pass http://127.0.0.1:8082;

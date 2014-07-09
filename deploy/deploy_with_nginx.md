@@ -1,5 +1,4 @@
-# Seafile
-## Deploy with nginx
+# Config Seahub with Nginx
 
 ## Prepare
 

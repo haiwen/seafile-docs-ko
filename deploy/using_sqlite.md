@@ -1,5 +1,4 @@
-# Seafile
-## Deploying Seafile with SQLite
+# Deploying Seafile with SQLite
 
 ## Quickstart
 

@@ -1,5 +1,4 @@
-# Seafile
-## Common Problems for Setting up Server
+# Common Problems for Setting up Server
 
 #### Failed to upload/download file online
 

@@ -1,4 +1,4 @@
-#Seafile
+#Introduction
 
 Seafile is an open source cloud storage system with advanced
 support for file syncing, privacy protection and teamwork.

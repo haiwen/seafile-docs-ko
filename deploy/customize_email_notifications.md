@@ -1,5 +1,4 @@
-# Seafile
-## Customize Email Notifications
+# Customize Email Notifications
 
 **Note:** Subject line may vary between different releases, this is based on Release 2.0.1. Restart Seahub so that your changes take effect.
 

@@ -1,4 +1,2 @@
-# Seafile
-
-## Develop Documents
+# Develop Documents
 

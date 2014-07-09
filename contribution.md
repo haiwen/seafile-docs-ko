@@ -1,5 +1,4 @@
-# Seafile
-## Contribution
+# Contribution
 
 ## Licensing
 Seafile and its desktop and mobile clients are published under the GPLv3.

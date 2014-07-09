@@ -1,5 +1,4 @@
-# Seafile
-## Synchronization algorithm
+# Synchronization algorithm
 
 This article tries to give an overview on Seafile's file synchronization algorithm.
 For clarity, some details are deliberately omitted, but it should help you get the

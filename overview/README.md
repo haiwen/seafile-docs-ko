@@ -1,5 +1,4 @@
-# Seafile
-## [Overview](overview/README.md)
+#Overview
 * [FAQ](faq.md)
 * [Changelog](changelog.md)
 * [Roadmap](roadmap.md)

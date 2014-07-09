@@ -1,5 +1,4 @@
-# Seafile
-## Install Seafile Server as a Windows Service
+# Install Seafile Server as a Windows Service
 
 ###Why you may want to install Seafile Server as a Windows service
 

@@ -1,5 +1,4 @@
-# Seafile
-## Using LDAP
+# Configure Seafile to use LDAP
 The current code of seahub assumes that user name to be email address, so it's not possible to log in with UNIX user names or Windows Domain user names now. The support may be added later.
 
 Seafile will find a user both from database and LDAP. LDAP will be tried first. Note that the Seafile admin  account created during setup is always stored in sqlite/mysql database.
