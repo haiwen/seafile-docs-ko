@@ -1,18 +1,18 @@
 # Develop Documents
 
-* [How to Build Seafile](build_seafile/README.md)
+* [How to Build Seafile](../build_seafile/README.md)
 
-* [How to Setup Develop Envirnoment](develop/env.md)
+* [How to Setup Develop Envirnoment](env.md)
 
-* [Seafile Code Standard](develop/code_standard.md)
+* [Seafile Code Standard](code_standard.md)
 
 Seafile Open API
 
-* [Seafile Web API](develop/web_api.md)
-* [Seafile Python API](develop/python_api.md)
+* [Seafile Web API](web_api.md)
+* [Seafile Python API](python_api.md)
 
 Seafile Implement Detail
 
-* [Seafile Data Model](develop/data_model.md)
-* [Seafile Server Components](develop/server-components.md)
-* [Seafile Sync algorithm](develop/sync_algorithm.md)
+* [Seafile Data Model](data_model.md)
+* [Seafile Server Components](server-components.md)
+* [Seafile Sync algorithm](sync_algorithm.md)
