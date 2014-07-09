@@ -1,71 +1,6 @@
-# Server Configuration and Customization
+# Seahub Settings
 
-This manual explains how to change various config options for Seafile server.
-
-There are three config files in the community edition:
-
-- [ccnet/ccnet.conf](ccnet-conf.md): contains the network settings
-- [seafile-data/seafile.conf](seafile-conf.md): contains settings for seafile daemon and HttpServer.
-- [seahub_settings.py](seahub_settings_py.md): contains settings for Seahub
-
-There is one additional config file in the pro edition:
-
-- `pro-data/seafevents.conf`: contains settings for search and documents preview
-
-
-
-
-## Storage Quota Setting (seafile.conf)
-
-You may set a default quota (e.g. 2GB) for all users. To do this, just add the following lines to `seafile-data/seafile.conf` file
-
-<pre>
-[quota]
-# default user quota in GB, integer only
-default = 2
-</pre>
-
-This setting applies to all users. If you want to set quota for a specific user, you may log in to seahub website as administrator, then set it in "System Admin" page.
-
-## Default history length limit (seafile.conf)
-
-If you don't want to keep all file revision history, you may set a default history length limit for all libraries.
-
-<pre>
-[history]
-keep_days = days of history to keep
-</pre>
-
-## Seafile httpserver configuration (seafile.conf)
-
-The configuration of seafile httpserver is in the <code>[httpserver]</code> section of the file <code>seafile-data/seafile.conf</code>
-
-<pre>
-[httpserver]
-# tcp port for httpserver
-port = 8082
-</pre>
-
-Change upload/download settings.
-
-<pre>
-[httpserver]
-# Set maximum upload file size to 200M.
-max_upload_size=200
-
-# Set maximum download directory size to 200M.
-max_download_dir_size=200
-</pre>
-
-**Note**: You need to restart seafile and seahub so that your changes take effect.
-<pre>
-./seahub.sh restart
-./seafile.sh restart
-</pre>
-
-## Seahub Configurations (seahub_settings.py)
-
-#### Sending Email Notifications on Seahub
+##  Sending Email Notifications on Seahub
 
 A few features work better if it can send email notifications, such as notifying users about new messages.
 If you want to setup email notifications, please add the following lines to seahub_settings.py (and set your email server).
@@ -96,20 +31,21 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 **Note2**: If you want to use the Email service without authentication leaf <code>EMAIL_HOST_USER</code> and <code>EMAIL_HOST_PASSWORD</code> **blank** (<code>''</code>). (But notice that the emails then will be sent without a <code>From:</code> address.)
 
-#### Cache
+## Memcached
 
-Seahub caches items(avatars, profiles, etc) on file system by default(/tmp/seahub_cache/). You can replace with Memcached (you have to install python-memcache first).
+Seahub caches items(avatars, profiles, etc) on file system by default(/tmp/seahub_cache/). You can replace with Memcached.
+After install **python-memcache**, add the following lines to **seahub_settings.py**.
 
-<pre>
+```
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
 	'LOCATION': '127.0.0.1:11211',
     }
 }
-</pre>
+```
 
-#### Seahub Settings
+## Other options
 
 You may change seahub website's settings by adding variables in `seahub_settings.py`.
 
@@ -176,6 +112,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 FORCE_SERVER_CRYPTO = True
 
 </pre>
+
+
 
 **Note**:
 

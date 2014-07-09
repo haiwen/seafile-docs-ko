@@ -1,5 +1,7 @@
 # Deploy Seafile Pro Edition
 
+Basic
+
 - [Download and Setup Seafile Professional Server](download_and_setup_seafile_professional_server.md)
 - [Migrate from Seafile Community Server](migrate_from_seafile_community_server.md)
 - [Upgrading Seafile Professional Server](upgrading_seafile_professional_server.md)

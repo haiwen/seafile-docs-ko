@@ -2,7 +2,7 @@
 
 ## Setup and Upgrade
 
-Seafile Windows Community Edition only support SQLite database now. The Seafie Windows business edition supports MySQL, WebDAV and file search.
+Seafile Windows Community Edition only support SQLite database now. The Seafie Windows professional edition supports MySQL, WebDAV and file search.
 
 - [Download and Setup Seafile Windows Server](download_and_setup_seafile_windows_server.md)
 - [LDAP Integration](../deploy/using_ldap.md)
@@ -11,7 +11,7 @@ Seafile Windows Community Edition only support SQLite database now. The Seafie W
 - [Upgrading Seafile Windows Server](Upgrading Seafile Windows Server)
 - [Options & Customization](../deploy/server_configuration.md)
 
-For more information on Seafile server, check [this](../deploy/README.md)
+For more information on Seafile server, check the documents on [Seafile Linux version](../deploy/README.md)
 
 ## Server Administration
 
