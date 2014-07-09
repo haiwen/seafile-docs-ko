@@ -1,5 +1,4 @@
-# Seafile
-## Web API
+# Web API
 <p><div class="toc">
 <ul>
 <li><a href="#seafile-web-api-v2">Seafile Web API V2</a><ul>
@@ -152,7 +151,7 @@
 - 409: CONFLICT
 - 429: TOO_MANY_REQUESTS
 - 440: REPO_PASSWD_REQUIRED
-- 441: REPO_PASSWD_MAGIC_REQUIRED 
+- 441: REPO_PASSWD_MAGIC_REQUIRED
 - 500: INTERNAL_SERVER_ERROR
 - 520: OPERATION_FAILED
 
@@ -373,7 +372,7 @@
 **Success**
 
    Response code is 201(Created) and Location header provides url of starred file list.
-    
+
 **Errors**
 
 * 400 `repo_id` or `p` is missing, or `p` is not valid file path(e.g. /foo/bar/).
@@ -402,7 +401,7 @@
 **Success**
 
    Response code is 200(OK), and a string named "success" is returned.
-   
+
 **Errors**
 
 * 400 `repo_id` or `p` is missing, or `p` is not valid file path(e.g. /foo/bar/).
@@ -454,7 +453,7 @@
 
 **Errors**
 
-* 404 user not found 
+* 404 user not found
 
 ### <a id="reply-a-user-message"></a>Reply A User Message ###
 
@@ -478,7 +477,7 @@
 
 **Errors**
 
-* 404 user not found 
+* 404 user not found
 
 ### <a id="count-unseen-messages"></a>Count Unseen Messages ##
 
@@ -680,7 +679,7 @@
 
 **Errors**
 
-* 404 message not found 
+* 404 message not found
 
 #### <a id="send-a-group-message"></a>Send A Group Message ####
 
@@ -727,7 +726,7 @@
 
 **Errors**
 
-* 404 message not found 
+* 404 message not found
 
 #### <a id="get-group-message-replies"></a>Get Group Message Replies ####
 
@@ -851,11 +850,11 @@
 **Sample request**
 
     curl -v -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/shared-repos/
-    
+
 **Sample response**
 
     [{"repo_id": "7d42522b-1f6f-465d-b9c9-879f8eed7c6c", "share_type": "personal", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1361072500, "repo_desc": "ff", "group_id": 0, "repo_name": "\u6d4b\u8bd5\u4e2d\u6587pdf"}, {"repo_id": "79bb29cd-b683-4844-abaf-433952723ca5", "share_type": "group", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1359182468, "repo_desc": "test", "group_id": 1, "repo_name": "test_enc"}]
-    
+
 #### <a id="list-be-shared-libs"></a>List Be Shared Libraries ####
 
 **GET** https://cloud.seafile.com/api2/beshared-repos/
@@ -871,7 +870,7 @@
 **Sample response**
 
     "[{"user": "user@example.com", "repo_id": "989e3952-9d6f-4427-ab16-4bf9b53212eb", "share_type": "personal", "permission": "rw", "encrypted": false, "repo_desc": "lib shared to imwhatiam", "enc_version": false, "last_modified": 1398218747, "is_virtual": false, "group_id": 0, "repo_name": "lib shared to imwhatiam"}]"
-    
+
 #### <a id="share-a-library"></a>Share A Library ####
 
 **PUT** https://cloud.seafile.com/api2/shared-repos/{repo-id}/
@@ -928,7 +927,7 @@
 **Sample response**
 
     {"priv_share_in": [{"s_type": "f", "repo_id": "989e3952-9d6f-4427-ab16-4bf9b53212eb", "permission": "r", "to_user": "user@example.com", "token": "94aace406a", "from_user": "user@example.com", "path": "/lib.md"}], "priv_share_out": [{"s_type": "f", "repo_id": "affc837f-7fdd-4e91-b88a-32caf99897f2", "permission": "r", "to_user": "user@example.com", "token": "b7b31bc39b", "from_user": "user@example.com", "path": "/lian123.md"}]}
-    
+
 #### <a id="download-shared-file"></a>Download Shared File ####
 
 **GET** https://cloud.seafile.com/api2/f/{token}/
@@ -948,7 +947,7 @@
 
 **Errors**
 
-* 404 repo/token/file not found 
+* 404 repo/token/file not found
 * 520 OPERATION FAILED, fail to get file id by path
 
 #### <a id="get-shared-file-detail"></a>Get Shared File Detail ####
@@ -970,7 +969,7 @@
 
 **Errors**
 
-* 404 repo/token/file not found 
+* 404 repo/token/file not found
 * 520 OPERATION FAILED, fail to get file id by path
 
 #### <a id="delete-shared-file"></a>Delete Shared File ####
@@ -1011,7 +1010,7 @@
 
 **Errors**
 
-* 404 repo/token/file not found 
+* 404 repo/token/file not found
 * 520 OPERATION FAILED, fail to get file id by path
 
 #### <a id="get-private-shared-file-detail"></a>Get Private Shared File Detail ###
@@ -1033,7 +1032,7 @@
 
 **Errors**
 
-* 404 repo/token/file not found 
+* 404 repo/token/file not found
 * 520 OPERATION FAILED, fail to get file id by path
 
 ## <a id="library"></a>Library ##
@@ -1119,7 +1118,7 @@
         "desc": "new library",
         "root": "0000000000000000000000000000000000000000"
     }
-    ] 
+    ]
 
 #### <a id="get-library-info"></a>Get Library Info ###
 
@@ -1137,15 +1136,15 @@
 **Sample response**
 
     {
-    "encrypted": false, 
-    "password_need": null, 
-    "mtime": null, 
-    "owner": "self", 
-    "id": "632ab8a8-ecf9-4435-93bf-f495d5bfe975", 
-    "size": 1356155, 
-    "name": "org", 
-    "root": "b5227040de360dd22c5717f9563628fe5510cbce", 
-    "desc": "org file", 
+    "encrypted": false,
+    "password_need": null,
+    "mtime": null,
+    "owner": "self",
+    "id": "632ab8a8-ecf9-4435-93bf-f495d5bfe975",
+    "size": 1356155,
+    "name": "org",
+    "root": "b5227040de360dd22c5717f9563628fe5510cbce",
+    "desc": "org file",
     "type": "repo"
     }
 
@@ -1285,12 +1284,12 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 **Request parameters**
 
 * token
-* password 
+* password
 
 **Sample request**
 
     curl -v -d "password=123" -H 'Authorization: Token e6a33d61954f219a96b60f635cf02717964e4385' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/0c2465a5-4753-4660-8a22-65abec9ec8d0/
-    
+
 **Sample response**
 
 "success"
@@ -1401,9 +1400,9 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Sample response**
 
-    {"virtual-repos": 
+    {"virtual-repos":
         [
-            {"virtual_perm": "rw", "store_id": null, "worktree_invalid": false, "encrypted": false, "origin_repo_name": "lian", "last_modify": 0, "no_local_history": false, "head_branch": null, "last_sync_time": 0, "id": "51344de8-456f-4dc7-ac08-718827994252", "size": 0, "share_permission": null, "worktree_changed": false, "worktree_checktime": 0, "origin_path": "/lian", "is_virtual": true, "origin_repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", "version": 1, "random_key": null, "is_original_owner": true, "shared_email": null, "enc_version": 0, "head_cmmt_id": "bc666fdc60d2352b9f6a0324ac64168d43724eed", "desc": null, "index_corrupted": false, "magic": null, "name": "lian", "worktree": null, "auto_sync": false, "relay_id": null}, 
+            {"virtual_perm": "rw", "store_id": null, "worktree_invalid": false, "encrypted": false, "origin_repo_name": "lian", "last_modify": 0, "no_local_history": false, "head_branch": null, "last_sync_time": 0, "id": "51344de8-456f-4dc7-ac08-718827994252", "size": 0, "share_permission": null, "worktree_changed": false, "worktree_checktime": 0, "origin_path": "/lian", "is_virtual": true, "origin_repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", "version": 1, "random_key": null, "is_original_owner": true, "shared_email": null, "enc_version": 0, "head_cmmt_id": "bc666fdc60d2352b9f6a0324ac64168d43724eed", "desc": null, "index_corrupted": false, "magic": null, "name": "lian", "worktree": null, "auto_sync": false, "relay_id": null},
             {"virtual_perm": "rw", "store_id": null, "worktree_invalid": false, "encrypted": false, "origin_repo_name": "lian", "last_modify": 0, "no_local_history": false, "head_branch": null, "last_sync_time": 0, "id": "c0a3283c-013c-4a7c-8f68-006f06fa6dec", "size": 0, "share_permission": null, "worktree_changed": false, "worktree_checktime": 0, "origin_path": "/", "is_virtual": true, "origin_repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", "version": 1, "random_key": null, "is_original_owner": true, "shared_email": null, "enc_version": 0, "head_cmmt_id": "ff18229aadc9acc73ad481278d5b4c42b3353aa0", "desc": null, "index_corrupted": false, "magic": null, "name": "123", "worktree": null, "auto_sync": false, "relay_id": null}
         ]
     }
@@ -1499,10 +1498,10 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 **Sample response**
 
     {
-    "id": "013d3d38fed38b3e8e26b21bb3463eab6831194f", 
-    "mtime": 1398148877, 
-    "type": "file", 
-    "name": "foo.py", 
+    "id": "013d3d38fed38b3e8e26b21bb3463eab6831194f",
+    "mtime": 1398148877,
+    "type": "file",
+    "name": "foo.py",
     "size": 22
     }
 
@@ -1528,40 +1527,40 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 **Sample response**
 
     {
-    "commits": 
+    "commits":
         [
             {
-            "rev_file_size": 0, 
-            "repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", 
-            "ctime": 1398149763, 
-            "creator_name": "user@example.com", 
-            "creator": "0000000000000000000000000000000000000000", 
-            "root_id": "b64d413d9894c9206beac3faf9c2a0d75b4a8ebf", 
-            "rev_renamed_old_path": null, 
-            "parent_id": "8e546762e1657ab22dad83e9cb1e5ea31a767c9a", 
-            "new_merge": false, 
-            "version": 1, 
-            "conflict": false, 
-            "desc": "Added \"foo.c\"", 
-            "id": "9464f7499bfa7363d563282361339eaf96a93318", 
-            "rev_file_id": "0000000000000000000000000000000000000000", 
+            "rev_file_size": 0,
+            "repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4",
+            "ctime": 1398149763,
+            "creator_name": "user@example.com",
+            "creator": "0000000000000000000000000000000000000000",
+            "root_id": "b64d413d9894c9206beac3faf9c2a0d75b4a8ebf",
+            "rev_renamed_old_path": null,
+            "parent_id": "8e546762e1657ab22dad83e9cb1e5ea31a767c9a",
+            "new_merge": false,
+            "version": 1,
+            "conflict": false,
+            "desc": "Added \"foo.c\"",
+            "id": "9464f7499bfa7363d563282361339eaf96a93318",
+            "rev_file_id": "0000000000000000000000000000000000000000",
             "second_parent_id": null
-            }, 
+            },
             {
-            "rev_file_size": 0, 
-            "repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", 
-            "ctime": 1398146059, 
-            "creator_name": "user@example.com", 
-            "creator": "0000000000000000000000000000000000000000", 
-            "root_id": "572413414257c76039897e00aeb35f819471206b", 
-            "rev_renamed_old_path": null, 
-            "parent_id": "f977bdb0ebb205645c3b42216c2817e511c3f68f", 
-            "new_merge": false, 
-            "version": 1, 
-            "conflict": false, 
-            "desc": "Added \"foo.c\"", 
-            "id": "a1ec20709675f4dc8db825cdbca296be245d189b", 
-            "rev_file_id": "0000000000000000000000000000000000000000", 
+            "rev_file_size": 0,
+            "repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4",
+            "ctime": 1398146059,
+            "creator_name": "user@example.com",
+            "creator": "0000000000000000000000000000000000000000",
+            "root_id": "572413414257c76039897e00aeb35f819471206b",
+            "rev_renamed_old_path": null,
+            "parent_id": "f977bdb0ebb205645c3b42216c2817e511c3f68f",
+            "new_merge": false,
+            "version": 1,
+            "conflict": false,
+            "desc": "Added \"foo.c\"",
+            "id": "a1ec20709675f4dc8db825cdbca296be245d189b",
+            "rev_file_id": "0000000000000000000000000000000000000000",
             "second_parent_id": null
             }
         ]
@@ -1870,7 +1869,7 @@ After getting the upload link, POST to this link for uploading files.
 **Sample request**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F target_file=/test.txt http://cloud.seafile.com:8082/upload-api/ef881b22
-    
+
 **Returns**
 
 The id of the updated file
@@ -1982,7 +1981,7 @@ The id of the updated file
     curl -d  "operation=mkdir" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
 
 **Sample response**
-   
+
     ...
     < HTTP/1.0 201 CREATED
     < Location: https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
@@ -2025,7 +2024,7 @@ The id of the updated file
 **Success**
 
    Response code is 200(OK), and a string `"success"` is returned.
-   
+
 **Errors**
 
 * 400 Path is missing or invalid(e.g. p=/)
@@ -2034,7 +2033,7 @@ The id of the updated file
 **Note**
 
    This can also be used to delete file.
-   
+
 #### <a id="Download-directory"></a>Download Directory ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/dir/download/?p=/foo
@@ -2050,7 +2049,7 @@ The id of the updated file
 **Sample response**
 
     "https://cloud.seafile.com:8082/files/adee6094/foo"
-   
+
 **Errors**
 
 * 400 Path is missing or invalid(e.g. p=/), or unable to download directory, size is too large
@@ -2086,7 +2085,7 @@ The id of the updated file
 
 Pipelining over HTTP/1.1 can be used to delete multiple files and directories without losing performance.
 
-A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos/{repo-id}/dir/?p=/foo http://cloud.seafile.com/api2/repos/{repo-id}/dir/?p=/bar`. This code snippet shows how to use Python client to batch delete multiple files and directories. See <http://cloud.seafile.com/f/f7fd5d5b9d/> 
+A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos/{repo-id}/dir/?p=/foo http://cloud.seafile.com/api2/repos/{repo-id}/dir/?p=/bar`. This code snippet shows how to use Python client to batch delete multiple files and directories. See <http://cloud.seafile.com/f/f7fd5d5b9d/>
 
 
 ## <a id="get-avatar"></a>Get Avatar ##

@@ -1,5 +1,4 @@
-# Seafile
-## Seafile FSCK
+# Seafile FSCK
 
 On the server side, Seafile stores the files in the libraries in an internal format. Seafile has its own representation of directories and files (similar to Git).
 

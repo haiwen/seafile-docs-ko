@@ -1,5 +1,4 @@
-# Seafile
-## How to Build Seafile
+# How to Build Seafile
 
 You can build Seafile from our source code package or from the Github repo directly.
 

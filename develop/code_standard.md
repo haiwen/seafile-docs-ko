@@ -1,5 +1,4 @@
-# Seafile
-## Code Standard
+# Code Standard
 
 The source code of seafile is ISO/IEC 9899:1999 (E) (a.k.a. C99) compatible.
 

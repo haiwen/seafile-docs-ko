@@ -1,5 +1,4 @@
-# Seafile
-## Seafile CLI
+# Seafile CLI
 
 init
 ----

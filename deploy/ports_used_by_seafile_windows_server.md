@@ -1,5 +1,4 @@
-# Seafile
-## Ports used by Seafile Windows Server
+# Ports used by Seafile Windows Server
 
 Seafile server has several components, so several TCP ports are used.
 ##The two configuration files

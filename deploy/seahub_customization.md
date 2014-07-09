@@ -1,5 +1,4 @@
-# Seafile
-## Seahub customization
+# Seahub customization
 ## Customize Seahub Logo and Css
 
 Assume that you are using version 2.1.0. Create a folder `custom` under `seafile-server-2.1.0/seahub/media`. Put all the customization files here. The upgrade script will copy the folder to `seafile-server-2.1.1/seahub/media` when you upgrade to version 2.1.1.

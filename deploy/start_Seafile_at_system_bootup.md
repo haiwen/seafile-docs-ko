@@ -1,3 +1,5 @@
+# Start Seafile at System Bootup
+
 For Ubuntu
 ----------
 
@@ -419,7 +421,7 @@ Create systemd service files, change **${seafile\_dir}** to your
     [Unit]
     Description=Seafile
     # add mysql.service or postgresql.service depending on your database to the line below
-    After=network.target 
+    After=network.target
 
     [Service]
     Type=oneshot

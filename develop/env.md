@@ -1,5 +1,4 @@
-# Seafile
-## Setup Develop Environment
+# Setup Develop Environment
 
 ## Preparation ##
 
@@ -12,7 +11,7 @@ Package names are according to Ubuntu 12.04. For other Linux distros, please fin
 * intltool (0.40 or later)
 * libsqlite3-dev (3.7 or later)
 * libmysqlclient-dev (5.5 or later)
-* libarchive-dev 
+* libarchive-dev
 * libtool
 * libjansson-dev
 * valac
@@ -40,7 +39,7 @@ libevhtp can be build by <code>cmake .; make; sudo make install</code>.  libevht
 
 Clone [libsearpc](https://github.com/haiwen/libsearpc/), [ccnet](https://github.com/haiwen/ccnet/), [seafile](https://github.com/haiwen/seafile/), [seahub](https://github.com/haiwen/seahub/) to ~/dev (or wherever you want).
 
-Complie libsearpc with 
+Complie libsearpc with
 
     cd ~/dev/libsearpc
     ./autogen.sh
@@ -74,24 +73,24 @@ Run seafile with
 Or you can start ccnet, seafile and httpserver manually by:
 
     ccnet-server -c ~/dev/seafile/test/basic/conf2/ -D all -f -
-    seaf-server -c ~/dev/seafile/test/basic/conf2/ -d ~/dev/seafile/test/basic/conf2/seafile-data/ -f -l - 
-    httpserver -c ~/dev/seafile/test/basic/conf2/ -d ~/dev/seafile/test/basic/conf2/seafile-data/ -f 
+    seaf-server -c ~/dev/seafile/test/basic/conf2/ -d ~/dev/seafile/test/basic/conf2/seafile-data/ -f -l -
+    httpserver -c ~/dev/seafile/test/basic/conf2/ -d ~/dev/seafile/test/basic/conf2/seafile-data/ -f
 
 ## Prepare seahub
 
 Go to seahub
 
     cd ~/dev/seahub
-    
+
 Download django-1.5 to thirdpart. And create and modify setenv.sh from templates
-    
+
     cp setenv.sh.template setenv.sh
 
 Create database
 
     . setenv.sh
     python manage.py syncdb
-    
+
 Create admin account (assume seafile is under ~/dev/seafile)
 
     python tools/seahub-admin.py ~/dev/seafile/tests/basic/conf2

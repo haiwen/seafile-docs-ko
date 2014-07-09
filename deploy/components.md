@@ -1,5 +1,4 @@
-# Seafile
-## Components Overview
+# Components Overview
 
 ## Server
 

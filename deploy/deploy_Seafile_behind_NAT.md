@@ -1,3 +1,5 @@
+# Deploy Seafile behind NAT
+
 A lot of people want to deploy a seafile server in their LAN, and access it from the WAN.
 
 To achieve this, you need:
@@ -16,7 +18,7 @@ To achieve this, you need:
 
 ## Setup the server
 
-First, you should follow the guide on [Download and Setup Seafile Server](using_sqlite.md) to setup your Seafile server. 
+First, you should follow the guide on [Download and Setup Seafile Server](using_sqlite.md) to setup your Seafile server.
 
 Before you continue, make sure:
 
@@ -27,15 +29,15 @@ Before you continue, make sure:
 
 ### Ensure Your Router Supports Port Forwarding
 
-First, ensure your router supports port forwarding. 
+First, ensure your router supports port forwarding.
 
 - Login to the web adminstration page of your router. If you don't know how to do this, you should find the instructions on the manual of the router. If you have no maunal, just google **"XXX router administration page"** where `XXX` is your router's brand.
 
-- Navigate around in the adminstration page, and check if there is a tag which contains a word such as "forward", "advanced". If your router supports it, chances are that you can find the port forwarding related settings there. 
+- Navigate around in the adminstration page, and check if there is a tag which contains a word such as "forward", "advanced". If your router supports it, chances are that you can find the port forwarding related settings there.
 
 ### Setup Port Forwarding Rules
 
-Seafile server is composed of several components. You need to configure port forward for all the components listed below. 
+Seafile server is composed of several components. You need to configure port forward for all the components listed below.
 
 <table>
 <tr>
@@ -82,9 +84,9 @@ If your port forwarding is not working, the reasons may be:
 - Your router may need a restart
 - You network may be down
 
-### Set SERVICE_URL 
+### Set SERVICE_URL
 
-"SERVICE_URL" in `ccnet.conf` is used to generate the download/upload link for files when you browse files online. Set it using your WAN IP. 
+"SERVICE_URL" in `ccnet.conf` is used to generate the download/upload link for files when you browse files online. Set it using your WAN IP.
 
 ```
 SERVICE_URL = http://<Your WAN IP>:8000

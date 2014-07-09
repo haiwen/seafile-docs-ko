@@ -1,5 +1,4 @@
-# Seafile
-## Seafile GC
+# Seafile GC
 
 Seafile uses storage de-duplication technology to reduce storage usage.
 Simply put, there would be two implications:

@@ -1,5 +1,4 @@
-# Seafile
-## Set up logrotate for server
+# Set up logrotate for server
 
 ## How it works
 

@@ -1,6 +1,4 @@
-# Seafile
-
-## Administration
+# Administration
 #### Manage/Maintain Seafile Server
 
 This manual explains how seahub administrator manages file libraries and users in Seafile server.

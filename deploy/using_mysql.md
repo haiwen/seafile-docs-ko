@@ -1,5 +1,4 @@
-# Seafile
-## Using MySQL
+# Deploying Seafile with MySQL
 
 This manual explains how to setup and run seafile server from a pre-built package with MySQL.
 
@@ -151,7 +150,7 @@ Please choose a way to initialize seafile databases:
 ```
 
 
-Which one to choose depends on if you have the root password. 
+Which one to choose depends on if you have the root password.
 
 * If you choose "1", you need to provide the root password. The script would create the databases and a new user to access the databases
 * If you choose "2", the ccnet/seafile/seahub databases must have already been created, either by you, or someone else.

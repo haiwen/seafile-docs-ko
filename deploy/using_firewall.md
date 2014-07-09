@@ -1,5 +1,4 @@
-# Seafile
-## Firewall/NAT settings
+# Firewall/NAT settings
 
 A lot of people want to deploy a seafile server in their LAN, and access it from the WAN.
 

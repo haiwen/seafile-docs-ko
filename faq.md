@@ -1,5 +1,4 @@
-# Seafile
-## FAQ
+# FAQ
 
 #### When downloading a library, the client hangs at "connecting server"
 
@@ -13,7 +12,7 @@ Possible reasons:
 
 Trouble shooting:
 
-* Manually telnet to see if you can connect: <code>telnet your-server-IP-or-domain 10001</code> 
+* Manually telnet to see if you can connect: <code>telnet your-server-IP-or-domain 10001</code>
 
 #### Failed to upload/download file online
 

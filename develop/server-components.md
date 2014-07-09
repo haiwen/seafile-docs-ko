@@ -1,5 +1,4 @@
-# Seafile
-## Components of Seafile Server
+# Components of Seafile Server
 
 Seafile server comprises of the following services.
 

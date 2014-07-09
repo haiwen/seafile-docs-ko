@@ -1,5 +1,4 @@
-# Seafile
-## Server Configuration
+# Server Configuration
 
 This manual explains how to change various config options for Seafile server. We
 assume that you've [Download-and-setup-seafile-server](using_sqlite.md).
