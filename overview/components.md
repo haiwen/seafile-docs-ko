@@ -1,5 +1,7 @@
 # Components Overview
 
+Seafile server and client consists of several components. Understanding how they work together will save you a lot time in deploying and maintaining Seafile.
+
 ## Server
 
 - **Seahub** (django)：the website. Seafile server package contains a light-weight Python HTTP server gunicorn that serves the website. Seahub runs as an application within gunicorn.

@@ -1,8 +1,6 @@
 # Deploying Seafile with SQLite
 
-## Quickstart
-
-#### Grab binary package
+## Download binary package
 
 Visit our [download page](http://www.seafile.com/en/download/#server),  download the latest server package.
 
@@ -16,10 +14,6 @@ Choose one of:
 uname -m
 ```
 Click the tarball link and save it.
-
-#### Manual for Windows
-
-There is platform-specific document for windows in our wiki, [see more](https://seacloud.cc/group/3/wiki/seafile-windows-server/).
 
 
 ## Deploying and Directory Layout
@@ -36,6 +30,7 @@ tar -xzf seafile-server_*
 mkdir installed
 mv seafile-server_* installed
 ```
+
 Now you should have the following directory layout
 ```sh
 # tree . -L 2
@@ -52,14 +47,15 @@ Now you should have the following directory layout
     ├── setup-seafile.sh
     └── upgrade
 ```
+
 The benefit of this layout is that
 
  - We can place all the config files for Seafile server inside "haiwen" directory, making it easier to manage.
  - When you upgrade to a new version of Seafile, you can simply untar the latest package into "haiwen" directory. In this way you can reuse the existing config files in "haiwen" directory and don't need to configure again.
 
 
-##Setting Up Seafile Server
-####Prerequisites
+## Setting Up Seafile Server
+#### Prerequisites
 
 The Seafile server package requires the following packages have been installed in your system
 
@@ -74,11 +70,14 @@ The Seafile server package requires the following packages have been installed i
 apt-get update
 apt-get install python2.7 python-setuptools python-simplejson python-imaging sqlite3
 ```
-####Setup
+
+#### Setup
+
 ```sh
 cd seafile-server-*
 ./setup-seafile.sh  #run the setup script & answer prompted questions
 ```
+
 If some of the prerequisites are not installed, the seafile initialization script will ask you to install them.
 
 The script will guide you through the settings of various configuration options.
@@ -96,6 +95,7 @@ The script will guide you through the settings of various configuration options.
 
 
 Now you should have the following directory layout :
+
 ```sh
 #tree haiwen -L 2
 haiwen
@@ -124,6 +124,7 @@ haiwen
 ├── seahub_settings.py   # optional config file
 └── seahub_settings.pyc
 ```
+
 The folder seafile-server-latest is a symbolic link to the current seafile server folder. When later you upgrade to a new version, the upgrade scripts would update this link to keep it always point to the latest seafile server folder.
 
 ## Running Seafile Server

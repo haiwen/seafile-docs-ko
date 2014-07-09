@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 
 Seafile is an open source cloud storage system with advanced
 support for file syncing, privacy protection and teamwork.
@@ -18,15 +18,9 @@ Seafile and its desktop and mobile clients are published under the GPLv3.
 The Seafile server's web end, i.e. Seahub, is published under the Apache
 License.
 
-## Overview
-
-* [FAQ](faq.md)
-* [Changelog](changelog.md)
-* [Roadmap](roadmap.md)
-* [Contribution](contribution.md)
-
 
 ## Contact information
+
 * Twitter: @seafile https://twitter.com/seafile
 * IRC: #seafile on freenode
 * Google Group: https://groups.google.com/forum/?fromgroups#!forum/seafile
