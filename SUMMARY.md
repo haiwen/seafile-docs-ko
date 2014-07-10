@@ -58,7 +58,7 @@
 * [WebDAV and FUSE extensions](extension/README.md)
    * [WebDAV extension](extension/webdav.md)
    * [FUSE extension](extension/fuse.md)
-* [Security]
+* [Security](security/README.md)
 * [Developing](develop/README.md)
    * [How to Build Seafile](build_seafile/README.md)
        * [Linux](build_seafile/linux.md)

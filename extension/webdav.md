@@ -1,20 +1,12 @@
-## Seafile WebDAV Server
+# WebDAV extension
 
 Seafile WebDAV Server(SeafDAV) is added in seafile server 2.1.0.
 
-In the wiki below, we assume your seafile installation folder is <code>/data/haiwen</code>.
+In the wiki below, we assume your seafile installation folder is `/data/haiwen`.
 
 ## SeafDAV Configuration
 
-The configuration file is <code>/data/haiwen/conf/seafdav.conf</code>
-
-```
-If you do not have your install at /data/haiwen, then you will need
-to place your seafdav.conf in a new conf file in the same folder 
-that contains ccnet and seafile-data.
-
-In some cases that will not have been created already.
-```
+The configuration file is `/data/haiwen/conf/seafdav.conf`. If it is not created already, you can just create the file.
 
 <pre>
 [WEBDAV]
@@ -112,7 +104,7 @@ Nginx conf with https:
 
         access_log      /var/log/nginx/seafdav.access.log;
         error_log       /var/log/nginx/seafdav.error.log;
-    }   
+    }
 </pre>
 
 #### Apache
@@ -212,8 +204,9 @@ ServerName www.myseafile.com
 On Windows it is recommended to use a webdav client software such as Cyberduck or BitKinex.
 The implementation of webdav support in Windows explorer is not very usable since:
 
-# Windows explorer requires to use HTTP digest authentication. But Seafile can't support this because it doesn't store plain text passwords on the server.
-# HTTP basic authentication is only supported for HTTPS (which is reasonable). But explorer doesn't accept self-signed certificates.
+```
+Windows explorer requires to use HTTP digest authentication. But Seafile can't support this because it doesn't store plain text passwords on the server. HTTP basic authentication is only supported for HTTPS (which is reasonable). But explorer doesn't accept self-signed certificates.
+```
 
 The conclusion is if you have a valid ssl certificate, you should be able to access seafdav from Windows explorer. Otherwise you should use a client software. It's also reported that Windows XP doesn't support HTTPS webdav.
 
