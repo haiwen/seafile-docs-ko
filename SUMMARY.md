@@ -52,10 +52,12 @@
    * [seahub_settings.py](config/seahub_settings_py.md)
    * [Seahub customization](config/seahub_customization.md)
    * [Customize Email Notifications](config/customize_email_notifications.md)
-* [WebDAV and FUSE extention]
 * [Administration](maintain/README.md)
    * [Seafile FSCK](maintain/seafile_fsck.md)
    * [Seafile GC](maintain/seafile_gc.md)
+* [WebDAV and FUSE extensions](extension/README.md)
+   * [WebDAV extension](extension/webdav.md)
+   * [FUSE extension](extension/fuse.md)
 * [Security]
 * [Developing](develop/README.md)
    * [How to Build Seafile](build_seafile/README.md)
