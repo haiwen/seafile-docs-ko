@@ -18,6 +18,9 @@ Seafile and its desktop and mobile clients are published under the GPLv3.
 The Seafile server's web end, i.e. Seahub, is published under the Apache
 License.
 
+## About this manual
+
+The "source code" of this manual is hosted on Github https://github.com/haiwen/seafile-docs
 
 ## Contact information
 
