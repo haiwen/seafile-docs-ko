@@ -2,9 +2,13 @@
 
 ### Enter the admin panel
 
-As the system Admin, you can enter the admin panel by click the `tools` button at the top-left, besind the avatar:
+As the system admin, you can enter the admin panel by click the `tools` button at the top-left, beside the avatar:
 
 ![Admin tools](../images/tools-button.png)
+
+After clicking the button, you will get into the admin panel:
+
+![System admin panel](../images/system-admin.png)
 
 ### Account management
 
