@@ -10,6 +10,10 @@ As the system Admin, you can enter the admin panel by click the `tools` button a
 
 * [Account management](account.md)
 
+### Logs
+
+* [The location of log files](logs.md)
+
 ### Backup and Recovery
 
 Backup and recovery:
