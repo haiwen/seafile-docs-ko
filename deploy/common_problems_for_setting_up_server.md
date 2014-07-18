@@ -38,4 +38,3 @@ Solutions:
 #### "Error when calling the metaclass bases" during Seafile initialization
 
 Seafile uses Django 1.5, which requires Python 2.6.5+. Make sure your Python version >= 2.6.5.
-# Common Problems for Setting up Server
