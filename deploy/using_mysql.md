@@ -121,7 +121,7 @@ If some of the prerequisites are not installed, the seafile initialization scrip
 
 You'll see these outputs when you run the setup script
 
-![server-setup.mysql](../images/server-setup.mysql.png)
+![server-setup.mysql](../images/Server-setup.mysql.png)
 
 The script will guide you through the settings of various configuration options.
 
@@ -192,7 +192,7 @@ You'll see these output:
 
 If the setup is successful, you'll see the following output
 
-![server-setup-succesfully](../images/server-setup-successfully.png)
+![server-setup-succesfully](../images/Server-setup-successfully.png)
 
 Now you should have the following directory layout :
 ```sh
