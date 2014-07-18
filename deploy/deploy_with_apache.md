@@ -116,7 +116,7 @@ sudo service apache2 restart
 
 ## Notes when Upgrading Seafile Server
 
-When [[upgrading seafile server]], besides the normal steps you should take, there is one extra step to do: '''Update the path of the static files in your Nginx/Apache configuration'''. For example, assume your are upgrading seafile server 1.3.0 to 1.4.0, then:
+When [upgrading seafile server](upgrade.md), besides the normal steps you should take, there is one extra step to do: '''Update the path of the static files in your Nginx/Apache configuration'''. For example, assume your are upgrading seafile server 1.3.0 to 1.4.0, then:
 
 ```
   Alias /media  /home/user/haiwen/seafile-server-1.4.0/seahub/media
@@ -137,7 +137,7 @@ This way, you no longer need to update the apache config file each time you upgr
 
 ## Detailed explanation
 
-The picture at the end of this document may help you understand seafile server better: https://github.com/haiwen/seafile/wiki/Seafile-server-components-overview
+This may help you understand seafile server better: [Seafile Components](../overview/components.md)
 
 There are two components in Seafile server, Seahub and HttpServer. HttpServer only servers for raw file uploading/downloading, it listens on 8082. Seahub that serving all the other pages, is still listen on 8000. But under https, Seahub should listen as in fastcgi mode on 8000 (run as ./seahub.sh start-fastcgi). And as in fastcgi mode, when you visit  http://domain:8000 directly, it should return an error page.
 
