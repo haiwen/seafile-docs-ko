@@ -3,11 +3,11 @@
 
 This page is for users who use the pre-compiled seafile server package. 
 
-- If you [build seafile server from source](Build and Deploy Seafile Server from source), please read the **Upgrading Seafile Server** section on that page, instead of this one.
+- If you [build seafile server from source](../build_seafile/server.md), please read the **Upgrading Seafile Server** section on that page, instead of this one.
 
-- If you have deployed seafile server with mysql, you need to manually update your database tables. See [[Deploy Seafile with MySQL]] for details.
+- If you have deployed seafile server with mysql, you need to manually update your database tables. See [Deploy Seafile with MySQL](using_mysql.md) for details.
 
-- After upgrading, you may need to clean [seahub cache](https://github.com/haiwen/seafile/wiki/Seafile-server-configuration-options#wiki-Cache) if it doesn't behave as expect.
+- After upgrading, you may need to clean [seahub cache](add_memcached.md) if it doesn't behave as expect.
 
 ## Major Continuous Upgrade (like from 1.2 to 1.3)
 
@@ -32,7 +32,7 @@ check if your system is x86 (32bit) or x86_64 (64 bit)
 uname -m
 </pre>
 
-Change to the directory where you where you put all Seafile related stuff and [http://www.seafile.com/en/download download] the latest server package.
+Change to the directory where you where you put all Seafile related stuff and [download](http://www.seafile.com/en/download) the latest server package.
 
 For Seafile Server 2.1.4 and later:
 
