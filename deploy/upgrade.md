@@ -4,9 +4,6 @@
 This page is for users who use the pre-compiled seafile server package. 
 
 - If you [build seafile server from source](../build_seafile/server.md), please read the **Upgrading Seafile Server** section on that page, instead of this one.
-
-- If you have deployed seafile server with mysql, you need to manually update your database tables. See [Deploy Seafile with MySQL](using_mysql.md) for details.
-
 - After upgrading, you may need to clean [seahub cache](add_memcached.md) if it doesn't behave as expect.
 
 ## Major Continuous Upgrade (like from 1.2 to 1.3)
