@@ -28,8 +28,7 @@ To run GC program
     export LD_LIBRARY_PATH=./lib:${LD_LIBRARY_PATH}
     ./bin/seafserv-gc -c ../../ccnet -d ../../seafile-data
 
-If you [[built seafile server from source|Build and deploy seafile server from source]],
-just run
+If you built seafile server from source, just run
 
     seafserv-gc -c ../../ccnet -d ../../seafile-data
 
