@@ -184,6 +184,10 @@
 **Request parameters**
 
 * token
+* start (default to 0)
+* limit (default to 100)
+
+To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Sample request**
 
