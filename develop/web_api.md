@@ -1714,11 +1714,10 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 **Request parameters**
 
 * token
-* repo_id
-* file_names
-* dst_repo
-* dst_dir
-* p (defaults to "/")
+* p: source folder path, defaults to `"/"`
+* file_names: list of file/folder names to copy. Multiple file/folder names can be seperated by `:`.
+* dst_repo: the destination repo id
+* dst_dir: the destination folder in `dst_repo`
 
 **Sample request**
 
