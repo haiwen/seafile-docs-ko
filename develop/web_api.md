@@ -195,7 +195,6 @@ For each API, we provide `curl` examples to illustrate the usage.
 
 **Request parameters**
 
-* token
 * start (default to 0)
 * limit (default to 100)
 
@@ -224,9 +223,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **GET** https://cloud.seafile.com/api2/account/info/
 
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -250,7 +246,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * password
 * is_staff (defaults to False)
 * is_active (defaults to True)
@@ -282,7 +277,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * password
 * is_staff (defaults to False)
 * is_active (defaults to True)
@@ -312,9 +306,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **DELETE** https://cloud.seafile.com/api2/accounts/{email}/
 
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -334,9 +325,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **GET** https://cloud.seafile.com/api2/starredfiles/
 
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -369,7 +357,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * repo_id (post)
 * p (post)
 
@@ -399,7 +386,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * repo_id
 * p
 
@@ -430,7 +416,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * id_or_email
 
 **Sample request**
@@ -477,7 +462,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * id_or_email
 * message
 
@@ -499,9 +483,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **GET** https://cloud.seafile.com/api2/unseen_messages/
 
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -519,9 +500,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **GET** https://cloud.seafile.com/api2/groups/
 
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -557,7 +535,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * group_name
 
 **Sample request**
@@ -580,7 +557,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * user_name
 
 **Sample request**
@@ -603,7 +579,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * user_name
 
 **Sample request**
@@ -628,7 +603,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * group_id
 
 **Sample request**
@@ -658,7 +632,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * group_id
 * msg_id
 
@@ -703,7 +676,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * message
 * group_id
 * repo_id(optional)
@@ -725,7 +697,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * group_id
 * msg_id
 * message
@@ -748,9 +719,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **GET** https://cloud.seafile.com/api2/new_replies/
 
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -792,10 +760,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **GET** https://cloud.seafile.com/api2/shared-links/
 
-**Request parameters**
-
-* token
-
 **Sample request**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-links/"
@@ -810,7 +774,6 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 **Request parameters**
 
-* token
 * repo-id
 * type
 * p (Path to the file)
@@ -847,7 +810,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token
 * t
 
 **Sample request**
@@ -866,10 +828,6 @@ Create download link for directory
 
 **GET** https://cloud.seafile.com/api2/shared-repos/
 
-**Request parameters**
-
-* token
-
 **Sample request**
 
     curl -v -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/shared-repos/
@@ -882,9 +840,6 @@ Create download link for directory
 
 **GET** https://cloud.seafile.com/api2/beshared-repos/
 
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -900,7 +855,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token
 * share_type
 * user
 * group_id
@@ -920,7 +874,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token
 * share_type
 * user
 * group_id
@@ -939,10 +892,6 @@ Create download link for directory
 
 **GET** https://cloud.seafile.com/api2/shared-files/
 
-**Request parameters**
-
-* token
-
 **Sample request**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-files/"
@@ -957,7 +906,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token(auth token)
 * token(file share token)
 
 **Sample request**
@@ -979,7 +927,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token(auth token)
 * token(file share token)
 
 **Sample request**
@@ -1001,7 +948,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token
 * t
 
 **Sample request**
@@ -1020,7 +966,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token(auth token)
 * token(private file share token)
 
 **Sample request**
@@ -1042,7 +987,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token(auth token)
 * token(private file share token)
 
 **Sample request**
@@ -1066,10 +1010,6 @@ Create download link for directory
 
 **GET** https://cloud.seafile.com/api2/default-repo/
 
-**Request parameters**
-
-* token
-
 **Sample request**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/default-repo/"
@@ -1085,10 +1025,6 @@ Create download link for directory
 
 **POST** https://cloud.seafile.com/api2/default-repo/
 
-**Request parameters**
-
-* token
-
 **Sample request**
 
     curl -X POST -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/default-repo/"
@@ -1103,10 +1039,6 @@ Create download link for directory
 #### <a id="list-libraries"></a>List Libraries ###
 
 **GET** https://cloud.seafile.com/api2/repos/
-
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -1149,7 +1081,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1177,7 +1108,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1200,7 +1130,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1217,7 +1146,6 @@ Create download link for directory
 
 **Request parameters**
 
-* token
 * name
 * desc (defaults to "new repo")
 * passwd (needed by encrypt library)
@@ -1260,7 +1188,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 * p
 * name
@@ -1282,10 +1209,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **DELETE** https://cloud.seafile.com/api2/repos/{repo-id}/
 
-**Request parameters**
-
-* token
-
 **Sample request**
 
     curl -v -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/
@@ -1306,7 +1229,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * password
 
 **Sample request**
@@ -1330,7 +1252,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1359,7 +1280,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1388,7 +1308,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1413,10 +1332,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **GET** https://cloud.seafile.com/api2/virtual-repos/
 
-**Request parameters**
-
-* token
-
 **Sample request**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/virtual-repos/"
@@ -1433,10 +1348,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 #### <a id="search-libraries"></a>Search Libraries ###
 
 **GET** https://cloud.seafile.com/api2/search/
-
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -1488,7 +1399,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 * p
 
@@ -1510,7 +1420,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/detail/?p=/foo.c
 
-* token
 * repo-id
 * p
 
@@ -1539,7 +1448,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 * p
 
@@ -1600,7 +1508,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 * p
 * commit_id
@@ -1624,7 +1531,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 * p
 * operation
@@ -1655,7 +1561,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 * p
 * operation
@@ -1690,7 +1595,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 * p
 * operation
@@ -1725,7 +1629,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * p: source folder path, defaults to `"/"`
 * file_names: list of file/folder names to copy. Multiple file/folder names can be seperated by `:`.
 * dst_repo: the destination repo id
@@ -1752,7 +1655,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo_id
 * p
 * commit_id
@@ -1783,7 +1685,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 * p
 
@@ -1815,7 +1716,6 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1863,7 +1763,6 @@ For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1912,7 +1811,6 @@ The id of the updated file
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1934,7 +1832,6 @@ The id of the updated file
 
 **Request parameters**
 
-* token
 * repo-id
 
 **Sample request**
@@ -1956,7 +1853,6 @@ The id of the updated file
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
 
-* token
 * repo-id
 * p (optional): The path to a directory. If `p` is missing, then defaults to '/' which is the top directory.
 * oid (optional)
@@ -1993,7 +1889,6 @@ The id of the updated file
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
 
-* token
 * repo-id
 * p
 * operation=mkdir (post)
@@ -2028,7 +1923,6 @@ The id of the updated file
 
 **DELETE** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
 
-* token
 * repo-id
 * p
 
@@ -2060,7 +1954,6 @@ The id of the updated file
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/dir/download/?p=/foo
 
-* token
 * repo-id
 * p
 
@@ -2082,7 +1975,6 @@ The id of the updated file
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/dir/share/
 
-* token
 * repo-id
 * emails
 * s_type
@@ -2118,7 +2010,6 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 
 **Request parameters**
 
-* token
 * user
 * size
 
@@ -2140,7 +2031,6 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 
 **Request parameters**
 
-* token
 * group_id
 * size
 
@@ -2159,10 +2049,6 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 ## <a id="list-group-and-contacts"></a>List Group And Contacts ##
 
 **GET** https://cloud.seafile.com/api2/groupandcontacts/
-
-**Request parameters**
-
-* token
 
 **Sample request**
 
@@ -2200,10 +2086,6 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
 ## <a id="get-file-events"></a>Get File Activities ##
 
 **GET** https://cloud.seafile.com/api2/events/
-
-**Request parameters**
-
-* token
 
 **Sample request**
 
