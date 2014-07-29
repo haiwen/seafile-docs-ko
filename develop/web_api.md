@@ -2,6 +2,7 @@
 <p><div class="toc">
 <ul>
 <li><a href="#seafile-web-api-v2">Seafile Web API V2</a><ul>
+<li><a href="#api-basics">API Basics</a></li>
 <li><a href="#status-code">Status Code</a></li>
 <li><a href="#quick-start">Quick Start</a></li>
 <li><a href="#account">Account</a><ul>
@@ -138,6 +139,17 @@
 </p>
 
 # <a id="seafile-web-api-v2"></a>Seafile Web API V2 #
+
+## <a id="api-basics"></a>API Basics ##
+
+All API calls must be authenticated with a valid Seafile API key.
+
+    curl -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' https://cloud.seafile.com/api2/auth/ping/
+
+The api key can be retrieved by the obtain auth api. See the <a href="#quick-start">Quick Start</a> for details.
+
+For each API, we provide `curl` examples to illustrate the usage.
+
 
 ## <a id="status-code"></a>Status Code ##
 
