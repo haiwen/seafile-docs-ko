@@ -65,6 +65,7 @@
 * [Developing](develop/README.md)
    * [How to Build Seafile](build_seafile/README.md)
        * [Linux](build_seafile/linux.md)
+       * [FreeBSD](build_seafile/freebsd.md)
        * [Windows](build_seafile/windows.md)
        * [Max OS X](build_seafile/osx.md)
        * [Server](build_seafile/server.md)
