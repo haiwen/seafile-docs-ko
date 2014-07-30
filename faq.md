@@ -21,7 +21,7 @@ Trouble shooting:
 
 #### Does Seafile server support Python 3?
 
-No, You must have python 2.6 or 2.7 installed on your server.
+No, You must have python 2.6.5+ or 2.7 installed on your server.
 
 #### Can Seafile server run on FreeBSD?
 
@@ -53,3 +53,6 @@ There are some common mistakes:
 1. Check whether there are some typos in the config, e.g., forget single quote, EMAIL_HOST_USER = XXX, which should be EMAIL_HOST_USER = 'XXX'
 1. Your mail server is not available.
 
+#### Client stops syncing, needs download library again
+
+Please check issue https://github.com/haiwen/seafile/issues/730
