@@ -7,7 +7,7 @@ This section explains how to change various config options for Seafile server.
 There are three config files in the community edition:
 
 - [ccnet/ccnet.conf](ccnet-conf.md): contains the network settings
-- [seafile-data/seafile.conf](seafile-conf.md): contains settings for seafile daemon and HttpServer.
+- [seafile-data/seafile.conf](seafile-conf.md): contains settings for seafile daemon and fileserver.
 - [seahub_settings.py](seahub_settings_py.md): contains settings for Seahub
 
 There is one additional config file in the pro edition:

@@ -56,7 +56,7 @@ server {
 }
 </pre>
 
-You need also to modify `SERVICE_URL` and `HTTP_SERVER_ROOT` (see below).
+You need also to modify `SERVICE_URL` and `FILE_SERVER_ROOT` (see below).
 
 ## Deploy with Apache
 
@@ -77,7 +77,7 @@ After that, you need to configure your Apache, here is the sample configuration:
   RewriteEngine On
 
   #
-  # seafile httpserver
+  # seafile fileserver
   #
   ProxyPass /seafhttp http://127.0.0.1:8082
   ProxyPassReverse /seafhttp http://127.0.0.1:8082
@@ -109,10 +109,10 @@ Note: If you later change the domain assigned to seahub, you also need to change
 
 ### Modify seahub_settings.py
 
-You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
+You need to add a line in <code>seahub_settings.py</code> to set the value of `FILE_SERVER_ROOT`
 
 ```python
-HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
+FILE_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
 
 ## Start Seafile and Seahub

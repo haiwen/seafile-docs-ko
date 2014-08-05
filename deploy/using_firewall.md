@@ -46,7 +46,7 @@ Seafile server is composed of several components. You need to configure port for
   <td>12001</td>
 </tr>
 <tr>
-  <td>httpserver</td>
+  <td>fileserver</td>
   <td>8082</td>
 </tr>
 <tr>
@@ -120,7 +120,7 @@ By default, you should open 4 ports.
      | Seahub
         | 8000
         |-
-        | HttpServer
+        | FileServer
         | 8082
         |-
         | Ccnet Daemon

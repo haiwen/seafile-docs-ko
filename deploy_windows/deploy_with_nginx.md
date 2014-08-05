@@ -1,10 +1,10 @@
 # Deploy Seafile with Nginx
 
-## Deploy Seahub/HttpServer with Nginx
+## Deploy Seahub/FileServer with Nginx
 
-Seahub is the web interface of Seafile server. HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
+Seahub is the web interface of Seafile server. FileServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
 
-Here we deploy Seahub using fastcgi, and deploy HttpServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
+Here we deploy Seahub using fastcgi, and deploy FileServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
 
 This is a sample Nginx config file.
 
@@ -66,10 +66,10 @@ fastcgi=true
 
 ### Modify seahub_settings.py
 
-You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
+You need to add a line in <code>seahub_settings.py</code> to set the value of `FILE_SERVER_ROOT`
 
 ```
-HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
+FILE_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
 
 ## Notes when Upgrading Seafile Server

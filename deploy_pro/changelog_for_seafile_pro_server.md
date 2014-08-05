@@ -65,14 +65,14 @@ Platform
 * Record files' last modification time directly
 * Keep file timestamp during syncing
 * Allow changing password of an encrypted library
-* Allow config httpserver bind address
+* Allow config fileserver bind address
 * Improved device (desktop and mobile clients) management
 
 Misc
 
 * [fix] Fix API for uploading files from iOS in an encrypted library.
 * [fix] Fix API for getting groups messages containing multiple file attachments
-* [fix] Fix bug in HttpServer when file block is missing
+* [fix] Fix bug in FileServer when file block is missing
 * [fix] Fix login error for some kind of Android
 
 

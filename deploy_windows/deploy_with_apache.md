@@ -11,11 +11,11 @@ Download [mod_fastcgi-*.dll] (http://fastcgi.com/dist/) first, and put it into t
 - If you are using Apache 2.2, you should download http://fastcgi.com/dist/mod_fastcgi-2.4.6-AP22.dll. The **AP22** part of the dll indicate it's for Apache **2.2**.
 - If you are using Apache 2.0, you should download http://fastcgi.com/dist/old/mod_fastcgi-2.4.2-AP20.dll
 
-## Deploy Seahub/HttpServer With Apache
+## Deploy Seahub/FileServer With Apache
 
-Seahub is the web interface of Seafile server. HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
+Seahub is the web interface of Seafile server. FileServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
 
-Here we deploy Seahub using fastcgi, and deploy HttpServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
+Here we deploy Seahub using fastcgi, and deploy FileServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
 
 ### Edit httpd.conf
 
@@ -49,7 +49,7 @@ Assume you have uncompresssed seafile server into `C:/SeafileProgram/seafile-pro
   RewriteEngine On
 
   #
-  # seafile httpserver
+  # seafile fileserver
   #
   ProxyPass /seafhttp http://127.0.0.1:8082
   ProxyPassReverse /seafhttp http://127.0.0.1:8082
@@ -94,10 +94,10 @@ fastcgi=true
 
 ### Modify seahub_settings.py
 
-You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
+You need to add a line in <code>seahub_settings.py</code> to set the value of `FILE_SERVER_ROOT`
 
 ```
-HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
+FILE_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
 
 ## Notes when Upgrading Seafile Server

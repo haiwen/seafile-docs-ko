@@ -104,7 +104,7 @@ SERVICE_URL = https://www.yourdomain.com
 At the end of the file, add a line:
 
 ```python
-HTTP_SERVER_ROOT = 'https://www.yourdomain.com/seafhttp'
+FILE_SERVER_ROOT = 'https://www.yourdomain.com/seafhttp'
 ```
 
 ## Start Seafile and Seahub
