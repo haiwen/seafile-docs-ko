@@ -53,7 +53,7 @@ Seafile server is composed of several components. You need to configure port for
   <td>12001</td>
 </tr>
 <tr>
-  <td>httpserver</td>
+  <td>fileserver</td>
   <td>8082</td>
 </tr>
 <tr>

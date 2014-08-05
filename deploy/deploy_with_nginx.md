@@ -8,11 +8,11 @@ Install <code>python-flup</code> library. On Ubuntu:
 sudo apt-get install python-flup
 ```
 
-## Deploy Seahub/HttpServer with Nginx
+## Deploy Seahub/FileServer with Nginx
 
-Seahub is the web interface of Seafile server. HttpServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
+Seahub is the web interface of Seafile server. FileServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
 
-Here we deploy Seahub using [FastCGI](http://en.wikipedia.org/wiki/FastCGI), and deploy HttpServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
+Here we deploy Seahub using [FastCGI](http://en.wikipedia.org/wiki/FastCGI), and deploy FileServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
 
 This is a sample Nginx config file.
 
@@ -53,7 +53,7 @@ server {
 
 Nginx settings "client_max_body_size" is by default 1M. Uploading a file bigger than this limit will give you an error message HTTP error code 413 ("Request Entity Too Large").
 
-You should use 0 to disable this feature or write the same value than for the parameter max_upload_size in section [httpserver] of /seafile/seafile-data/seafile.conf
+You should use 0 to disable this feature or write the same value than for the parameter max_upload_size in section [fileserver] of /seafile/seafile-data/seafile.conf
 
 ## Modify ccnet.conf and seahub_setting.py
 
@@ -70,10 +70,10 @@ Note: If you later change the domain assigned to seahub, you also need to change
 
 ### Modify seahub_settings.py
 
-You need to add a line in <code>seahub_settings.py</code> to set the value of `HTTP_SERVER_ROOT`
+You need to add a line in <code>seahub_settings.py</code> to set the value of `FILE_SERVER_ROOT`
 
 ```python
-HTTP_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
+FILE_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
 
 ## Start Seafile and Seahub

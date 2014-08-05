@@ -116,8 +116,8 @@ The script will guide you through the settings of various configuration options.
 | The TCP port used by Seafile to transfer data
 | Default is 12001. If it's been used by other service, you can set it to another port.
 |-
-| httpsever  port
-| The TCP port used by Seafile httpserver
+| fileserver  port
+| The TCP port used by Seafile fileserver
 | Default is 8082. If it's been used by other service, you can set it to another port.
 |-
 |}

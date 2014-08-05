@@ -28,9 +28,9 @@ For maximum security, the plain-text password won't be saved on the client side 
 Every seafile desktop client has a unique private key. When a client and a server connect, they will exchange public key and negotiate a session key. The session key is derived from cryptographically secure random number with PDKDF2 algorithm. And it's exchanged between the client and the server with RSA encryption. This session key will be used to encrypt the data transfer with AES-256/CBC algorithm.
 
 
-## Why httpserver delivers every content to everybody knowing the content URL of an unshared private file?
+## Why fileserver delivers every content to everybody knowing the content URL of an unshared private file?
 
-When a file download link is clicked, a random URL is generated for user to access the file from httpserver. This url will be valid for 1 hour to support web browser cache. 
+When a file download link is clicked, a random URL is generated for user to access the file from fileserver. This url will be valid for 1 hour to support web browser cache. 
 
 In the future, we will add mechanism to further prevent brute-force attack by trying URLs.
 

@@ -91,7 +91,7 @@ The script will guide you through the settings of various configuration options.
 | ccnet server port  | The TCP port used by ccnet, the underlying networking service of Seafile  | Default is 10001. If it's been used by other service, you can set it to another port. |
 | seafile data dir  | Seafile stores your data in this directory. By default it'll be placed in the current directory.  | The size of this directory will increase as you put more and more data into Seafile. Please select a disk partition with enough free space. |
 | seafile server port  | The TCP port used by Seafile to transfer data  | Default is 12001. If it's been used by other service, you can set it to another port. |
-| httpsever port | The TCP port used by Seafile httpserver  | Default is 8082. If it's been used by other service, you can set it to another port. |
+| fileserver port | The TCP port used by Seafile fileserver  | Default is 8082. If it's been used by other service, you can set it to another port. |
 
 
 Now you should have the following directory layout :

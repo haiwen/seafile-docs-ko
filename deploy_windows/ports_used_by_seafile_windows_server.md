@@ -40,15 +40,15 @@ seaf-server provides the data service for seafile server
 [network]
 port=22001
 ```
-### seafile httpserver
+### seafile fileserver
 
-seafile httpserver handles raw file upload/download for Seahub
+seafile fileserver handles raw file upload/download for Seahub
 
 - default: 8082
-- How to change: Edit the file ``seafile.conf``. Change the value of port under the httpserver section.
+- How to change: Edit the file ``seafile.conf``. Change the value of port under the fileserver section.
 
 ```
-[httpserver]
+[fileserver]
 port=8082
 ```
 ### seahub

@@ -21,20 +21,20 @@ If you don't want to keep all file revision history, you may set a default histo
 keep_days = days of history to keep
 </pre>
 
-## Seafile httpserver configuration (seafile.conf)
+## Seafile fileserver configuration (seafile.conf)
 
-The configuration of seafile httpserver is in the <code>[httpserver]</code> section of the file <code>seafile-data/seafile.conf</code>
+The configuration of seafile fileserver is in the <code>[fileserver]</code> section of the file <code>seafile-data/seafile.conf</code>
 
 <pre>
-[httpserver]
-# tcp port for httpserver
+[fileserver]
+# tcp port for fileserver
 port = 8082
 </pre>
 
 Change upload/download settings.
 
 <pre>
-[httpserver]
+[fileserver]
 # Set maximum upload file size to 200M.
 max_upload_size=200
 
