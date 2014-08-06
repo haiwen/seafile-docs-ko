@@ -68,29 +68,29 @@ Second, modify Apache config file:
 
 ```
 <VirtualHost *:80>
-  ServerName www.myseafile.com
-  DocumentRoot /var/www
-  Alias /media  /home/user/haiwen/seafile-server-latest/seahub/media
+    ServerName www.myseafile.com
+    DocumentRoot /var/www
+    Alias /media  /home/user/haiwen/seafile-server-latest/seahub/media
 
-  RewriteEngine On
+    RewriteEngine On
 
-   <Location /media>
+    <Location /media>
         Require all granted
     </Location>
 
-  #
-  # seafile fileserver
-  #
-  ProxyPass /seafhttp http://127.0.0.1:8082
-  ProxyPassReverse /seafhttp http://127.0.0.1:8082
-  RewriteRule ^/seafhttp - [QSA,L]
+    #
+    # seafile fileserver
+    #
+    ProxyPass /seafhttp http://127.0.0.1:8082
+    ProxyPassReverse /seafhttp http://127.0.0.1:8082
+    RewriteRule ^/seafhttp - [QSA,L]
 
-  #
-  # seahub
-  #
-  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    #
+    # seahub
+    #
+    RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </VirtualHost>
 ```
 
