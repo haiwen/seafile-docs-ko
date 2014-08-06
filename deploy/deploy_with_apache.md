@@ -15,7 +15,16 @@
     sudo a2enmod rewrite
     sudo a2enmod fastcgi
     ```
+   
+    On Debian you will need to first enable the **non-free** repo in **/etc/apt/sources.list** before you can install libapache2-mod-fastcgi e.g.:
+    
+    ```
+    deb http://ftp.debian.org/pub/debian/ wheezy main non-free
+    deb-src http://ftp.debian.org/pub/debian/ wheezy main non-free
 
+    deb http://security.debian.org/ wheezy/updates main non-free
+    deb-src http://security.debian.org/ wheezy/updates main non-free
+    ```
 3. Enable apache proxy
 
     ```
@@ -23,7 +32,7 @@
     ```
 
 On Windows, you have to download  [mod_fastcgi-*.dll] (http://fastcgi.com/dist/) first, and put it into the modules directory.
-On debian/raspbian install fcgi like [this](http://raspberryserver.blogspot.co.at/2013/02/installing-lamp-with-fastcgi-php-fpm.html)
+On raspbian install fcgi like [this](http://raspberryserver.blogspot.co.at/2013/02/installing-lamp-with-fastcgi-php-fpm.html)
 ## Deploy Seahub/FileServer With Apache
 
 Seahub is the web interface of Seafile server. FileServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
@@ -65,9 +74,9 @@ Second, modify Apache config file:
 
   RewriteEngine On
 
-  <Location /media>
-   Require all granted
-  </Location>
+   <Location /media>
+        Require all granted
+    </Location>
 
   #
   # seafile fileserver
@@ -83,6 +92,15 @@ Second, modify Apache config file:
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ /seahub.fcgi$1 [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </VirtualHost>
+```
+
+If you are running Apache 2.2 then you will need to [update your access control configuration](https://httpd.apache.org/docs/2.4/upgrading.html#access) accordingly e.g.
+
+```
+    <Location /media>
+        Order allow,deny
+        Allow from all
+    </Location>
 ```
 
 ## Modify ccnet.conf and seahub_setting.py
