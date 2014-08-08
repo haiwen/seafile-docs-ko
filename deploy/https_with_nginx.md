@@ -94,14 +94,14 @@ Here is the sample configuration file:
 
 ### ccnet conf
 
-Since you change from http to https, you need to modify the value of "SERVICE_URL" in <code>ccnet/ccnet.conf</code>:
+Since you change from http to https, you need to modify the value of "SERVICE_URL" in `ccnet/ccnet.conf`:
 ```bash
 SERVICE_URL = https://www.yourdomain.com
 ```
 
 ### seahub_settings.py
 
-At the end of the file, add a line:
+You need to add a line in seahub_settings.py to set the value of `FILE_SERVER_ROOT` (Or `HTTP_SERVER_ROOT` before version 3.1.0)
 
 ```python
 FILE_SERVER_ROOT = 'https://www.yourdomain.com/seafhttp'
