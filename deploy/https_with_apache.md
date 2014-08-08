@@ -62,7 +62,9 @@ Since you change from http to https, you need to modify the value of "SERVICE_UR
 SERVICE_URL = https://www.myseafile.com
 </pre>
 
-### seahub_settings.py=
+### seahub_settings.py
+
+You need to add a line in seahub_settings.py to set the value of `FILE_SERVER_ROOT` (Or `HTTP_SERVER_ROOT` before version 3.1.0)
 
 <pre>
 FILE_SERVER_ROOT = 'https://www.myseafile.com/seafhttp'
