@@ -1,5 +1,6 @@
 # Sending Email Notifications on Seahub
 
+## Options email sending
 
 Please add the following lines to seahub_settings.py to enable Email sending.
 

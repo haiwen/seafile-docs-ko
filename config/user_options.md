@@ -1,6 +1,9 @@
 # Customize user management
 
+## Options for user management
+
 Here we summarize options related to user management in `seahub_settings.py`
+
 
     # Enalbe or disalbe registration on web. Default is `False`.
     ENABLE_SIGNUP = False

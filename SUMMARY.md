@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [Overview](overview/README.md)
    * [Seafile Components](overview/components.md)
    * [Roadmap](roadmap.md)
@@ -60,7 +61,9 @@
    * [seafile.conf](config/seafile-conf.md)
    * [seahub_settings.py](config/seahub_settings_py.md)
    * [Seahub customization](config/seahub_customization.md)
+   * [sending_email](config/sending_email.md)
    * [Customize Email Notifications](config/customize_email_notifications.md)
+   * [User management options](config/user_options.md)
 * [Administration](maintain/README.md)
    * [Account management](maintain/account.md)
    * [Logs](maintain/logs.md)
