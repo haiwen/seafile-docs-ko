@@ -60,7 +60,7 @@ FastCGIExternalServer e:/seafile-server-1.7.1/seahub/seahub.fcgi -host 127.0.0.1
 ```
 
 
-Note, `seahub.fcgi` is just a placeholder, you don't need to actually have this file in your system.
+Note, `seahub.fcgi` is just a placeholder, you don't need to actually have this file in your system, but be sure to use a path that is in the DocumentRoot of your Domain/Subdomain to avoid 404 errors.
 
 Second, modify Apache config file:
 (`sites-enabled/000-default`) for ubuntu/debian
