@@ -6,7 +6,7 @@ It's quite likely you have deployed the Seafile Community Server and want to swi
 
 - You can only switch between Community Server and Professional Server of the same minor version.
 
-That is, if you are using Community Server 1.6.x, and want to switch to the Professional Server 1.7.y, you must first upgrade to Community Server 1.7.y, and then follow the guides below to switch to the Professional Server 1.7.z.
+That is, if you are using Community Server 1.6, and want to switch to the Professional Server 1.7, you must first upgrade to Community Server 1.7, and then follow the guides below to switch to the Professional Server 1.7. (The last tiny version number in 1.7.x is not important.)
 
 ## <a id="wiki-preparation"></a>Preparation ##
 
