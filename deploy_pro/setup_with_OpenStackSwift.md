@@ -5,7 +5,7 @@ Starting from professional server 2.0.5, Seafile can use S3-compatible cloud sto
 
 To setup Seafile Professional Server with OpenStack Swift:
 
-- Setup the basic Seafile Professional Server following the guide on [[Download and setup Seafile Professional Server]]
+- Setup the basic Seafile Professional Server following the guide on [Download and Setup Seafile Professional Server](download_and_setup_seafile_professional_server.md)
 - Install the python `boto` library. It's needed to access Swift.
 ```
 sudo easy_install boto
