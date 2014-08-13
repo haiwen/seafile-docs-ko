@@ -1,11 +1,12 @@
 # Migrate from Seafile Community Server
+
 ## <a id="wiki-restriction"></a>Restriction ##
 
 It's quite likely you have deployed the Seafile Community Server and want to switch to the Professional Server, or vice versa. But there is some restriction:
 
-- You can only switch between Community Server and Professional Server of the same version.
+- You can only switch between Community Server and Professional Server of the same minor version.
 
-That is, if you are using Community Server 1.6.0, and want to switch to the Professional Server 1.7.0, you must first upgrade to Community Server 1.7.0, and then follow the guides below to switch to the Professional Server 1.7.0.
+That is, if you are using Community Server 1.6.x, and want to switch to the Professional Server 1.7.y, you must first upgrade to Community Server 1.7.y, and then follow the guides below to switch to the Professional Server 1.7.z.
 
 ## <a id="wiki-preparation"></a>Preparation ##
 
@@ -75,9 +76,6 @@ Put the license you get under the top level directory of your Seafile installati
 
 
 ### <a id="wiki-download-and-uncompress"></a>Download/Uncompress Seafile Professional Server ###
-
-- 32bit
-- [64bit](http://seacloud.cc/repo/0a3b015d-d82b-4c89-90b8-b010855bc57b/)
 
 
 You should uncompress the tarball to the top level directory of your installation, in our example, `/data/haiwen`.
