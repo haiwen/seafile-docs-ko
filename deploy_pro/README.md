@@ -30,9 +30,6 @@ Config Options
 
 - [FAQ For Seafile Professional Server](FAQ_for_seafile_pro_server.md)
 
-## ChangeLog
-
-- [Changelog for Seafile Professional Server](changelog_for_seafile_pro_server.md)
 
 ## License
 
