@@ -82,3 +82,32 @@ When previewing a office/pdf document online, the pages displayed is the first 5
 </tr>
 
 </table>
+
+In the file `/data/haiwen/seahub_settings.py`:
+
+<pre>
+
+# Enable add users as guests or not, defaults to ``False``. Guests are only able to use libraries shared to him/her.
+ENABLE_GUEST = True
+
+# Force user input strong password or not, defaults to ``False``.
+USER_STRONG_PASSWORD_REQUIRED = True
+
+# Replace default from email with user's email or not, defaults to ``False``
+REPLACE_FROM_EMAIL = True
+
+# Set reply-to header to user's email or not, defaults to ``False``. For details,
+# please refer to http://www.w3.org/Protocols/rfc822/
+ADD_REPLY_TO_HEADER = True
+
+</pre>
+
+**Note**:
+
+* You need to restart seahub so that your changes take effect.
+* If your changes don't take effect, You may need to delete 'seahub_setting.pyc'. (A cache file)
+
+<pre>
+./seahub.sh restart
+</pre>
+
