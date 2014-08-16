@@ -11,7 +11,7 @@ Seafile Windows Community Edition only support SQLite database now. The Seafie W
 - [LDAP Integration](../deploy/using_ldap.md)
 - [Install Seafile Server as a Windows Service](install_seafile_server_as_a_windows_service.md)
 - [Ports used by Seafile Windows Server](ports_used_by_seafile_windows_server.md)
-- [Upgrading Seafile Windows Server](Upgrading Seafile Windows Server)
+- [Upgrading Seafile Windows Server](upgrading_seafile_windows_server.md)
 - [Options & Customization](../deploy/server_configuration.md)
 
 For more information on Seafile server, check the documents on [Seafile Linux version](../deploy/README.md)
