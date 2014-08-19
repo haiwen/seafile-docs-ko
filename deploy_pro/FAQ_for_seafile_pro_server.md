@@ -40,6 +40,11 @@
 
 ## <a id="wiki-doc-preview"></a>FAQ about Office/PDF document preview ##
 
+- Document preview doesn't work, where to find more information?
+
+    You can check the log at logs/seafevents.log
+
+
 - How can I change max size and max pages of documents that can be previewed online ?
 
  1. Locate the `OFFICE CONVERTER` section in `/data/haiwen/pro-data/seafevents.conf`.
