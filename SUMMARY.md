@@ -48,7 +48,6 @@
        * [Enable search and background tasks in a cluster](deploy_pro/enable_search_and_background_tasks_in_a_cluster.md)
        * [Setup Seafile cluster with NFS](deploy_pro/setup_seafile_cluster_with_nfs.md)
    * [FAQ](deploy_pro/FAQ_for_seafile_pro_server.md)
-   * [Changelog](deploy_pro/changelog_for_seafile_pro_server.md)
    * [License](deploy_pro/seafile_professional_sdition_software_license_agreement.md)
 * [Deploy Seafile Pro Edition under Windows](deploy_win_pro/README.md)
    * [Download and Setup Seafile Windows Professional Server](deploy_win_pro/download_and_setup_seafile_win_pro_server.md)
