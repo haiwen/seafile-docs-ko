@@ -6,18 +6,12 @@ With default installation, these internal objects are stored in the server's fil
 
 Note: If you store the seafile-data directory in a battery-backed NAS (like EMC or NetApp), or use S3 backend available in the Pro edition, the internal objects won't be corrupt.
 
-Starting from version 2.0, Seafile server comes with a seaf-fsck tool to help you recover from this corruption (similar to git-fsck tool). This tool does two things:
-
-1. Check Seafile internal objects integrity, and delete corrupt objects;
-2. Reset any affected library to its last consistent and usable state.
+Starting from version 2.0, Seafile server comes with a seaf-fsck tool to help you recover from this corruption (similar to git-fsck tool). This tool recovers any corrupted library back to its last consistent and usable state.
 
 The seaf-fsck tool accepts the following arguments:
 
 ```
 seaf-fsck [-c config_dir] [-d seafile_dir] [repo_id_1 [repo_id_2 ...]]
-Additional options:
--D, --dry-run: check fs objects and blocks, but don't remove them.
--s, --strict: check whether fs object id consistent with content.
 ```
 
 Supposed you follow the standard installation and directory layout, and your seafile installation directory is `/data/haiwen`, you should run the command as
