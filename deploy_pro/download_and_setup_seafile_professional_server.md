@@ -88,8 +88,6 @@ Put the license you get under the top level diretory. In our wiki, we use the di
 
 ### <a id="wiki-download-and-uncompress"></a>Download/Uncompress Seafile Professional Server ###
 
-- 32bit
-- [64bit](http://seacloud.cc/repo/0a3b015d-d82b-4c89-90b8-b010855bc57b/)
 
 ```
 tar xf seafile-pro-server_1.8.0_x86-64.tar.gz
