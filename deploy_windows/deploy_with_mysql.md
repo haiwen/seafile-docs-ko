@@ -88,21 +88,12 @@ port=3306
 
 Now we create the database tables for seahub.
 
-Open a window command line prompt, and execute the following commands:
+Assume you have uncompressed seafile server to `C:/SeafileProgram/seafile-pro-server-3.1.3`,
 
-Assume you have uncompressed seafile server to `C:/SeafileProgram/seafile-pro-server-2.1.4`,
-and you have choosed `D:/seafile-server` during seafile server initialization.
-
-```
-set INSTALL_PATH=C:/SeafileProgram/seafile-pro-server-2.1.4
-set SEAFSERV_DIR=D:/seafile-server
-```
+Open a window command line prompt, and execute the following command:
 
 ```
-set CCNET_CONF_DIR=%SEAFSERV_DIR%/ccnet
-set SEAFILE_CONF_DIR=%SEAFSERV_DIR%/seafile-data
-set PYTHONPATH=%PYTHONPATH%;%INSTALL_PATH%/seahub/thirdpart;%INSTALL_PATH%/pro/python;%INSTALL_PATH%/seahub-extra
-python %INSTALL_PATH%/seahub/manage.py syncdb
+mysql seahub-db < C:/SeafileProgram/seafile-server-3.1.3/seahub/sql/mysql.sql
 ```
 
 ## Done
