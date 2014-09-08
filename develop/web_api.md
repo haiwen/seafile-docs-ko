@@ -197,8 +197,10 @@ For each API, we provide `curl` examples to illustrate the usage.
 
 * start (default to 0)
 * limit (default to 100)
+* scope (default None, accepted values: 'LDAP' or 'DB')
 
-To retrieve all users, just set both `start` and `limit` to `-1`
+To retrieve all users, just set both `start` and `limit` to `-1`.
+If scope parameter is passed then accounts will be searched inside the specific scope, otherwise it will be used the old approach: first LDAP and, if no account is found, DB. 
 
 **Sample request**
 
