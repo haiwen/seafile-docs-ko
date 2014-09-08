@@ -28,6 +28,7 @@
 <li><a href="#group">Group</a><ul>
 <li><a href="#list-groups">List Groups</a></li>
 <li><a href="#add-a-group">Add A Group</a></li>
+<li><a href="#delete-group">Delete Group</a></li>
 <li><a href="#group-member">Group Member</a><ul>
 <li><a href="#add-a-group-member">Add A Group Member</a></li>
 <li><a href="#delete-a-group-member">Delete A Group Member</a></li>
@@ -552,6 +553,25 @@ If scope parameter is passed then accounts will be searched inside the specific 
 
 * 400 There is already a group with that name.
 
+### <a id="delete-group"></a>Delete Group ###
+
+**DELETE** https://cloud.seafile.com/api2/groups/{group_id}/
+
+**Request parameters**
+
+None
+
+**Sample request**
+
+    curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
+
+**Errors**
+
+* 400 Bad group id format
+* 404 Group not found
+* 403 Forbid to delete group
+* 520 Failed to remove group (generic error)
+
 ### <a id="group-member"></a>Group Member ###
 
 #### <a id="add-a-group-member"></a>Add A Group Member ####
@@ -859,7 +879,7 @@ Create download link for directory
 **Request parameters**
 
 * share_type ('personal', 'group' or 'public')
-* user (o users)
+* user (or users)
 * group_id
 * permission
 
