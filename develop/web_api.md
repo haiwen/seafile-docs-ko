@@ -859,11 +859,13 @@ Create download link for directory
 **Request parameters**
 
 * share_type ('personal', 'group' or 'public')
-* user
+* user (o users)
 * group_id
 * permission
 
-If share_type is 'personal' then 'user' param is required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.
+If share_type is 'personal' then 'user' or 'users' param are required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.
+
+'user' or 'users' parameters can be a comma separated list of emails, in this case the share will be done for more users at the same time. If a problem is encountered during multiple users sharing then the sharing process is aborted.
 
 **Sample request**
 
@@ -879,9 +881,11 @@ If share_type is 'personal' then 'user' param is required, if share_type is 'gro
 
 **Request parameters**
 
-* share_type
+* share_type ('personal', 'group' or 'public')
 * user
 * group_id
+
+If share_type is 'personal' then 'user' param is required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.
 
 **Sample request**
 
