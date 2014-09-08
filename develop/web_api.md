@@ -29,6 +29,7 @@
 <li><a href="#list-groups">List Groups</a></li>
 <li><a href="#add-a-group">Add A Group</a></li>
 <li><a href="#delete-group">Delete Group</a></li>
+<li><a href="#rename-group">Rename Group</a></li>
 <li><a href="#group-member">Group Member</a><ul>
 <li><a href="#add-a-group-member">Add A Group Member</a></li>
 <li><a href="#delete-a-group-member">Delete A Group Member</a></li>
@@ -564,13 +565,40 @@ None
 **Sample request**
 
     curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
+    
+**Success**
+
+200 if everything is fine.
 
 **Errors**
 
-* 400 Bad group id format
-* 404 Group not found
-* 403 Forbid to delete group
-* 520 Failed to remove group (generic error)
+* 400 if ad group id format
+* 404 if Group not found
+* 403 if Forbid to delete group
+* 520 if Failed to remove group (generic error)
+
+### <a id="rename-group"></a>Rename Group
+
+**POST** https://cloud.seafile.com/api2/groups/{group_id}/
+
+**Request parameters**
+
+* operation (value must be 'rename')
+* newname (the new name for the group)
+
+**Sample request**
+
+    curl -d "operation=rename&newname=pinkfloyd_lovers" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
+
+**Success**
+
+   200 if everything is fine.
+
+**Errors**
+
+* 404 if Group not found
+* 403 if Forbid to rename group
+* 400 if Newname is missing or if Group name is not valid of if There is already a group with that name or Operation can only be rename.
 
 ### <a id="group-member"></a>Group Member ###
 
