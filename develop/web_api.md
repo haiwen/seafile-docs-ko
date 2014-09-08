@@ -117,6 +117,7 @@
 <li><a href="#directory">Directory</a><ul>
 <li><a href="#list-directory-entries">List Directory Entries</a></li>
 <li><a href="#create-new-directory">Create New Directory</a></li>
+<li><a href="#rename-directory">Rename Directory</a></li>
 <li><a href="#delete-directory">Delete Directory</a></li>
 <li><a href="#download-directory">Download Directory</a></li>
 <li><a href="#share-directory">Share Directory</a></li>
@@ -1975,6 +1976,34 @@ The id of the updated file
 **Notes**
 
    Newly created directory will be renamed if the name is duplicated.
+   
+#### <a id="rename-directory"></a>Rename Directory ###
+
+**POST** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
+
+**Parameters**
+
+* p (path)
+* operation=rename (post)
+* newname (the new name for directory)
+
+**Sample request**
+
+    curl -d  "operation=rename&newname=pinkfloyd_newfolder" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+
+**Success**
+
+   Response code 200 if everything is ok
+
+**Errors**
+
+* 403 if You do not have permission to rename a folder
+* 400 if newname is not given
+* 520 if Failed to rename directory (generic problem)
+
+**Notes**
+
+   If the new name is the same of the old name no operation will be done.
 
 #### <a id="delete-directory"></a>Delete Directory ###
 
