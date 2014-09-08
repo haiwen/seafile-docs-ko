@@ -858,10 +858,12 @@ Create download link for directory
 
 **Request parameters**
 
-* share_type
+* share_type ('personal', 'group' or 'public')
 * user
 * group_id
 * permission
+
+If share_type is 'personal' then 'user' param is required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.
 
 **Sample request**
 
