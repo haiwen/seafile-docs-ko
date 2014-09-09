@@ -1,4 +1,4 @@
-# Deploy Seafile With MySQL
+# Deploy Seafile Windows Server With MySQL
 
 ## Preparation
 

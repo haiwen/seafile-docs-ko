@@ -42,7 +42,7 @@ Run the database upgrade script
 - Right click the file `upgrade_3.0_3.1.bat`
 - Choose "run as administrator"
 
-If you're using MySQL, you need to manually upgrade the database yourself.
+If you're using MySQL, you need to manually upgrade the database yourself:
 
 - Go to the folder seafile-server-3.1.y/upgrade/sql/3.1.0/mysql/
 - If there are a file `ccnet.sql`, run it with the `ccnet-db` database
