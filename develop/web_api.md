@@ -28,6 +28,8 @@
 <li><a href="#group">Group</a><ul>
 <li><a href="#list-groups">List Groups</a></li>
 <li><a href="#add-a-group">Add A Group</a></li>
+<li><a href="#delete-group">Delete Group</a></li>
+<li><a href="#rename-group">Rename Group</a></li>
 <li><a href="#group-member">Group Member</a><ul>
 <li><a href="#add-a-group-member">Add A Group Member</a></li>
 <li><a href="#delete-a-group-member">Delete A Group Member</a></li>
@@ -115,6 +117,7 @@
 <li><a href="#directory">Directory</a><ul>
 <li><a href="#list-directory-entries">List Directory Entries</a></li>
 <li><a href="#create-new-directory">Create New Directory</a></li>
+<li><a href="#rename-directory">Rename Directory</a></li>
 <li><a href="#delete-directory">Delete Directory</a></li>
 <li><a href="#download-directory">Download Directory</a></li>
 <li><a href="#share-directory">Share Directory</a></li>
@@ -197,8 +200,11 @@ For each API, we provide `curl` examples to illustrate the usage.
 
 * start (default to 0)
 * limit (default to 100)
+* scope (default None, accepted values: 'LDAP' or 'DB')
 
-To retrieve all users, just set both `start` and `limit` to `-1`
+To retrieve all users, just set both `start` and `limit` to `-1`.
+
+If scope parameter is passed then accounts will be searched inside the specific scope, otherwise it will be used the old approach: first LDAP and, if no account is found, DB. 
 
 **Sample request**
 
@@ -549,6 +555,52 @@ To retrieve all users, just set both `start` and `limit` to `-1`
 
 * 400 There is already a group with that name.
 
+### <a id="delete-group"></a>Delete Group ###
+
+**DELETE** https://cloud.seafile.com/api2/groups/{group_id}/
+
+**Request parameters**
+
+None
+
+**Sample request**
+
+    curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
+    
+**Success**
+
+200 if everything is fine.
+
+**Errors**
+
+* 400 if ad group id format
+* 404 if Group not found
+* 403 if Forbid to delete group
+* 520 if Failed to remove group (generic error)
+
+### <a id="rename-group"></a>Rename Group
+
+**POST** https://cloud.seafile.com/api2/groups/{group_id}/
+
+**Request parameters**
+
+* operation (value must be 'rename')
+* newname (the new name for the group)
+
+**Sample request**
+
+    curl -d "operation=rename&newname=pinkfloyd_lovers" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
+
+**Success**
+
+   200 if everything is fine.
+
+**Errors**
+
+* 404 if Group not found
+* 403 if Forbid to rename group
+* 400 if Newname is missing or if Group name is not valid of if There is already a group with that name or Operation can only be rename.
+
 ### <a id="group-member"></a>Group Member ###
 
 #### <a id="add-a-group-member"></a>Add A Group Member ####
@@ -855,10 +907,14 @@ Create download link for directory
 
 **Request parameters**
 
-* share_type
-* user
+* share_type ('personal', 'group' or 'public')
+* user (or users)
 * group_id
 * permission
+
+If share_type is 'personal' then 'user' or 'users' param are required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.
+
+'user' or 'users' parameters can be a comma separated list of emails, in this case the share will be done for more users at the same time. If a problem is encountered during multiple users sharing then the sharing process is aborted.
 
 **Sample request**
 
@@ -874,9 +930,11 @@ Create download link for directory
 
 **Request parameters**
 
-* share_type
+* share_type ('personal', 'group' or 'public')
 * user
 * group_id
+
+If share_type is 'personal' then 'user' param is required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.
 
 **Sample request**
 
@@ -1918,6 +1976,34 @@ The id of the updated file
 **Notes**
 
    Newly created directory will be renamed if the name is duplicated.
+   
+#### <a id="rename-directory"></a>Rename Directory ###
+
+**POST** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
+
+**Parameters**
+
+* p (path)
+* operation=rename (post)
+* newname (the new name for directory)
+
+**Sample request**
+
+    curl -d  "operation=rename&newname=pinkfloyd_newfolder" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
+
+**Success**
+
+   Response code 200 if everything is ok
+
+**Errors**
+
+* 403 if You do not have permission to rename a folder
+* 400 if newname is not given
+* 520 if Failed to rename directory (generic problem)
+
+**Notes**
+
+   If the new name is the same of the old name no operation will be done.
 
 #### <a id="delete-directory"></a>Delete Directory ###
 
