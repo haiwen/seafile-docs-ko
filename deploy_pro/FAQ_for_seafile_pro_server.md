@@ -67,15 +67,13 @@ cd /data/haiwen/seafile-pro-server-1.7.0/
 
 Current office online preview works with libreoffice 4.1 or lower versions. The default version of libreoffice on ubuntu 14.04 server is 4.2. To solve this:
 
-Remove the installed libreoffice:
+- Remove the installed libreoffice:
 ```
 sudo apt-get remove libreoffice* python3-uno
 ```
-Download libreoffice packages from libreoffice official site:
-```
-wget http://ftp.jaist.ac.jp/pub/tdf/libreoffice/stable/4.1.6/deb/x86_64/LibreOffice_4.1.6_Linux_x86-64_deb.tar.gz
-```
-Install the downloaded pacakges:
+- Download libreoffice packages from [libreoffice official site](http://sourceforge.net/projects/libreoffice.mirror/files/LibreOffice%204.1.6/)
+
+- Install the downloaded pacakges:
 ```
 tar xf LibreOffice_4.1.6_Linux_x86-64_deb.tar.gz
 cd LibreOffice_4.1.6.2_Linux_x86-64_deb
@@ -83,7 +81,7 @@ cd DEBS
 sudo dpkg -i *.deb
 ```
 
-Restart your seafile server and try again. It should work now.
+- Restart your seafile server and try again. It should work now.
 ```
 ./seafile.sh restart
 ```
