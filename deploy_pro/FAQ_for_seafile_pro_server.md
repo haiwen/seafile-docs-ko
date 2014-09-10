@@ -63,13 +63,13 @@ cd /data/haiwen/seafile-pro-server-1.7.0/
 ./seahub.sh restart
 ```
 
-- Document preview doesn't work on my Ubuntu 14.04 server, what can I do?
+- Document preview doesn't work on my Ubuntu/Debian server, what can I do?
 
-Current office online preview works with libreoffice 4.1 or lower versions. The default version of libreoffice on ubuntu 14.04 server is 4.2. To solve this:
+Current office online preview works with libreoffice 4.0-4.2. If the version of libreoffice installed by `apt-get` is too old or too new, you can solve this by:
 
 - Remove the installed libreoffice:
 ```
-sudo apt-get remove libreoffice* python3-uno
+sudo apt-get remove libreoffice* python-uno python3-uno
 ```
 - Download libreoffice packages from [libreoffice official site](http://sourceforge.net/projects/libreoffice.mirror/files/LibreOffice%204.1.6/)
 
