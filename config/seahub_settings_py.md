@@ -108,7 +108,8 @@ SESSION_SAVE_EVERY_REQUEST = False
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
-# Using server side crypto by default, otherwise, let user choose crypto method. This option only controls files upload/download via web browser.
+# Using server side crypto by default, otherwise, let user choose crypto method. 
+# This option only controls files upload/download via web browser.
 FORCE_SERVER_CRYPTO = True
 
 </pre>
