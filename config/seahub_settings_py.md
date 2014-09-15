@@ -110,6 +110,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 # Using server side crypto by default, otherwise, let user choose crypto method. 
 # This option only controls files upload/download via web browser.
+# Syncing via desktop clients is always encrypted on the clients side.
 FORCE_SERVER_CRYPTO = True
 
 </pre>
