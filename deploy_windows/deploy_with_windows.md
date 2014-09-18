@@ -2,7 +2,7 @@
 
 ## Setup and Upgrade
 
-Seafile Windows Community Edition only support SQLite database now. The Seafie Windows professional edition supports [WebDAV](../deploy_win_pro/seafile_webdav_server.md) and [File Search](../deploy_pro/details_about_file_search.md).
+Seafile Windows Community Edition supports SQLite/MySQL database. The Seafie Windows professional edition supports [WebDAV](../deploy_win_pro/seafile_webdav_server.md) and [File Search](../deploy_pro/details_about_file_search.md).
 
 - [Download and Setup Seafile Windows Server](download_and_setup_seafile_windows_server.md)
 - [Deploy Seafile with MySQL](deploy_with_mysql.md)
