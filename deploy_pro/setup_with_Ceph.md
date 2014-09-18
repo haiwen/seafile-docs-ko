@@ -54,3 +54,42 @@ We recommend to allocate 128MB memory for memcached. Edit /etc/memcached.conf
 # -m 64
 -m 128
 ```
+
+## Use arbitary Ceph user
+
+The above configuration will use the default (client.admin) user to connect to Ceph.
+You may want to use some other Ceph user to connect. This is supported in Seafile.
+To specify the Ceph user, you have to add a `ceph_client_id` option to seafile.conf, as the following:
+
+```
+[block_backend]
+name = ceph
+ceph_config = /etc/ceph/ceph.conf
+# Sepcify Ceph user for Seafile here
+ceph_client_id = seafile
+pool = seafile-blocks
+memcached_options = --SERVER=localhost --POOL-MIN=10 --POOL-MAX=100
+
+[commit_object_backend]
+name = ceph
+ceph_config = /etc/ceph/ceph.conf
+# Sepcify Ceph user for Seafile here
+ceph_client_id = seafile
+pool = seafile-commits
+memcached_options = --SERVER=localhost --POOL-MIN=10 --POOL-MAX=100
+
+[fs_object_backend]
+name = ceph
+ceph_config = /etc/ceph/ceph.conf
+# Sepcify Ceph user for Seafile here
+ceph_client_id = seafile
+pool = seafile-fs
+memcached_options = --SERVER=localhost --POOL-MIN=10 --POOL-MAX=100
+```
+
+You also have to add this user's keyring path to /etc/ceph/ceph.conf:
+
+```
+[client.seafile]
+keyring = <path to user's keyring file>
+```
