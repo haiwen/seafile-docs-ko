@@ -106,7 +106,7 @@ Now with the latest valid database backup files at hand, you can restore them.
 
     mysql -u[username] -p[password] ccnet-db < ccnet-db.sql.2013-10-19-16-00-05
     mysql -u[username] -p[password] seafile-db < seafile-db.sql.2013-10-19-16-00-20
-    mysql -u[username] -p[password] seahub-db.sql.2013-10-19-16-01-05
+    mysql -u[username] -p[password] seahub-db < seahub-db.sql.2013-10-19-16-01-05
 
 **SQLite**
 
