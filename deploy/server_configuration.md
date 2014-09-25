@@ -42,6 +42,8 @@ The configuration of seafile fileserver is in the <code>[fileserver]</code> sect
 
 <pre>
 [fileserver]
+# binding host for fileserver
+host = 0.0.0.0
 # tcp port for fileserver
 port = 8082
 </pre>
