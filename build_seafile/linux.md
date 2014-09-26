@@ -78,7 +78,7 @@ export PATH="$PREFIX/bin:$PATH"
 ##### libsearpc
 
 ```bash
-cd libsearpc-${version}
+cd libsearpc-3.0-latest
 ./autogen.sh
 ./configure --prefix=$PREFIX
 make
