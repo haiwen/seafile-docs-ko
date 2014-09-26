@@ -1,9 +1,9 @@
 # Download and Setup Seafile Windows Server
 
 ## Download/Uncompress
-### Install Python 2.7
+### Install Python 2.7.4 32bit
 
-- Download and install [python 2.7](https://www.python.org/ftp/python/2.7.8/python-2.7.8.msi)
+- Download and install [python 2.7.4 32bit](http://python.org/ftp/python/2.7.4/python-2.7.4.msi)
 - Add the installation path of python2.7 to the system PATH environment variable. If you installed python 2.7 to ``C:\Python27`` add ``C:\Python27`` to the PATH environment variable
 
 ### Download/Uncompress Seafile Server
