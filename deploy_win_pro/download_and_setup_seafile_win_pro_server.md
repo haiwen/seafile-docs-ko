@@ -42,9 +42,6 @@ D:\elasticsearch\bin\service.bat install
 D:\elasticsearch\bin\service.bat start
 ```
 
-## Download the Seafile Server Package
-
-You can download the latest Seafile Professional Server for windows [here](http://seacloud.cc/repo/51fa38cb-a8ea-4d8a-bd08-e1940daf52b2/).
 
 ## Prepare the License File
 
@@ -60,4 +57,5 @@ C:\SeafileProgram
 
 ## Setup Seafile Server
 
-Please refer to the [Community Wiki for Seafile Windows Server](https://seacloud.cc/group/3/wiki/seafile-windows-server/)
+Except for the Java program and the license, the setup of pro server is the same as setup of community edition.
+Please follow the [document on setup community edition](../deploy_windows/deploy_with_windows.md)
