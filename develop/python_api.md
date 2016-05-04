@@ -1,26 +1,26 @@
-# Python API
+# 파이썬 API
 
 <p><div class="toc">
 <ul>
-<li><a href="#Seafile Python API">Seafile Python API</a></li>
-<li><a href="#Install Seafile Server">Install Seafile Server</a></li>
-<li><a href="#Example: Copy Library">Example: Copy Library</a></li>
+<li><a href="#Seafile Python API">Seafile 파이썬 API</a></li>
+<li><a href="#Install Seafile Server">Seafile 서버 설치</a></li>
+<li><a href="#Example: Copy Library">예제: 라이브러리 복사</a></li>
   <ul>
-  <li><a href="#Set Environment Variable">Set Environment Variable</a></li>
-  <li><a href="#Copy Library">Copy Library</a></li>
-  <li><a href="#List Of Seafile-API">List Of Seafile-API</a></li>
+  <li><a href="#Set Environment Variable">환경 변수 설정</a></li>
+  <li><a href="#Copy Library">라이브러리 복사</a></li>
+  <li><a href="#List Of Seafile-API">Seafile-API 목록</a></li>
   </ul>
 </ul>
 </p>
 
 
-#<a id="Seafile Python API"></a>Seafile Python API#
+#<a id="Seafile Python API"></a>Seafile 파이썬 API#
 
-This tutorial show you how to use seafile-api, and will accomplish a "library copy" work under **Ubuntu** as example.
+이 지침은 seafile-api 사용법을 보여드리며, **우분투**에서 "라이브러리 복사" 예로 보여드리겠습니다.
 
-##<a id="Install Seafile Server"></a>Install Seafile Server##
+##<a id="Install Seafile Server"></a>Seafile 서버 설치##
 
-First of all, make sure you have [Download and Setup Seafile Server](https://github.com/haiwen/seafile/wiki/Download-and-setup-seafile-server) successfully. And your directory layout will be like this:
+우선, [Seafile 서버를 다운로드하고 설치](https://github.com/haiwen/seafile/wiki/Download-and-setup-seafile-server) 했는지 확인하십시오. 디렉터리 배치는 다음과 같습니다:
 
     # tree . -L 3
     .
@@ -42,17 +42,17 @@ First of all, make sure you have [Download and Setup Seafile Server](https://git
     │   ├── ......
     │......
 
-##<a id="Example: Copy Library"></a>Example: Copy Library
-In this example, two script files will be used: `seaf_migrate_3.sh` and `seaf_migrate_3.py`. We put them in the **upgrade** directory as you see above.
+##<a id="Example: Copy Library"></a>예제: 라이브러리 복사
+이 예제에서 `seaf_migrate_3.sh`와  `seaf_migrate_3.py` 스크립트 파일을 사용하겠습니다. 위와 같이 **upgrade** 디렉터리에 복사하겠습니다.
 
-###<a id="Set Environment Variable"></a>Set Environment Variable
-If you want use Seafile-API, set environment variable first. That's what `seaf_migrate_3.sh` does:
+###<a id="Set Environment Variable"></a>환경 변수 설정
+Seafile-API를 사용하려면 환경 변수를 우선 설정해야합니다. `seaf_migrate_3.sh`가 하는 일입니다:
 
-1. get ccnet/seafile config file path and export them;
-2. export Python path;
-3. call `seaf_migrate_3.py`.
+1. ccnet/seafile 설정 파일 경로를 가져와서 export 합니다
+2. 파이썬 경로를 export 합니다
+3. `seaf_migrate_3.py`를 호출합니다.
 
-Example code
+예제 코드
 ```sh
 #!/bin/bash
 
@@ -99,18 +99,18 @@ fi
 python seaf_migrate_3.py $1
 ```
 
-> **NOTE:**
-> You can get `repo_id` at address bar of Seahub or through [Seafile web API](https://github.com/haiwen/seafile/wiki/Seafile-web-API#list-libraries)
+> **참고:**
+> Seahub 주소 표시줄 또는 [Seafile 웹 API](https://github.com/haiwen/seafile/wiki/Seafile-web-API#list-libraries)에서 `repo_id`를 찾을 수 있습니다
 
-###<a id="Copy Library"></a>Copy Library
-Then `seaf_migrate_3.py` will call Seafile-API to copy library:
+###<a id="Copy Library"></a>라이브러리 복사
+다음, `seaf_migrate_3.py`으로 라이브러리를 복사하는 Seafile-API를 호출하겠습니다:
 
-1. Get library ID from input.
-2. Get origin_repo object.
-3. Create a new library, set name, desc and owner.
-4. Copy stuffs from old library to new library.
+1. 입력에서 라이브러리 ID를 가져옵니다.
+2. origin_repo 객체를 가져옵니다.
+3. 새 라이브러리를 만들고, 이름, 설명, 소유자를 설정합니다.
+4. 이전 라이브러리의 내용을 새 라이브러리에 복사합니다.
 
-Example code
+예제 코드
 ```python
 #!/usr/bin/env python
 
@@ -157,7 +157,7 @@ print "Origin library(%s): %d files. New Library(%s): %d files." % (
 print "*" * 60
 ```
 
-If you execute script file successfully, you will see these output, and of course a new library at myhome page of Seahub.
+스크립트 파일 실행에 성공하면 다음 출력 내용이 나타나며, 물론 Seahub의 내 페이지에 새 라이브러리가 뜹니다.
 
     foo@foo:~/haiwen/seafile-server-3.0.3/upgrade$ ./seaf_migrate_test.sh c8bbb088-cbaf-411d-8bd8-9870763f0e5f
     Loading ccnet config from /home/foo/haiwen/ccnet
@@ -172,10 +172,10 @@ If you execute script file successfully, you will see these output, and of cours
     Origin library(c8bbb088): 10 files. New Library(4d6f4837): 10 files.
     ************************************************************
 
-##<a id="List Of Seafile-API"></a>List Of Seafile-API
-This list is based on **seafile-server-3.0.3**, and parameter was omitted.
+##<a id="List Of Seafile-API"></a>Seafile-API 목록
+이 목록은 **seafile-server-3.0.3**을 기반으로 하며, 매개변수는 생략했습니다.
 
-For more infomation about Seafile-API, please see [api.py](https://github.com/haiwen/seafile/blob/master/python/seaserv/api.py).
+Seafile-API에 대한 세부 사항은 [api.py](https://github.com/haiwen/seafile/blob/master/python/seaserv/api.py)를 참고하십시오.
 
 > - seafile_api.add_inner_pub_repo()
 > - seafile_api.cancel_copy_task()
@@ -257,3 +257,4 @@ For more infomation about Seafile-API, please see [api.py](https://github.com/ha
 > - seafile_api.set_user_quota()
 > - seafile_api.share_repo()
 > - seafile_api.unset_passwd()
+

@@ -1,27 +1,28 @@
-# Client
-This manual explains how to setup and run Seafile client from a pre-built package.
+# 클라이언트
+이 설명서는 이미 빌드한 Seafile 꾸러미를 설정하고 실행하는 방법을 설명합니다.
 
-## Components
-Seafile client v3.0 consists of three components:
+## 구성 요소
+Seafile 클라이언트 v3.0에는 다음 세가지 구성요소가 있습니다:
 
-* ccnet-daemon: for networking
-* seafile-daemon: for file syncing
-* seafile-applet: GUI Client
+* ccnet-daemon: 네트워크 기능 담당
+* seafile-daemon: 파일 동기화용
+* seafile-applet: GUI 클라이언트
 
-## Platform Support
-- GUI Client (seafile-applet)
-    - Availabe on Ubuntu 12.04 or above
-    - Availabe on Windows XP/Vista/7/8
-    - Availabe on Mac OS X 10.6 or above
-    - Availabe on Android
-    - Availabe on iOS (App Store)
-- Terminal Client (ccnet-daemon, and seafile-applet)
-    - Runs on Generic Linux
-    - Runs on Windows XP/Vista/7/8
-    - Runs on Mac OS X 10.6 or above
+## 플랫폼 지원
+- GUI 클라이언트(seafile-applet)
+    - Ubuntu 12.04 이상
+    - 윈도우 XP/Vista/7/8
+    - Mac OS X 10.6 이상
+    - Android
+    - iOS (App Store)
+- 터미널 클라이언트(ccnet-daemon, seafile-applet)
+    - 일반 리눅스 운영체제에서 실행
+    - Windows XP/Vista/7/8에서 실행
+    - Mac OS X 10.6 이상에서 실행
 
-## Download
+## 다운로드
 
-Visit [our download page](http://www.seafile.com/en/download), download the latest client package.
+[다운로드 페이지](http://www.seafile.com/en/download)를 방문하여, 최신 클라이언트 꾸러미를 다운로드하십시오.
 
 Changelog: http://seacloud.cc/group/3/wiki/client-changelog/
+

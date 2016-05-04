@@ -1,21 +1,21 @@
-# Contribution
+# 기여하기
 
-## Licensing
-Seafile and its desktop and mobile clients are published under the GPLv3.
+## 라이선스
+Seafile 및 데스크톱, 모바일 클라이언트는 GPLv3 라이선스 하에 출시합니다.
 
-The Seafile server's web end, i.e. Seahub, is published under the Apache License.
+Seahub와 같은 Seafile 서버 웹 엔드는 Apache 라이선스에 따라 배포합니다.
 
-## Discussion
-Google Group: https://groups.google.com/forum/?fromgroups#!forum/seafile
+## 토론방
+구글 그룹스: https://groups.google.com/forum/?fromgroups#!forum/seafile
 
-IRC: #seafile on freenode
+IRC: freenode의 #seafile
 
-Follow us @seafile https://twitter.com/seafile
+@seafile https://twitter.com/seafile 을 팔로우하십시오
 
-## Reporting a Bug?
-- Find the existing issues that fit your situation if any, or create a new issue. We are using github as our issue tracer https://github.com/haiwen/seafile/issues?state=open
-- Join us on Google Group: https://groups.google.com/forum/?fromgroups#!forum/seafile
+## 버그 보고?
+- 상황에 맞는 기존의 문제 보고를 찾거나 새 문제 보고를 작성하십시오. 문제 추적기로 github를 사용합니다. https://github.com/haiwen/seafile/issues?state=open
+- 구글 그룹스에 참여하십시오: https://groups.google.com/forum/?fromgroups#!forum/seafile
 
-## Code Style
-  The source code of seafile is ISO/IEC 9899:1999 (E) (a.k.a. C99) compatible. Take a look at [code standard](develop/code_standard.md).
+## 코딩 방식
+  Seafile 소스 코드는 ISO/IEC 9899:1999 (E) (C99) 호환 문법을 사용합니다. [코딩 표준](develop/code_standard.md)을 살펴보십시오.
 

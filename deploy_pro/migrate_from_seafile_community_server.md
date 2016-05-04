@@ -1,90 +1,66 @@
-# Migrate from Seafile Community Server
+# Seafile 커뮤니티 서버에서 이전
 
-## <a id="wiki-restriction"></a>Restriction ##
+## <a id="wiki-restriction"></a>제한사항 ##
 
-It's quite likely you have deployed the Seafile Community Server and want to switch to the Professional Server, or vice versa. But there is some restriction:
+Seafile 커뮤니티판 서버를 가동중이고, [전문가판 서버](http://seafile.com/en/product/private_server/) 또는 그 반대로 전환하고 싶을 경우가 있습니다. 그런데, 몇가지 제한 사항이 있습니다:
 
-- You can only switch between Community Server and Professional Server of the same minor version.
+- 커뮤니티 서버 및 전문가 서버의 부 버전이 같을 때만 전환할 수 있습니다.
 
-That is, if you are using Community Server 1.6, and want to switch to the Professional Server 1.7, you must first upgrade to Community Server 1.7, and then follow the guides below to switch to the Professional Server 1.7. (The last tiny version number in 1.7.x is not important.)
+그러니까 커뮤니티 서버 1.6을 사용하고 전문가 서버 1.7로 이전하려면 커뮤니티 서버를 1.7로 우선 업그레이드 하고 전문가 서버 1.7로 전환하는 지시 사항을 따라야합니다(1.7.x에서 마지막의 가장 작은 버전 숫자는 중요하지 않습니다).
 
-## <a id="wiki-preparation"></a>Preparation ##
+## <a id="wiki-preparation"></a>준비 ##
 
-### Install Java Runtime Environment (JRE) ###
+### 자바 런타임 환경(JRE) 설치 ###
 
-On Ubuntu/Debian:
+Java 7 이상이 필요합니다.
+
+우분투/데비안:
 ```
-sudo apt-get install default-jre
-```
-
-On CentOS/Red Hat:
-```
-sudo yum install java-1.6.0-openjdk
+sudo apt-get install openjdk-7-jre
 ```
 
-*Note*: You can use either the JRE of openJDK or Oracle JRE, but not the GCJ(GNU Java) package.
+CentOS/레드햇:
+```
+sudo yum install java-1.7.0-openjdk
+```
 
-### Install poppler-utils ###
+*참고*: 3.1.12 버전부터 자바 1.7이 필요합니다. `java -version` 명령으로 자바 버전을 확인하십시오. 1.7이 아니면 [기본 자바 버전을 변경하십시오](./change_default_java.md).
 
-We need poppler-utils for full text search of pdf files.
+### poppler-utils 설치 ###
 
-On Ubuntu/Debian:
+pdf 파일에서 완전한 문구 검색을 처리하려면 poppler-utils가 필요합니다.
+
+우분투/데비안:
 ```
 sudo apt-get install poppler-utils
 ```
 
-On CentOS/Red Hat:
+CentOS/레드햇:
 ```
 sudo yum install poppler-utils
 ```
 
+## <a id="wiki-do-migration"></a>이전 작업 진행 ##
 
-### Install Libreoffice/UNO ###
-
-Libreoffice program and Python-uno library is needed to enable office files online preview. If you don't install them, the office documents online preview will be disabled.
-
-On Ubuntu/Debian:
-```
-sudo apt-get install libreoffice python-uno
-```
-
-On Centos/RHEL:
-```
-sudo yum install libreoffice libreoffice-headless libreoffice-pyuno
-```
-
-For other Linux distro: [Installation of LibreOffice on Linux](http://www.libreoffice.org/get-help/installation/linux/)
-
-Also, you may need to install fonts for your language, especially for Asians, otherwise the  office/pdf document may not display correctly. 
-
-For example, Chinese users may wish to install the WenQuanYi series of truetype fonts:
-
-```
-# For ubuntu/debian
-sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
-```
-
-## <a id="wiki-do-migration"></a>Do the migration ##
-
-We assume you have already deployed Seafile Community Server 1.8.0 under `/data/haiwen/seafile-server-1.8.0`. 
+`/data/haiwen/seafile-server-1.8.0`에 Seafile 커뮤니티판 서버 1.8.0을 가동중이라고 가정하겠습니다.
 
 
-### Get the license ###
+### 라이선스 취득 ###
 
 
-Put the license you get under the top level directory of your Seafile installation. In our example, it is `/data/haiwen/`.
+Seafile 설치 최상위 디렉터리에 라이선스 파일을 복사하십시오, 최상위 디렉터리 예는 `/data/haiwen`입니다.
 
 
-### <a id="wiki-download-and-uncompress"></a>Download/Uncompress Seafile Professional Server ###
+### <a id="wiki-download-and-uncompress"></a>Seafile 전문가판 서버 다운로드/압축 해제 ###
 
 
-You should uncompress the tarball to the top level directory of your installation, in our example, `/data/haiwen`.
+설치본의 최상위 디렉터리에 타르볼 압축을 해제해야합니다. 예를 들면 `/data/haiwen`입니다.
 
 ```
 tar xf seafile-pro-server_1.8.0_x86-64.tar.gz
 ```
 
-Now you have:
+이제 다음 파일 및 디렉터리가 나타납니다:
 
 ```
 haiwen
@@ -102,37 +78,37 @@ haiwen
 
 -----------
 
-You should notice the difference between the names of the Community Server and Professional Server. Take the 1.8.0 64bit version as an example:
+커뮤니티판 서버와 전문가판 서버의 이름이 다르다는 점에 주목하십시오. 1.8.0 64비트 버전을 예로 들어보겠습니다:
 
-- Seafile Community Server tarball is `seafile-server_1.8.0_x86-86.tar.gz`; After uncompressing, the folder is `seafile-server-1.8.0`
-- Seafile Professional Server tarball is `seafile-pro-server_1.8.0_x86-86.tar.gz`; After uncompressing, the folder is `seafile-pro-server-1.8.0`
-    
+- Seafile 커뮤니티판 서버 타르볼은 `seafile-server_1.8.0_x86-86.tar.gz`이며, 압축을 해제하면 `seafile-server-1.8.0` 폴더가 나옵니다
+- Seafile 전문가판 서버 타르볼은 `seafile-pro-server_1.8.0_x86-86.tar.gz`이며, 압축을 해제하면 `seafile-pro-server-1.8.0` 폴더가 나옵니다
+
 -----------
 
 
-### Do the migration ###
+### 이전 작업 진행 ###
 
-- Stop Seafile Community Server if it's running
+- Seafile 커뮤니티판 서버를 실행중이면 멈추십시오
 ```
 cd haiwen/seafile-server-1.8.0
 ./seafile.sh stop
 ./seahub.sh stop
 ```
-- Run the migration script 
+- 이전 스크립트를 실행하십시오
 ```
 cd haiwen/seafile-pro-server-1.8.0/
 ./pro/pro.py setup --migrate
 ```
 
-The migration script would do the following for you:
+이전 스크립트에서는 다음 과정을 진행합니다:
 
-- ensure your have all the prerequisites met
-- create necessary extra configurations
-- update the avatar directory
-- create extra database tables  
+- 준비 조건을 모두 만족했는지 확인합니다
+- 필요한 추가 설정을 만듭니다
+- 아바타 디렉터리를 업데이트합니다
+- 추가 데이터베이스 테이블을 만듭니다  
 
 
-Now you have:
+이제 다음 파일 및 디렉터리가 나타납니다:
 
 <blockquote>
 haiwen<br/>
@@ -147,7 +123,7 @@ haiwen<br/>
 └── <span style="color:green;font-weight:bold;">pro-data/</span><br/>
 </blockquote>
 
-### Start Seafile Professional Server ###
+### Seafile 전문가판 서버 시작 ###
 
 ```
 cd haiwen/seafile-pro-server-1.8.0
@@ -156,22 +132,23 @@ cd haiwen/seafile-pro-server-1.8.0
 ```
 
 
-## <a id="wiki-switch-back"></a>Switch Back to Community Server ##
+## <a id="wiki-switch-back"></a>커뮤니티판 서버로 돌아가기 ##
 
-- Stop Seafile Professional Server if it's running
+- Seafile 전문가판 서버를 실행 중이면 멈추십시오
 ```
 cd haiwen/seafile-pro-server-1.8.0/
 ./seafile.sh stop
 ./seahub.sh stop
 ```
-- Update the avatar directory link just like in [Minor Upgrade](https://github.com/haiwen/seafile/wiki/Upgrading-Seafile-Server#minor-upgrade-like-from-150-to-151)
+- [부 버전(minor) 업그레이드](https://github.com/haiwen/seafile/wiki/Upgrading-Seafile-Server#minor-upgrade-like-from-150-to-151)와 같이 아바타 디렉터리 링크를 업데이트하십시오
 ```
 cd haiwen/seafile-server-1.8.0/
 ./upgrade/minor-upgrade.sh
 ```
-- Start Seafile Community Server
+- Seafile 커뮤니티판 서버를 시작하십시오
 ```
 cd haiwen/seafile-server-1.8.0/
 ./seafile.sh start
 ./seahub.sh start
 ```
+

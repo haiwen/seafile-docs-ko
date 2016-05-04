@@ -2,102 +2,101 @@
 
 init
 ----
-Initialize config file
+설정 파일을 초기화합니다
 
-usage: seaf-cli -c <config-dir> -o init
+사용법: seaf-cli -c <설정-디렉터리> -o init
 
 start
 -----
-Start seafile-applet to run a seafile client
+seafile 클라이언트를 실행하려면 seafile-applet을 시작하십시오
 
-usage: seaf-cli -c <config-dir> -o start
+사용법: seaf-cli -c <설정-디렉터리> -o start
 
 start-ccnet
 -----------
-Start ccnet daemon
+ccnet 데몬을 시작하십시오
 
-usage: seaf-cli -c <config-dir> -o start-ccnet
+사용법: seaf-cli -c <설정-디렉터리> -o start-ccnet
 
 start-seafile
 -------------
-Start seafile daemon
+seafile 데몬을 시작하십시오
 
-usage: seaf-cli -c <config-dir> [-w <worktree>] -o start-seafile
+사용법: seaf-cli -c <설정-디렉터리> [-w <작업트리>] -o start-seafile
 
 clone
 -----
-Clone a repo from seafile server
+seafile 서버의 저장소를 복제합니다
 
-A repo id and a url need to be give because this program need to use seafile web
-API v2 to fetch repo information.
+이 프로그램에서 저장소 정보를 가져올 때 seafile 웹 API v2을 활용하므로 저장소 ID와 URL값을 지정해야합니다.
 
-usage: seaf-cli -c <config-dir> -r <repo-id> -u <url> [-w <worktree>] -o clone
+사용법: seaf-cli -c <설정-디렉터리> -r <저장소-ID> -u <URL> [-w <작업트리>] -o clone
 
 sync
 ----
-Try to synchronize a repo
+저장소 동기화를 시도합니다
 
-usage: seaf-cli -c <config-dir> -r <repo-id> -o clone
+사용법: seaf-cli -c <설정-디렉터리> -r <저장소-ID> -o clone
 
 remove
 ------
-Try to desynchronize a repo
+저장소 동기화 관계를 끊습니다
 
-usage: seaf-cli -c <config-dir> -r <repo-id> -o remove
+사용법: seaf-cli -c <설정-디렉터리> -r <저장소-ID> -o remove
 
-## Usage
+## 사용법
 
-Subcommands:
+하위 명령:
 
-    init:           create config files for seafile client
-    start:          start and run seafile client as daemon
-    stop:           stop seafile client
-    list:           list local liraries
-    status:         show syncing status
-    download:       download a library from seafile server
-    sync:           synchronize an existing folder with a library in
-                        seafile server
-    desync:         desynchronize a library with seafile server
+    init:           seafile 클라이언트 설정 파일을 만듭니다
+    start:          Seafile 클라이언트를 데몬으로 시작하고 실행합니다
+    stop:           seafile 클라이언트를 멈춥니다
+    list:           로컬 라이브러리를 나타냅니다
+    status:         동기화 상태를 표시합니다
+    download:       seafile 서버에서 라이브러리를 다운로드합니다
+    sync:           seafile 서버에 있는 라이브러리의 폴더를 동기화합니다
+    desync:         seafile 서버와의 라이브러리 동기화를 해제합니다
 
 
-##More details
+## 더 자세한 내용
 
-Seafile client stores all its configure information in a config dir. The default location is `~/.ccnet`. All the commands below accept an option `-c <config-dir>`.
+Seafile 클라이언트의 모든 설정 정보는 설정 디렉터리에 저장합니다. 기본 위치는 `~/.ccnet` 입니다. 하단의 모든 명령은 `-c <설정-디렉터리>` 설정을 받아들입니다.
 
 init
 ----
-Initialize seafile client. This command initializes the config dir. It also creates sub-directories `seafile-data` and `seafile` under `parent-dir`. `seafile-data` is used to store internal data, while `seafile` is used as the default location put downloaded libraries.
+seafile 클라이언트를 초기화합니다. 이 명령은 `상위-디렉터리`에 `seafile-data`와 `seafile` 하위 디렉터리를 만듭니다. `seafile-data`는 내부 데이터 저장에 활용하며 `seafile`은 다운로드한 라이브러리의 기본 위치로 활용합니다.
 
-    seaf-cli init [-c <config-dir>] -d <parent-dir>
+    seaf-cli init [-c <설정-디렉터리>] -d <상위-디렉터리>
 
 start
 -----
-Start seafile client. This command start `ccnet` and `seaf-daemon`, `ccnet` is the network part of seafile client, `seaf-daemon` manages the files.
+Seafile 클라이언트를 시작합니다. 이 명령은 `ccnet`, `seaf-daemon`, seafile 클라이언트의 네트워크 기능을 담당하는 `ccnet`, 파일을 관리하는 `seaf-daemon`을 시작합니다.
 
-    seaf-cli start [-c <config-dir>]
+    seaf-cli start [-c <설정-디렉터리>]
 
 stop
 ----
-Stop seafile client.
+seafile 클라이언트를 멈춥니다.
 
-    seaf-cli stop [-c <config-dir>]
+    seaf-cli stop [-c <설정-디렉터리>]
 
 
-Download
+download
 --------
-Download a library from seafile server
+seafile 서버에서 라이브러리를 다운로드합니다
 
-    seaf-cli download -l <library-id> -s <seahub-server-url> -d <parent-directory> -u <username> [-p <password>]
+    seaf-cli download -l <라이브러리-ID> -s <seahub-server-url> -d <상위-디렉터리> -u <사용자이름> [-p <암호>]
 
 
 sync
 ----
-Synchronize a library with an existing folder.
+기존 폴더에 라이브러리를 동기화합니다.
 
-    seaf-cli sync -l <library-id> -s <seahub-server-url> -d <existing-folder> -u <username> [-p <password>]
+    seaf-cli sync -l <라이브러리-ID> -s <seahub-서버-URL> -d <기존-폴더> -u <사용자이름> [-p <암호>]
 
 desync
 ------
-Desynchronize a library from seafile server
+seafile 서버의 라이브러리 동기화 관계를 끊습니다
 
-    seaf-cli desync -d <existing-folder>
+    seaf-cli desync -d <기존-폴더>
+

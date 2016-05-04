@@ -1,31 +1,6 @@
-# Firewall settings
+# 방화벽 설정
 
-By default, you should open 4 ports in your firewall settings.
+기본적으로, 방화벽 설정에서 8000 및 8082 포트를 열어야합니다.
 
-     |
-     | Seahub
-        | 8000
-        |-
-        | FileServer
-        | 8082
-        |-
-        | Ccnet Daemon
-        | 10001
-        |-
-        | Seafile Daemon
-        | 12001
-        |
-
-If you run Seafile behind Nginx/Apache with HTTPS, you should open ports
-
-     |
-     | HTTPS
-        | 443
-        |-
-        | Ccnet Daemon
-        | 10001
-        |-
-        | Seafile Daemon
-        | 12001
-        |
+Seafile을 Nginx/Apache에서 https로 실행한다면, 443 포트만 열면 됩니다.
 

@@ -1,17 +1,16 @@
-# Seafile Network Configurations (ccnet.conf)
+# Seafile 네트워크 설정(ccnet.conf)
 
-You may change Seafile's network options by modifying `ccnet/ccnet.conf` file. Let's walk through the options by an example.
+**참고**: Seafile 서버 5.0.0부터 모든 설정 파일은 **conf** 폴더로 옮겨 모아놓습니다. [좀 더 읽어보십시오](../deploy/new_directory_layout_5_0_0.md).
+
+`ccnet.conf` 파일을 수정하여 Seafile의 네트워크 설정 항목 값을 바꿀 수 있습니다. 예쩨를 통해 설정 항목을 차근차근 살펴보겠습니다.
 
 <pre>
 [General]
 
-# This option is not used by Seafile server
-USER_NAME=example
-
-# Please don't change this ID.
+# Used internally. Don't delete.
 ID=eb812fd276432eff33bcdde7506f896eb4769da0
 
-# This is the name of this Seafile server. Currenlty it is only used in Seafile client's log.
+# Used internally. Don't delete.
 NAME=example
 
 # This is outside URL for Seahub(Seafile Web). 
@@ -21,23 +20,30 @@ SERVICE_URL=http://www.example.com:8000
 
 
 [Network]
-
-# Ccnet waits for client connections on this port. If it's used by other services, please change it.
-# This is only useful for the seafile server.
+# Not used anymore
 PORT=10001
 
 [Client]
-# Start from version 3.1.2, this option is not used in Linux server and client. Unix socket is used instead.
-# Ccnet listens to this port on localhost for internal RPC calls.
-# If it's been used by other services, ccnet and seafile would not be able to run.
-# If you want to run seafile client and server on the same machine, change this port for the client.
+# Not used anymore
 PORT=13419
 
 </pre>
 
-**Note**: You should restart seafile so that your changes take effect.
+**참고**: 바꾼 설정 항목 값을 적용하려면 Seafile을 다시 시작해야합니다.
 
 <pre>
 cd seafile-server
 ./seafile.sh restart
 </pre>
+
+## MySQL 연결 풀 크기 설정 바꾸기
+
+MySQL을 사용하도록 Seafile 서버를 설정할 때 기본 연결 풀 갯수는 100이며, 대부분의 경우 충분합니다. ccnet.conf에 다음 옵션을 추가하여 이 값을 바꿀 수 있습니다:
+
+```
+[Database]
+......
+# Use larger connection pool
+MAX_CONNECTIONS = 200
+```
+

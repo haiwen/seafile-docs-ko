@@ -1,5 +1,6 @@
 # Seafile
-##Customize database
+## 데이터베이스 개별 설정
 
-* [Using MySQL](deploy/using_msql.md)
-* [Using PostgreSQL](deploy/using_postgresql.md)
+* [MySQL 사용](deploy/using_msql.md)
+* [PostgreSQL 사용](deploy/using_postgresql.md)
+
