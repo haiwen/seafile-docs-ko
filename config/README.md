@@ -1,35 +1,39 @@
-# Server Configuration and Customization
+# 서버 설정 및 개별 설정
 
-## Config Files
+## 설정 파일
 
-This section explains how to change various config options for Seafile server.
+**중요**: Seafile 서버 5.0.0부터 모든 설정 파일은 **conf** 폴더로 옮겨 모아놓습니다. [좀 더 읽어보십시오](../deploy/new_directory_layout_5_0_0.md).
 
-There are three config files in the community edition:
+커뮤니티판에는 세가지 설정 파일이 있습니다:
 
-- [ccnet/ccnet.conf](ccnet-conf.md): contains the network settings
-- [seafile-data/seafile.conf](seafile-conf.md): contains settings for seafile daemon and fileserver.
-- [seahub_settings.py](seahub_settings_py.md): contains settings for Seahub
+- [ccnet.conf](ccnet-conf.md): LDAP 설정이 들어있습니다
+- [seafile.conf](seafile-conf.md): Seafile 데몬 및 파일 서버 설정이 들어있습니다.
+- [seahub_settings.py](seahub_settings_py.md): Seahub 설정이 들어있습니다
 
-There is one additional config file in the pro edition:
+전문가판에는 추가 설정 파일이 들어있습니다:
 
-- `pro-data/seafevents.conf`: contains settings for search and documents preview
+- `seafevents.conf`: 검색 및 문서 미리 보기 설정이 들어있습니다
 
-## Config Items
+참고: 5.0.0 버전 부터 대부분의 설정 항목은 웹 인터페이스에서 수정할 수 있습니다. 설정 항목은 데이터베이스 테이블(seahub_db/constance_config)에 저장합니다. 설정 파일의 항목보다 높은 우선순위를 갖습니다.
 
-Email:
+![Seafile 웹에서 설정하기](../images/seafile-server-config.png)
 
-* [Sending email notifications](sending_email.md)
-* [Customize email notifications](customize_email.md)
+## 설정 항목
 
-User management
+전자메일:
 
-* [User management options](user_options.md)
+* [전자메일 알림 전송](sending_email.md)
+* [전자메일 알림 개별 설정](customize_email_notifications.md)
 
-User quota and download/upload size limits
+사용자 관리
 
-* [User quota and download/upload size limits options](quota_and_size_options.md)
+* [사용자 관리 설정 항목](user_options.md)
 
-## Customize Web
+사용자 저장 용량 제한 및 다운로드/업로드 파일 크기 제한
 
-* [Customize web inferface](seahub_customization.md)
+* [사용자 저장 용량 제한 및 다운로드/업로드 파일 크기 제한 설정 항목](quota_and_size_options.md)
+
+## 웹 개별 설정
+
+* [웹 인터페이스 개별 설정](seahub_customization.md)
 

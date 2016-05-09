@@ -1,66 +1,47 @@
-# Synchronization algorithm
+# 동기화 알고리즘
 
-This article tries to give an overview on Seafile's file synchronization algorithm.
-For clarity, some details are deliberately omitted, but it should help you get the
-big picture.
+이 글은 Seafile 파일 동기화 알고리즘 동작 개요를 설명합니다. 
+이해를 도우려 일부 자세한 설명은 생략했지만, 큰 그림을 이해하는데 도움을 드립니다.
 
-To better understand this article, you should first read [[Seafile data model]].
+이 글을 더 잘 이해하려면 우선 [Seafile 데이터 모델](data_model.md)을 살펴보십시오.
 
-## The Basic Work Flow
+## 기본 동작 흐름
 
-Each downloaded repo is bound to an ordinary local folder. Using Git's terminology,
-we call this local folder the "worktree".
+다운로드한 각 repo는 일반 로컬 폴더로 구성합니다. git의 용어를 사용하여 이 로컬 폴더를 "작업 트리"라 칭합니다.
 
-A typical synchronization work flow consists of the following steps:
+일반 동기화 처리 과정은 다음 과정으로 이루어집니다:
 
-1. Seafile client daemon detects changes in the worktree (via inotify etc).
-2. The daemon commits the changes to the `local` branch.
-3. Download new changes from the `master` branch on the server (if any).
-4. Merge the downloaded branch into `local` branch (also checkout changes to worktree).
-5. Fast-forward upload `local` branch to server's `master` branch.
+1. Seafile 클라이언트 데몬에서 작업 트리의 내용이 바뀜을 확인합니다(inotify 등을 통해).
+2. 데몬에서 `local` 브랜치의 바뀐 내용을 커밋합니다.
+3. 서버의 `master` 브랜치에서 새로 바뀐 내용(어떤 것이든)을 다운로드합니다.
+4. 다운로드한 브랜치를 `local`브랜치와 병합합니다(또한 작업 트리에 바뀐 내용을 체크아웃합니다).
+5. 서버의 `master` 브랜치에 `local` 브랜치 최신 내용을 업로드하여 최신 내용으로 붙입니다.
 
-Since the above work flow may be interrupted at any point by shutting down the
-program or computer, after reboot we lose all notifications from the OS.
-We need a reliable and efficient way to determine which
-files in the worktree has been changed (even after reboots).
+위 동작 흐름은 프로그램 또는 컴퓨터를 끄는 동작으로 멈출 수 있으며, 다시 부팅하고 나면 OS의 모든 알림을 잃습니다.
+작업 트리상 어떤 파일이 바뀌었는지(재부팅 후에도) 알아내는 견고하고 효율적인 방식이 필요합니다.
 
-We use Git's index file to do this. It caches the timestamps of every
-file in the worktree when the last commit is generated. So we can easily and
-reliably detect changed files in the worktree since the latest commit
-by comparing timestamps.
+git 인덱스 파일을 이 목적으로 활용합니다. 최종 커밋을 만들었을 때 작업 트리의 모든 파일의 타임 스탬프를 캐시에 보관합니다. 따라서, 타임스탬프를 비교하여 최신 커밋을 처리하므로 작업 트리상 바뀐 파일을 쉽고 온전하게 확인할 수 있습니다.
 
-Another notable case is what happens if two clients try to upload to the server
-simultaneously. The commit procedure on the server ensures atomicity. So only
-one client will update the `master` branch successfully, while the other will
-fail.
+참고할 만한 다른 경우가 있다면 두 클라이언트에서 서버에 동시에 업로드하는 경우입니다. 서버의 커밋 처리 절차는 최소 유일성을 보장합니다. 따라서 다른 클라이언트에서는 실패하더라도 오직 하나의 클라이언트만 `master` 브랜치에 성공적으로 업데이트할 수 있습니다.
 
-The failing client will restart the sync work flow later. It will first merge
-the changes from the succeeded client then upload again.
+실패한 클라이언트는 나중에 동기화 작업 절차를 다시 시작합니다. 이 동작으로 성공한 변경 이력을 우선 병합한 후 다시 업로드합니다.
 
-## Merge
+## 병합
 
-The most tricky part of the syncing algorithm is merging.
+동기화 알고리즘에서 가장 까다로운 부분이 바로 병합입니다.
 
-Git's merge algorithm doesn't work well enough for auto synchronization.
+git의 병합 알고리즘은 자동 동기화 기능에서 제대로 동작하지 않습니다.
 
-Firstly, if a merge is interrupted, git requires you to reset to the latest commit and
-merge again. It's not a problem for Git since it's a single command.
-But seafile runs as a daemon and may be kill at any time.
-The user may have changed some files in the worktree between the interruption
-and restart. Resetting the worktree will LOSE user's uncommitted data.
+우선, 병합이 중단되면, git에서는 최근 커밋으로 되돌리고 다시 병합해야 합니다. git에선 단일 명령으로 처리하니 문제 없습니다. 허나 Seafile을 데몬으로 실행하고 언젠가 강제종료할 수 있습니다. 사용자는 멈춘 중간 시점의 일부 파일을 바꾸고 동기화를 다시 시작해야합니다. 작업 트리를 초기화하면 커밋하지 않은 데이터를 유실합니다.
 
-Secondly, Git's merge command will fail if it fails to update a file in the worktree.
-But on Windows, an opened Office document will be write-protected by the
-Office process. So the merge may fail in this case.
+두번째로, git에서는 작업 트리의 파일 업데이트에 실패하면 git 병합 명령 처리에 실패합니다. 하지만 윈도우에서는 열어둔 오피스 문서를 오피스 프로세스에서 쓰기 방지 걸어둡니다. 따라서, 이 경우 병합에 실패합니다.
 
-That's why programs use Git directly for auto-sync is not reliable.
+이게 바로 자동 동기화에 git 프로그램을 바로 쓰기에 그다지 신뢰할 수 없는 이유입니다.
 
-Seafile implement its own merge algorithm based on the ideas from Git's
-merge algorithm.
+Seafile에는 git 병합 알고리즘에 착안한 자체 병합 알고리즘을 보유하고 있습니다.
 
-It handles the first problem by "redoing" the merge carefully after restart.
-It handles the second problem by not starting merge until no file is
-write-protected in the worktree.
+우선 발생한 문제를 다시 시작하여 안전하게 병합하는 "재시도" 방식으로 처리합니다. 
+작업 트리의 쓰기 방지 파일이 없을 때까지 병합을 시작하지 않는 방식으로 두번째 문제를 처리합니다.
 
-Seafile's merge algorithm also handles all the conflict cases handled by Git.
+Seafile의 병합 알고리즘은 또한 git에서 처리하는 모든 중복 경우의 수를 처리하기도 합니다.
 

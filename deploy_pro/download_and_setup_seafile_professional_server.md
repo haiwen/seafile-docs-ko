@@ -1,97 +1,102 @@
-# Download and Setup Seafile Professional Server
-## <a id="wiki-preparation"></a>Preparation ##
+# Seafile 전문가 서버 다운로드 및 설치
+## <a id="wiki-preparation"></a>준비 ##
 
-### Minimum System Requirement ###
+다음 문서는 우분투 14.04와 CentOS 7에서 확인했습니다. 우분투 14.04 또는 CentOS 7 서버를 사용하시는게 좋습니다.
 
-- A Linux server with 2GB RAM
+> 참고:
+>
+> 우분투 14.04를 활용중이면, 다음 명령을 활용하여 Seafile에서 필요한 모든 의존 요소를 한번에 설치할 수 있습니다.
+>
+> ```
+> sudo apt-get install openjdk-7-jre poppler-utils libpython2.7 python-pip \
+> mysql-server python-setuptools python-imaging python-mysqldb python-memcache python-ldap
+>
+> sudo pip install boto
+> ```
+>
+> CentOS 7:
+>
+> ```
+> wget https://bootstrap.pypa.io/get-pip.py
+> sudo python get-pip.py
+> sudo yum install java-1.7.0-openjdk poppler-utils python-dev python-setuptools \
+> python-imaging MySQL-python mysql-server.x86_64 python-memcached python-ldap
+>
+> sudo pip install boto
+> sudo /etc/init.d/mysqld start
+> ```
+>
+> 자세한 내용은 하단을 참고하십시오.
 
-### Install Java Runtime Environment (JRE) ###
+### 최소 시스템 요구 사항 ###
 
-On Ubuntu/Debian:
+- 2GB 램을 장착한 리눅스 서버
+
+### 자바 런타임 환경(JRE) 설치 ###
+
+우분투/데비안:
 ```
-sudo apt-get install default-jre
+sudo apt-get install openjdk-7-jre
 ```
 
-On CentOS/Red Hat:
+CentOS/레드햇:
 ```
-sudo yum install java-1.6.0-openjdk
+sudo yum install java-1.7.0-openjdk
 ```
 
-*Note*: You can use either the JRE of openJDK or Oracle JRE, but not the GCJ(GNU Java) package.
+### poppler-utils 설치 ###
 
-### Install poppler-utils ###
+pdf 파일에서 완전한 문구 검색을 처리하려면 poppler-utils가 필요합니다.
 
-We need poppler-utils for full text search of pdf files.
-
-On Ubuntu/Debian:
+우분투/데비안:
 ```
 sudo apt-get install poppler-utils
 ```
 
-On CentOS/Red Hat:
+CentOS/레드햇:
 ```
 sudo yum install poppler-utils
 ```
 
 
-### Install Libreoffice/UNO ###
+### 파이썬 라이브러리 설치 ###
 
-Libreoffice 4.0+ and Python-uno library are needed to enable office files online preview. If you don't install them, the office documents online preview will be disabled.
-
-On Ubuntu/Debian:
-```
-sudo apt-get install libreoffice python-uno
-```
-
-On Centos/RHEL:
-```
-sudo yum install libreoffice libreoffice-headless libreoffice-pyuno
-```
-
-For other Linux distro: [Installation of LibreOffice on Linux](http://www.libreoffice.org/get-help/installation/linux/)
-
-Also, you may need to install fonts for your language, especially for Asians, otherwise the  office/pdf document may not display correctly. 
-
-For example, Chinese users may wish to install the WenQuanYi series of truetype fonts:
-
-```
-# For ubuntu/debian
-sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
-```
-
-
-### Install Python libraries ###
-
-First make sure your have installed python 2.6 or 2.7
+우선 파이썬 2.7을 설치했는지 확인하십시오
 ```
 sudo easy_install pip
 sudo pip install boto
 ```
 
-If you receive an error about "Wheel installs require setuptools >= ...", run this between the pip and boto lines above
+"Wheel installs require setuptools >= ..." 오류 메시지가 나타났다면, pip과 boto 줄 사이에 다음 명령을 실행하십시오
 ```
 sudo pip install setuptools --no-use-wheel --upgrade
 ```
 
-### Install other libraries as required in the community edition
+### 우분투 14.04일 경우 libpython2.7 설치
 
-See [Download and Setup Seafile Server With MySQL](../deploy/using_mysql.md).
+```
+sudo apt-get install libpython2.7
+```
 
-## <a id="wiki-download-and-setup"></a>Download and Setup Seafile Professional Server ##
+### 커뮤니티판에서 필요한 기타 라이브러리 설치
 
-### Get the license ###
+[Seafile 서버 및 MySQL 다운로드 및 설치](../deploy/using_mysql.md)를 참고하십시오.
 
-Put the license you get under the top level diretory. In our wiki, we use the diretory `/data/haiwen/` as the top level directory.
+## <a id="wiki-download-and-setup"></a> Seafile 전문가 서버 다운로드 및 설치 ##
+
+### 라이선스 취득 ###
+
+라이선스 파일을 최상위 디렉터리에 넣으십시오. 위키에서는 최상위 디렉터리로 `/data/haiwen` 디렉터리를 사용합니다.
 
 
-### <a id="wiki-download-and-uncompress"></a>Download/Uncompress Seafile Professional Server ###
+### <a id="wiki-download-and-uncompress"></a>Seafile 전문가판 서버 다운로드/압축 해제 ###
 
 
 ```
 tar xf seafile-pro-server_1.8.0_x86-64.tar.gz
 ```
 
-Now you have:
+이제 다음 파일 및 디렉터리가 나타납니다:
 
 ```
 haiwen
@@ -102,33 +107,37 @@ haiwen
 
 -----------
 
-You should notice the difference between the names of the Community Server and Professional Server. Take the 1.8.0 64bit version as an example:
+커뮤니티판 서버와 전문가판 서버의 이름이 다르다는 점에 주목하십시오. 1.8.0 64비트 버전을 예로 들어보겠습니다:
 
-- Seafile Community Server tarball is `seafile-server_1.8.0_x86-86.tar.gz`; After uncompressing, the folder is `seafile-server-1.7.0`
-- Seafile Professional Server tarball is `seafile-pro-server_1.8.0_x86-86.tar.gz`; After uncompressing, the folder is `seafile-pro-server-1.7.0`
-    
+- Seafile 커뮤니티판 서버 타르볼은 `seafile-server_1.8.0_x86-86.tar.gz`이며, 압축을 해제하면 `seafile-server-1.8.0` 폴더가 나옵니다
+- Seafile 전문가판 서버 타르볼은 `seafile-pro-server_1.8.0_x86-86.tar.gz`이며, 압축을 해제하면 `seafile-pro-server-1.8.0` 폴더가 나옵니다
+
 -----------
 
 
-### Setup ###
+### 설치 ###
 
-The setup process of Seafile Professional Server is the same as the Seafile Community Server. See [Download and Setup Seafile Server With MySQL](../deploy/using_mysql.md).
+ Seafile 전문가판 설치 과정은 Seafile 커뮤니티판 서버 설치 과정과 비슷합니다. [Seafile 서버 및 MySQL 다운로드 및 설치](../deploy/using_mysql.md)를 참고하십시오.
 
-After you have succesfully setup Seafile Professional Server, you would have a directory layout like this:
+서비스 설정에 문제가 있다면 [Seafile 서버 설정 과정 중 일반적인 문제](../deploy/common_problems_for_setting_up_server.md)를 확인하십시오.
+
+Seafile 전문가판 서버 설정이 제대로 끝나면, 디렉터리 배치는 다음과 같습니다:
 
 ```
 #tree haiwen -L 2
 haiwen
 ├── seafile-license.txt # license file
 ├── ccnet               # configuration files
-│   ├── ccnet.conf
 │   ├── mykey.peer
 │   ├── PeerMgr
 │   └── seafile.ini
-├── pro-data            # data specific for professional version
-│   └── seafevents.conf
-├── seafile-data
+├── conf
+│   └── ccnet.conf
 │   └── seafile.conf
+│   └── seahub_settings.py
+│   └── seafevents.conf
+├── pro-data            # data specific for professional version
+├── seafile-data
 ├── seafile-pro-server-1.8.0
 │   ├── reset-admin.sh
 │   ├── runtime
@@ -144,14 +153,17 @@ haiwen
 ├── seahub-data
 │   └── avatars         # for user avatars
 ├── seahub.db
-├── seahub_settings.py   # seahub config file
 ```
 
-## <a id="wiki-done"></a>Done
+## 성능 조정
 
-At this point, the basic setup of Seafile Professional Server is done. 
+Seafile 시스템 사용자가 50명 이상인 경우 [memcached를 추가](../deploy/add_memcached.md) 하시는 것이 좋습니다. 웹을 10배 빠르게 해줍니다.
 
-You may want to read more about Seafile Professional Server:
+## <a id="wiki-done"></a>완료
 
-- [Setup Seafile Professional Server With Amazon S3](setup_with_mazon_S3.md)
-- [FAQ For Seafile Professional Server](FAQ_for_seafile_pro_server.md)
+여기서 Seafile 전문가판 서버 기본 설정은 끝납니다.
+
+Seafile 전문가판 서버에 대해 더 읽어볼 만한 내용이 있습니다:
+
+- [Seafile 전문가판 서버에 대한 자주 묻는 질문](faq_for_seafile_pro_server.md)
+

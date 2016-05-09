@@ -1,4 +1,4 @@
-# Seafile Professional Edition Software License Agreement
+# Seafile 전문가판 프로그램 라이선스 동의서
 ```
 Seafile Professional Edition
 SOFTWARE LICENSE AGREEMENT
@@ -54,3 +54,4 @@ You are responsible for paying all sales, use, excise valuated or other taxes or
 YOU HEREBY ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT, UNDERSTAND IT AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS.
 
 ```
+

@@ -1,30 +1,33 @@
-# Deploy Seafile with Nginx
+# Seafile과 Nginx 가동
 
-## Deploy Seahub/FileServer with Nginx
+## Seahub/FileServer와 Nginx 가동
 
-Seahub is the web interface of Seafile server. FileServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
+Seahub는 Seafile 서버의 웹 인터페이스입니다. FileServer는 브라우저로 원시 파일을 업로드/다운로드하는 동작을 처리할 때 사용합니다. 기본적으로, http 요청을 8082번 포트에서 대기합니다.
 
-Here we deploy Seahub using fastcgi, and deploy FileServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
+fastcgi로 Seahub를 가동하고 FileServer를 역방향 프록시로 가동하겠습니다. 여기서 가동 중인 Seahub는 '''www.myseafile.com''' 도메인을 활용한다고 가정하겠습니다.
 
-This is a sample Nginx config file.
+아래는 Nginx 설정 파일 예제입니다.
 
 ```
 server {
     listen 80;
     server_name www.myseafile.com;
+
+    proxy_set_header X-Forwarded-For $remote_addr;
+
     location / {
         fastcgi_pass    127.0.0.1:8000;
         fastcgi_param   SCRIPT_FILENAME     $document_root$fastcgi_script_name;
         fastcgi_param   PATH_INFO           $fastcgi_script_name;
 
-        fastcgi_param	SERVER_PROTOCOL	    $server_protocol;
+        fastcgi_param\tSERVER_PROTOCOL\t    $server_protocol;
         fastcgi_param   QUERY_STRING        $query_string;
         fastcgi_param   REQUEST_METHOD      $request_method;
         fastcgi_param   CONTENT_TYPE        $content_type;
         fastcgi_param   CONTENT_LENGTH      $content_length;
-        fastcgi_param	SERVER_ADDR         $server_addr;
-        fastcgi_param	SERVER_PORT         $server_port;
-        fastcgi_param	SERVER_NAME         $server_name;
+        fastcgi_param\tSERVER_ADDR         $server_addr;
+        fastcgi_param\tSERVER_PORT         $server_port;
+        fastcgi_param\tSERVER_NAME         $server_name;
         fastcgi_param   REMOTE_ADDR         $remote_addr;
 
         access_log      logs/seahub.access.log;
@@ -43,20 +46,20 @@ server {
 }
 ```
 
-## Modify Configurations
+## 설정 수정
 
-### Modify ccnet.conf
+### ccnet.conf 수정
 
 
 ```
 SERVICE_URL = http://www.myseafile.com
 ```
 
-Note: If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+참고: Seahub에 할당한 도메인을 나중에 바꾸면 <code>SERVICE_URL</code>의 값도 바꿔야합니다.
 
-### Modify seafile-data/seafile.conf
+### seafile-data/seafile.conf 수정
 
-Modify the `seahub` section of `seafile-data/seafile.conf`:
+`seafile-data/seafile.conf`의 `seahub` 섹션을 수정하십시오:
 
 ```
 [seahub]
@@ -64,20 +67,21 @@ port=8000
 fastcgi=true
 ```
 
-### Modify seahub_settings.py
+### seahub_settings.py 수정
 
-You need to add a line in <code>seahub_settings.py</code> to set the value of `FILE_SERVER_ROOT`
+<code>seahub_settings.py</code>에 다음 줄을 추가하여 `FILE_SERVER_ROOT` 값을 설정하십시오
 
 ```
 FILE_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
 
-## Notes when Upgrading Seafile Server
+## Seafile 서버 업그레이드 참고
 
-When upgrading seafile server, besides the normal steps you should take, there is one extra step to do: '''Update the path of the static files in your nginx configuration'''. For example, assume your are upgrading seafile server 2.1.0 to 2.1.1, then:
+Seafile 서버 업그레이드시, 진행해야 할 과정 말고도, 추가로 진행해야 할 일이 있습니다: '''nginx 설정에 있는 정적 파일의 경로를 업데이트하십시오'''. 예를 들자면, Seafile 서버를 2.1.0에서 2.1.1로 업그레이드한다면:
 
 ```
     location /media {
         root C:/SeafileProgram/seafile-pro-server-2.1.1/seahub;
     }
 ```
+

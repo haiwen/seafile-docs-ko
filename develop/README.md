@@ -1,18 +1,20 @@
-# Develop Documents
+# 개발 문서
 
-* [How to Build Seafile](../build_seafile/README.md)
+* [Seafile 빌드 방법](../build_seafile/README.md)
 
-* [How to Setup Develop Envirnoment](env.md)
+* [개발 환경 설정 방법](env.md)
 
-* [Seafile Code Standard](code_standard.md)
+* [Seafile 코드 작성 표준](code_standard.md)
 
-Seafile Open API
+Seafile 공개 API
 
-* [Seafile Web API](web_api.md)
-* [Seafile Python API](python_api.md)
+* [Seafile 웹 API](web_api.md)
+* [Seafile 파이썬 API](python_api.md)
+* [Seafile PHP API](https://github.com/rene-s/Seafile-PHP-SDK)
 
-Seafile Implement Detail
+Seafile 구현 세부사항
 
-* [Seafile Data Model](data_model.md)
-* [Seafile Server Components](server-components.md)
-* [Seafile Sync algorithm](sync_algorithm.md)
+* [Seafile 데이터 모델](data_model.md)
+* [Seafile 서버 구성 요소](server-components.md)
+* [Seafile 동기화 알고리즘](sync_algorithm.md)
+

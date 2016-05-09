@@ -1,46 +1,45 @@
-# Deploy with Windows
+# 윈도우에서 가동
 
-## Setup and Upgrade
+## 설치 및 업그레이드
 
-Seafile Windows Community Edition supports SQLite/MySQL database. The Seafie Windows professional edition supports [WebDAV](../deploy_win_pro/seafile_webdav_server.md) and [File Search](../deploy_pro/details_about_file_search.md).
+Seafile 윈도우 커뮤니티판은 SQLite/MySQL 데이터베이스를 지원합니다.
 
-- [Download and Setup Seafile Windows Server](download_and_setup_seafile_windows_server.md)
-- [Deploy Seafile with MySQL](deploy_with_mysql.md)
-- [Deploy Seafile with Apache](deploy_with_apache.md)
-- [Deploy Seafile with Nginx](deploy_with_nginx.md)
-- [LDAP Integration](../deploy/using_ldap.md)
-- [Install Seafile Server as a Windows Service](install_seafile_server_as_a_windows_service.md)
-- [Ports used by Seafile Windows Server](ports_used_by_seafile_windows_server.md)
-- [Upgrading Seafile Windows Server](upgrading_seafile_windows_server.md)
-- [Options & Customization](../config/README.md)
+- [Seafile 윈도우 서버 다운로드 및 설치](download_and_setup_seafile_windows_server.md)
+- [Seafile과 MySQL 가동](deploy_with_mysql.md)
+- [Seafile과 Apache 가동](deploy_with_apache.md)
+- [Seafile과 Nginx 가동](deploy_with_nginx.md)
+- [LDAP 통합](../deploy/using_ldap.md)
+- [Seafile 서버를 윈도우 서비스로 설치](install_seafile_server_as_a_windows_service.md)
+- [Seafile 윈도우 서버에서 사용하는 포트](ports_used_by_seafile_windows_server.md)
+- [Seafile 윈도우 서버 업그레이드](upgrading_seafile_windows_server.md)
+- [설정 항목 및 개별 설정](../config/README.md)
 
-For more information on Seafile server, check the documents on [Seafile Linux version](../deploy/README.md)
+Seafile 서버에 대한 자세한 내용은, [Seafile 리눅스 버전](../deploy/README.md) 문서를 확인하십시오
 
-## Server Administration
+## 서버 관리
 
-- [Garbage Collecting Unused Blocks on Seafile Server](../maintain/seafile_gc.md)
+- [Seafile 서버에서 사용하지 않는 블록 가비지 수집](windows_gc.md)
+- [손상된 저장소에서 seaf-fsck 실행](windows_fsck.md)
 
-## Common Issues
+## 일반 문제
 
-If you failed to set up Seafile server, first check seafserv-applet.log.
+Seafile 서버 설치에 실패했다면 seafserv-applet.log를 우선 확인하십시오.
 ### "ERROR: D:/seafile-server\seahub.db not found"
 
-This file is created during Seafile initialization. Please:
+이 파일은 Seafile 초기화 과정에서 만듭니다. 다음 과정을 행하십시오:
 
-- Check whether your Python and the ``PATH`` for Python is correctly set.
-- Put Seafile server package in a simple path, like ``C:\seafile-packages``.
+- 파이썬 및 파이썬 ``PATH`` 값을 올바르게 설정했는지 확인하십시오.
+- Seafile 서버 꾸러미를 ``C:\seafile-packages``와 같은 단순 경로에 복사하십시오.
 
-### Failed to create seahub.db
+### seahub.db 만들기 실패
 
-Use python version 2.7.4 32bit, do not use python 3+.
-### Can not upload/download files in the Web interface
+파이쏜 2.7.4 32비트 버전을 쓰시고 3 이상의 버전은 사용하지 마십시오.
+### 웹 인터페이스에서 파일 업로드/다운로드가 안됩니다
 
-Make sure you have modified ``SERVICE_URL`` in ccnet.conf.
+ccnet.conf에서 ``SERVICE_URL``을 수정했는지 확인하십시오.
 
-### The browser can't get the css and javascript files
+### 브라우저에서 css 및 자바스크립트 파일이 안뜹니다
 
-- Use python 2.7.4 32bit. If you have installed other python version, uninstall it and install python 2.7.4. Restart seafile server to see whether the problem has gone.
-- Delete non-ASCII keys from the registry path ``HKEY_CLASSES_ROOT\MIME\Database\Content`` Type, and try again.
-
-
+- 파이썬 2.7.4 32비트 버전을 사용하십시오. 다른 파이썬 버전을 설치했다면, 설치를 제거하고 파이썬 2.7.4를 설치하십시오. Seafile 서버를 다시 시작하여 문제를 해결했는지 확인하십시오.
+- 레지스트리 경로 형식 ``HKEY_CLASSES_ROOT\MIME\Database\Content``에서 비 아스키 키를 삭제하고 다시 시도하십시오.
 

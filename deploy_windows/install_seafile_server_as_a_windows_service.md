@@ -1,30 +1,31 @@
-# Install Seafile Server as a Windows Service
+# 윈도우 서비스로 Seafile 서버 설치
 
-### Why you may want to install Seafile Server as a Windows service
+### 왜 Seafile 서버를 윈도우 서비스로 설치하는게 좋을까요
 
-- Seafile Server can keep on running after all users logout
-- When system boots up, Seafile Server would start running even if no user has logged in
+- 모든 사용자 계정에서 로그아웃 한 후에도 Seafile 서버는 계속 실행합니다
+- 시스템을 부팅했을 때, 그 어떤 사용자가 로그인 한 상태가 아니더라도 Seafile 서버 동작을 시작합니다
 
-### Install as a service
+### 서비스로 설치
 
-- Right click the tray icon, choose __Install as a Windows service__
-- Choose ``yes`` in the propmted dialog
+- 상태 표시줄 아이콘에 마우스 커서를 올려두고 오른쪽 단추를 누른 후 __윈도우 서비스로 설치__를 선택하십시오
+- 프롬프트 대화상자에서 ``예``를 선택하십시오
 
-If the operation succeeds, A dialog would be prompted saying __Successully installed seafile service__.
+동작이 끝나면 대화상자에서 __Seafile 서비스를 성공적으로 설치했습니다__라고 뜹니다.
 
-### Verify Seafile Server already running as a Windows service
+### Seafile 서버가 이미 윈도우 서비스로 실행 중인지 확인
 
-- Logout the current user
-- Visit seahub from another computer. If the seahub website can still be visited, Seafile server is already running as a Windows server
+- 현재 사용자 계정에서 로그아웃하십시오
+- 다른 컴퓨터에서 Seahub에 방문하십시오. 여전히 Seahub 웹 사이트에 들어갈 수 있다면, Seafile 서버가 윈도우 서버로 동작중임을 의미합니다.
 
-### How to start the tray icon after installing as a service
+### 서비스로 설치한 후 상태 표시줄 아이콘 상태로 시작하는 방법
 
-If you have installed seafile server as a service, it would run automatically in the background the next time you boot your system. However, the tray icon would not appear automatically when a user logins in.
+Seafile 서버를 서비스로 설치했다면, 다음에 시스템을 부팅할 때 백그라운드에서 자동으로 실행합니다. 하지만 사용자 로그인을 했을 때 상태 표시줄 아이콘은 자동으로 나타나지 않습니다.
 
-To start the tray icon, just doule click the ``run.bat`` file in the folder ``C:\SeafileProgram\seafile-server-1.7.0``
-Uninstall Seafile Server Windows service
+상태 표시줄 아이콘 표시를 시작하려면 ``C:\SeafileProgream\seafile-server-1.7.0`` 폴더에서 ``run.bat`` 파일을 두 번 눌러 실행하십시오
+Seafile 서버 윈도우 서비스 설치 제거
 
-### If you want to uninstall the Seafile Server service:
+### Seafile 서버 서비스 설치를 제거하려면:
 
-- Right click the tray icon, choose "Uninstall Windows service"
-- Choose "yes" in the propmted dialog
+- 상태 표시줄 아이콘에 마우스 커서를 올려두고 오른쪽 단추를 누른 후 "윈도우 서비스 설치 제거"를 선택하십시오
+- 프롬프트 대화상자에서 "예"를 선택하십시오
+

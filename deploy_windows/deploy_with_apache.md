@@ -1,25 +1,25 @@
-# Deploy Seafile with Apache
+# Seafile과 Apache 가동
 
-## Preparation
+## 준비
 
-### Install mod_fastcgi
+### mod_fastcgi 설치
 
-Download [mod_fastcgi-*.dll] (http://fastcgi.com/dist/) first, and put it into the `modules/` directory of your Apache installation.
+[mod_fastcgi-*.dll] (http://fastcgi.com/dist/)를 우선 다운로드하고, 아파치 설치 경로의 `modules/` 디렉터리에 복사하십시오.
 
-**Note**: You must download the right version of `mod_fastcgi` DLL according for your Apache. For example:
+**참고**: Apache 버전에 맞는 `mod_fastcgi`를 다운로드해야 합니다. 그러니까 이를테면:
 
-- If you are using Apache 2.2, you should download http://fastcgi.com/dist/mod_fastcgi-2.4.6-AP22.dll. The **AP22** part of the dll indicate it's for Apache **2.2**.
-- If you are using Apache 2.0, you should download http://fastcgi.com/dist/old/mod_fastcgi-2.4.2-AP20.dll
+- Apache 2.2를 사용한다면 http://fastcgi.com/dist/mod_fastcgi-2.4.6-AP22.dll 을 다운로드하십시오. dll의 **AP22**부분은 Apache **2.2**를 나타냅니다.
+- Apache 2.0을 사용한다면 http://fastcgi.com/dist/old/mod_fastcgi-2.4.2-AP20.dll 을 다운로드하십시오
 
-## Deploy Seahub/FileServer With Apache
+## Seahub/FileServer와 Apache 가동
 
-Seahub is the web interface of Seafile server. FileServer is used to handle raw file uploading/downloading through browsers. By default, it listens on port 8082 for HTTP request.
+Seahub는 Seafile 서버의 웹 인터페이스입니다. FileServer는 브라우저로 원시 파일을 업로드/다운로드하는 동작을 처리할 때 사용합니다. 기본적으로, http 요청을 8082번 포트에서 대기합니다.
 
-Here we deploy Seahub using fastcgi, and deploy FileServer with reverse proxy. We assume you are running Seahub using domain '''www.myseafile.com'''.
+fastcgi로 Seahub를 가동하고 FileServer를 역방향 프록시로 가동하겠습니다. 여기서 가동 중인 Seahub는 '''www.myseafile.com''' 도메인을 활용한다고 가정하겠습니다.
 
-### Edit httpd.conf
+### httpd.conf 편집
 
-First edit your `httpd.conf`. Add the following lines to **the end of the file**:
+우선 `httpd.conf`를 편집하십시오. **파일 마지막 부분**에 다음 줄을 추가하십시오:
 
 ```
 LoadModule fastcgi_module modules/mod_fastcgi-2.4.6-AP22.dll
@@ -29,17 +29,17 @@ LoadModule proxy_http_module modules/mod_proxy_http.so
 Include conf/extra/httpd-vhosts.conf
 ```
 
-Then add this line (substitute `YourDocumentRoot` with the value of your apache `DocumentRoot`)
+그 다음 이 줄을 추가하십시오(`YourDocumentRoot`를 Apache의 `DocumentRoot` 값으로 바꾸십시오)
 
 ```
 FastCGIExternalServer "YourDocumentRoot/seahub.fcgi" -host 127.0.0.1:8000
 ```
 
-Note, `seahub.fcgi` is just a placeholder, you don't need to actually have this file in your system.
+참고로, `seahub.fcgi`는 일종의 빈 칸 역할을 하며, 실제로 이 파일을 시스템에 둘 필요는 없습니다.
 
-### Edit your httpd-vhosts.conf
+### httpd-vhost.conf 편집
 
-Assume you have uncompresssed seafile server into `C:/SeafileProgram/seafile-pro-server-2.1.4`.
+Seafile 서버 꾸러미 압축을 `C:/SeafileProgram/seafile-pro-server-2.1.4`에 풀었다고 가정하겠습니다.
 
 ```
 <VirtualHost *:80>
@@ -71,20 +71,20 @@ Assume you have uncompresssed seafile server into `C:/SeafileProgram/seafile-pro
 </Directory>
 ```
 
-## Modify Configurations
+## 설정 수정
 
-### Modify ccnet.conf
+### ccnet.conf 수정
 
 
 ```
 SERVICE_URL = http://www.myseafile.com
 ```
 
-Note: If you later change the domain assigned to seahub, you also need to change the value of  <code>SERVICE_URL</code>.
+참고: Seahub에 할당한 도메인을 나중에 바꾸면 <code>SERVICE_URL</code>의 값도 바꿔야합니다.
 
-### Modify seafile-data/seafile.conf
+### seafile-data/seafile.conf 수정
 
-Modify the `seahub` section of `seafile-data/seafile.conf`:
+`seafile-data/seafile.conf`의 `seahub` 섹션을 수정하십시오:
 
 ```
 [seahub]
@@ -92,17 +92,17 @@ port=8000
 fastcgi=true
 ```
 
-### Modify seahub_settings.py
+### seahub_settings.py 수정
 
-You need to add a line in <code>seahub_settings.py</code> to set the value of `FILE_SERVER_ROOT`
+<code>seahub_settings.py</code>에 다음 줄을 추가하여 `FILE_SERVER_ROOT` 값을 설정하십시오
 
 ```
 FILE_SERVER_ROOT = 'http://www.myseafile.com/seafhttp'
 ```
 
-## Notes when Upgrading Seafile Server
+## Seafile 서버 업그레이드 참고
 
-When upgrading seafile server, besides the normal steps you should take, there is one extra step to do: '''Update the path of the static files in your apache configuration'''. For example, assume your are upgrading seafile server 2.1.4 to 2.1.5, then:
+Seafile 서버 업그레이드시, 진행해야 할 과정 말고도, 추가로 진행해야 할 일이 있습니다: '''nginx 설정에 있는 정적 파일의 경로를 업데이트하십시오'''. 예를 들자면, Seafile 서버를 2.1.4에서 2.1.5로 업그레이드한다면:
 
 ```
 <VirtualHost *:80>
@@ -115,3 +115,4 @@ When upgrading seafile server, besides the normal steps you should take, there i
   ...
 </Directory>
 ```
+

@@ -1,138 +1,139 @@
-# Web API
+# 웹 API
 <p><div class="toc">
 <ul>
-<li><a href="#seafile-web-api-v2">Seafile Web API V2</a><ul>
-<li><a href="#api-basics">API Basics</a></li>
-<li><a href="#status-code">Status Code</a></li>
-<li><a href="#quick-start">Quick Start</a></li>
-<li><a href="#account">Account</a><ul>
-<li><a href="#list-accounts">List Accounts</a></li>
-<li><a href="#check-account-info">Check Account Info</a></li>
-<li><a href="#create-account">Create Account</a></li>
-<li><a href="#update-account">Update Account</a></li>
-<li><a href="#delete-account">Delete Account</a></li>
+<li><a href="#seafile-web-api-v2">Seafile 웹 API V2</a><ul>
+<li><a href="#api-basics">API 기본</a></li>
+<li><a href="#status-code">상태 코드</a></li>
+<li><a href="#quick-start">간편 시작</a></li>
+<li><a href="#account">계정</a><ul>
+<li><a href="#list-accounts">계정 조회(관리자 전용)</a></li>
+<li><a href="#get-account">계정 정보 확인(관리자 전용)</a></li>
+<li><a href="#create-account">계정 만들기(관리자 전용)</a></li>
+<li><a href="#update-account">계정 업데이트(관리자 전용)</a></li>
+<li><a href="#migrate-account">계정 이전(관리자 전용)</a></li>
+<li><a href="#delete-account">계정 삭제(관리자 전용)</a></li>
+<li><a href="#check-account-info">계정 정보 검사</a></li>
+<li><a href="#server-info">서버 정보 확인</a></li>
 </ul>
 </li>
-<li><a href="#starred-files">Starred Files</a><ul>
-<li><a href="#list-starred-files">List starred files</a></li>
-<li><a href="#star-a-file">Star A File</a></li>
-<li><a href="#unstar-a-file">Unstar A File</a></li>
+<li><a href="#starred-files">별표 표시 파일</a><ul>
+<li><a href="#list-starred-files">별표 표시 파일 조회</a></li>
+<li><a href="#star-a-file">파일 별표 표시</a></li>
+<li><a href="#unstar-a-file">파일 별표 표시 해제</a></li>
 </ul>
 </li>
-<li><a href="#user-messages">User Messages</a><ul>
-<li><a href="#list-user-messages">List User Messages</a></li>
-<li><a href="#reply-a-user-message">Reply A User Message</a></li>
-<li><a href="#count-unseen-messages">Count Unseen Messages</a></li>
+<li><a href="#group">그룹</a><ul>
+<li><a href="#list-groups">그룹 조회</a></li>
+<li><a href="#add-a-group">그룹 추가</a></li>
+<li><a href="#delete-group">그룹 삭제</a></li>
+<li><a href="#rename-group">그룹 이름 바꾸기</a></li>
+<li><a href="#group-member">그룹 구성원</a><ul>
+<li><a href="#add-a-group-member">그룹 구성원 추가</a></li>
+<li><a href="#delete-a-group-member">그룹 구성원 삭제</a></li>
 </ul>
 </li>
-<li><a href="#group">Group</a><ul>
-<li><a href="#list-groups">List Groups</a></li>
-<li><a href="#add-a-group">Add A Group</a></li>
-<li><a href="#delete-group">Delete Group</a></li>
-<li><a href="#rename-group">Rename Group</a></li>
-<li><a href="#group-member">Group Member</a><ul>
-<li><a href="#add-a-group-member">Add A Group Member</a></li>
-<li><a href="#delete-a-group-member">Delete A Group Member</a></li>
-</ul>
-</li>
-<li><a href="#group-message">Group Message</a><ul>
-<li><a href="#get-group-messages">Get Group Messages</a></li>
-<li><a href="#get-group-message-detail">Get Group Message Detail</a></li>
-<li><a href="#send-a-group-message">Send A Group Message</a></li>
-<li><a href="#reply-a-group-message">Reply A Group Message</a></li>
-<li><a href="#get-group-message-replies">Get Group Message Replies</a></li>
+<li><a href="#group-message">그룹 메시지</a><ul>
+<li><a href="#get-group-messages">그룹 메시지 확인</a></li>
+<li><a href="#get-group-message-detail">그룹 메시지 세부 정보 확인</a></li>
+<li><a href="#send-a-group-message">그룹 메시지 보내기</a></li>
+<li><a href="#reply-a-group-message">그룹 메시지 답변</a></li>
+<li><a href="#get-group-message-replies">그룹 메시지 답장 확인</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#share">Share</a><ul>
-<li><a href="#file-share-link">File Share Link</a><ul>
-<li><a href="#list-file-share-links">List File Share Links</a></li>
-<li><a href="#create-file-share-link">Create File Share Link</a></li>
-<li><a href="#delete-file-share-link">Delete File Share Link</a></li>
+<li><a href="#share">공유</a><ul>
+<li><a href="#file-share-link">파일 공유 링크</a><ul>
+<li><a href="#list-file-share-links">파일 공유 링크 조회</a></li>
+<li><a href="#create-file-share-link">파일 공유 링크 만들기</a></li>
+<li><a href="#delete-file-share-link">파일 공유 링크 삭제</a></li>
+<li><a href="#send-share-link-email">공유 링크 전자메일로 보내기</a></li>
+<li><a href="#send-upload-link-email">업로드 링크 전자메일로 보내기</a></li>
+<li><a href="#list-direntry-in-dir-download-link">디렉터리 다운로드 링크의 디렉터리 항목 조회</a></li>
 </ul>
 </li>
-<li><a href="#shared-libraries">Shared Libraries</a><ul>
-<li><a href="#list-shared-libraries">List Shared Libraries</a></li>
-<li><a href="#list-be-shared-libraries">List Be Shared Libraries</a></li>
-<li><a href="#share-a-library">Share A Library</a></li>
-<li><a href="#unshare-a-library">Unshare A Library</a></li>
-</ul>
-</li>
-<li><a href="#shared-files">Shared Files</a><ul>
-<li><a href="#list-shared-files">List Shared Files</a></li>
-<li><a href="#download-shared-file">Download Shared File</a></li>
-<li><a href="#get-shared-file-detail">Get Shared File Detail</a></li>
-<li><a href="#delete-shared-file">Delete Shared File</a></li>
-<li><a href="#download-private-shared-file">Download Private Shared File</a></li>
-<li><a href="#get-private-shared-file-detail">Get Private Shared File Detail</a></li>
+<li><a href="#shared-libraries">공유 라이브러리</a><ul>
+<li><a href="#list-shared-libraries">공유 라이브러리 조회</a></li>
+<li><a href="#list-be-shared-libraries">공유한 라이브러리 조회</a></li>
+<li><a href="#share-a-library">라이브러리 공유</a></li>
+<li><a href="#unshare-a-library">라이브러리 공유 해제</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#library">Library</a><ul>
-<li><a href="#library-1">Library</a><ul>
-<li><a href="#get-default-lib">Get Default Library</a></li>
-<li><a href="#create-default-lib">Create Default Library</a></li>
-<li><a href="#list-libraries">List Libraries</a></li>
-<li><a href="#get-library-info">Get Library Info</a></li>
-<li><a href="#get-library-owner">Get Library Owner</a></li>
-<li><a href="#get-library-history">Get Library History</a></li>
-<li><a href="#create-library">Create Library</a></li>
-<li><a href="#check/create-sub-library">Check/Create Sub Library</a></li>
-<li><a href="#delete-library">Delete Library</a></li>
-<li><a href="#decrypt-library">Decrypt Library</a></li>
-<li><a href="#create-public-lib">Create Public Library</a></li>
-<li><a href="#remove-public-lib">Remove Public Library</a></li>
-<li><a href="#fetch-library-download-info">Fetch library download info</a></li>
-<li><a href="#list-virtual-libraries">List Virtual Libraries</a></li>
-<li><a href="#search-libraries">Search Libraries</a></li>
+<li><a href="#library">라이브러리</a><ul>
+<li><a href="#library-1">라이브러리</a><ul>
+<li><a href="#get-default-lib">기본 라이브러리 확인</a></li>
+<li><a href="#create-default-lib">기본 라이브러리 만들기</a></li>
+<li><a href="#list-libraries">라이브러리 조회</a></li>
+<li><a href="#get-library-info">라이브러리 정보 확인</a></li>
+<li><a href="#get-library-owner">라이브러리 소유자 확인</a></li>
+<li><a href="#get-library-history">라이브러리 기록 확인</a></li>
+<li><a href="#create-library">라이브러리 만들기</a></li>
+<li><a href="#check/create-sub-library">하위 라이브러리 검사/만들기</a></li>
+<li><a href="#delete-library">라이브러리 삭제</a></li>
+<li><a href="#rename-library">라이브러리 이름 바꾸기</a></li>
+<li><a href="#decrypt-library">라이브러리 해독</a></li>
+<li><a href="#create-public-lib">공개 라이브러리 만들기</a></li>
+<li><a href="#remove-public-lib">공개 라이브러리 제거</a></li>
+<li><a href="#fetch-library-download-info">라이브러리 다운로드 정보 가져오기</a></li>
+<li><a href="#list-virtual-libraries">가상 라이브러리 조회</a></li>
+<li><a href="#search-libraries">라이브러리 검색</a></li>
 </ul>
 </li>
-<li><a href="#file">File</a><ul>
-<li><a href="#download-file">Download File</a></li>
-<li><a href="#get-file-detail">Get File Detail</a></li>
-<li><a href="#get-file-history">Get File History</a></li>
-<li><a href="#download-file-revision">Download File From a Revision</a></li>
-<li><a href="#create-file">Create File</a></li>
-<li><a href="#rename-file">Rename File</a></li>
-<li><a href="#move-file">Move File</a></li>
-<li><a href="#copy-file">Copy File</a></li>
-<li><a href="#revert-file">Revert File</a></li>
-<li><a href="#delete-file">Delete File</a></li>
-<li><a href="#upload-file">Upload File</a><ul>
-<li><a href="#get-upload-link">Get Upload Link</a></li>
-<li><a href="#upload-file-1">Upload File</a></li>
+<li><a href="#file">파일</a><ul>
+<li><a href="#view-file-through-owa">오피스 웹 앱으로 파일 보기</a></li>
+<li><a href="#download-file">파일 다운로드</a></li>
+<li><a href="#get-file-detail">파일 세부 정보 확인</a></li>
+<li><a href="#get-file-history">파일 기록 확인</a></li>
+<li><a href="#download-file-revision">파일 특정 리비전 다운로드</a></li>
+<li><a href="#create-file">파일 만들기</a></li>
+<li><a href="#rename-file">파일 이름 바꾸기</a></li>
+<li><a href="#lock-file">파일 잠금</a></li>
+<li><a href="#unlock-file">파일 잠금 해제</a></li>
+<li><a href="#move-file">파일 이동</a></li>
+<li><a href="#copy-file">파일 복사</a></li>
+<li><a href="#revert-file">파일 복원</a></li>
+<li><a href="#delete-file">파일 삭제</a></li>
+<li><a href="#upload-file">파일 업로드</a><ul>
+<li><a href="#get-upload-link">업로드 링크 확인</a></li>
+<li><a href="#upload-file-1">파일 업로드</a></li>
 </ul>
 </li>
-<li><a href="#update-file">Update file</a><ul>
-<li><a href="#get-update-link">Get Update Link</a></li>
-<li><a href="#update-file-1">Update File</a></li>
+<li><a href="#update-file">파일 업데이트</a><ul>
+<li><a href="#get-update-link">업데이트 링크 확인</a></li>
+<li><a href="#update-file-1">파일 업데이트</a></li>
 </ul>
 </li>
-<li><a href="#get-upload-blocks-link">Get Upload Blocks Link</a></li>
-<li><a href="#get-update-blocks-link">Get Update Blocks Link</a></li>
+<li><a href="#get-upload-blocks-link">블록 업로드 링크 확인</a></li>
+<li><a href="#get-update-blocks-link">블록 업데이트 링크 확인</a></li>
 </ul>
 </li>
-<li><a href="#directory">Directory</a><ul>
-<li><a href="#list-directory-entries">List Directory Entries</a></li>
-<li><a href="#create-new-directory">Create New Directory</a></li>
-<li><a href="#rename-directory">Rename Directory</a></li>
-<li><a href="#delete-directory">Delete Directory</a></li>
-<li><a href="#download-directory">Download Directory</a></li>
-<li><a href="#share-directory">Share Directory</a></li>
-<li><a href="#batch-delete">Batch Delete</a></li>
+<li><a href="#directory">디렉터리</a><ul>
+<li><a href="#list-directory-entries">디렉터리 항목 조회</a></li>
+<li><a href="#create-new-directory">새 디렉터리 만들기</a></li>
+<li><a href="#rename-directory">디렉터리 이름 바꾸기</a></li>
+<li><a href="#delete-directory">디렉터리 삭제</a></li>
+<li><a href="#download-directory">디렉터리 다운로드</a></li>
+<li><a href="#share-directory">디렉터리 공유</a></li>
+</ul>
+</li>
+<li><a href="#multiple-files-directories">다중 파일 / 디렉터리</a><ul>
+<li><a href="#multiple-files-directories-copy">복사</a></li>
+<li><a href="#multiple-files-directories-move">이동</a></li>
+<li><a href="#multiple-files-directories-delete">삭제</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#get-avatar">Get Avatar</a><ul>
-<li><a href="#get-user-avatar">Get User Avatar</a></li>
-<li><a href="#get-group-avatar">Get Group Avatar</a></li>
+<li><a href="#avatar">아바타</a><ul>
+<li><a href="#get-user-avatar">사용자 아바타 확인</a></li>
+<li><a href="#get-group-avatar">그룹 아바타 확인</a></li>
 </ul>
 </li>
-<li><a href="#list-group-and-contacts">List Group And Contacts</a></li>
-<li><a href="#get-file-events">Get File Activities</a></li>
+<li><a href="#get-file-activities">파일 활동 확인</a></li>
+<li><a href="#get-thumbnail-image">썸네일 그림 확인</a></li>
+<li><a href="#add-organization">조직 추가</a></li>
 </ul>
 </li>
 </ul>
@@ -141,20 +142,20 @@
 </div>
 </p>
 
-# <a id="seafile-web-api-v2"></a>Seafile Web API V2 #
+# <a id="seafile-web-api-v2"></a>Seafile 웹 API V2 #
 
-## <a id="api-basics"></a>API Basics ##
+## <a id="api-basics"></a>API 기본 ##
 
-All API calls must be authenticated with a valid Seafile API key.
+모든 API 호출은 유효한 Seafile API 키로 인증해야합니다.
 
     curl -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' https://cloud.seafile.com/api2/auth/ping/
 
-The api key can be retrieved by the obtain auth api. See the <a href="#quick-start">Quick Start</a> for details.
+API 키는 Auth API에서 제공할 수 있습니다. 자세한 내용은 <a href="#quick-start">간편 시작</a>을 참고하십시오.
 
-For each API, we provide `curl` examples to illustrate the usage.
+각각의 API에서, 사용법을 `curl` 예제로 보여드립니다. `python` 및 `javascript` 예제도 보여드립니다. 자세한 내용은 https://github.com/haiwen/webapi-examples 를 참고하십시오.
 
 
-## <a id="status-code"></a>Status Code ##
+## <a id="status-code"></a>상태 코드 ##
 
 - 200: OK
 - 201: CREATED
@@ -170,7 +171,7 @@ For each API, we provide `curl` examples to illustrate the usage.
 - 500: INTERNAL_SERVER_ERROR
 - 520: OPERATION_FAILED
 
-## <a id="quick-start"></a>Quick Start ##
+## <a id="quick-start"></a>간편 시작 ##
 
 **ping**
 
@@ -190,27 +191,27 @@ For each API, we provide `curl` examples to illustrate the usage.
 
     "pong"
 
-## <a id="account"></a>Account ##
+## <a id="account"></a>계정 ##
 
-### <a id="list-accounts"></a>List Accounts ###
+### <a id="list-accounts"></a>계정 조회 ###
 
 **GET** https://cloud.seafile.com/api2/accounts/
 
-**Request parameters**
+**요청 매개변수**
 
-* start (default to 0)
-* limit (default to 100)
-* scope (default None, accepted values: 'LDAP' or 'DB')
+* start (기본값 0)
+* limit (기본값 100)
+* scope (기본값 없음, 유효값: 'LDAP'/'DB')
 
-To retrieve all users, just set both `start` and `limit` to `-1`.
+모든 사용자를 가져오려면 `start`와 `limit`를 `-1`로 설정하십시오.
 
-If scope parameter is passed then accounts will be searched inside the specific scope, otherwise it will be used the old approach: first LDAP and, if no account is found, DB. 
+범위 매개 변수를 전달했다면, 지정 범위 내에서 계정을 검색합니다. 범위 값을 전달하지 않으면 종전 방식대로 진행합니다: 우선 LDAP를, 계정이 없으면 그 다음 DB를 검색합니다.
 
-**Sample request**
+**예제 요청**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/
 
-**Sample response**
+**예제 응답**
 
     [
     {
@@ -221,20 +222,47 @@ If scope parameter is passed then accounts will be searched inside the specific 
     }
     ]
 
-**Errors**
+**오류**
 
-* 403 Permission error, only administrator can perform this action
+* 403 권한 오류. 관리자만 이 동작을 진행할 수 있습니다
 
-### <a id="check-account-info"></a>Check Account Info ###
+### <a id="get-account"></a>계정 정보 가져오기 ###
+
+**GET** https://cloud.seafile.com/api2/accounts/{email}/
+
+**요청 매개변수**
+
+**예제 요청**
+
+    curl -v -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/user@mail.com/
+
+**예제 응답**
+
+    {
+    "is_staff": false,
+    "is_active": true,
+    "id": 2,
+    "create_time": 1356061187741686,
+    "usage": 651463187,
+    "total": 107374182400,
+    "email": "user@mail.com"
+    }
+
+**오류**
+
+* 403 권한 오류. 관리자만 이 동작을 진행할 수 있습니다
+
+
+### <a id="check-account-info"></a>계정 정보 확인 ###
 
 **GET** https://cloud.seafile.com/api2/account/info/
 
 
-**Sample request**
+**예제 요청**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/account/info/
 
-**Sample response**
+**예제 응답**
 
     {
     "usage": 26038531,
@@ -242,25 +270,25 @@ If scope parameter is passed then accounts will be searched inside the specific 
     "email": "user@example.com"
     }
 
-**Errors**
+**오류**
 
-* 403 Invalid token
+* 403 잘못된 토큰
 
-### <a id="create-account"></a>Create Account ###
+### <a id="create-account"></a>계정 만들기 ###
 
 **PUT** https://cloud.seafile.com/api2/accounts/{email}/
 
-**Request parameters**
+**요청 매개변수**
 
 * password
-* is_staff (defaults to False)
-* is_active (defaults to True)
+* is_staff (기본값 False)
+* is_active (기본값 True)
 
-**Sample request**
+**예제 요청**
 
     curl -v -X PUT -d "password=123456" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 201 CREATED
@@ -269,29 +297,34 @@ If scope parameter is passed then accounts will be searched inside the specific 
 
     "success"
 
-**Success**
+**성공**
 
-    Response code 201(Created) is returned and the Location header provides shared link.
+    응답 코드 201(만듬)를 반환하며 Location 헤더에 공유 링크를 제공합니다.
 
-**Errors**
+**오류**
 
-* 403 Permission error, only administrator can perform this action
+* 403 권한 오류. 관리자만 이 동작을 진행할 수 있습니다
 
-### <a id="update-account"></a>Update Account ###
+### <a id="update-account"></a>계정 업데이트 ###
 
 **PUT** https://cloud.seafile.com/api2/accounts/{email}/
 
-**Request parameters**
+**요청 매개변수**
+
+최소한 다음 중 하나는 있어야합니다:
 
 * password
-* is_staff (defaults to False)
-* is_active (defaults to True)
+* is_staff
+* is_active
+* name
+* note
+* storage
 
-**Sample request**
+**예제 요청**
 
-    curl -v -X PUT -d "password=654321&is_staff=true" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
+    curl -v -X PUT -d "password=654321&is_staff=true&storage=1073741824" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/user@mail.com/
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 200 OK
@@ -299,44 +332,111 @@ If scope parameter is passed then accounts will be searched inside the specific 
 
     "success"
 
-**Success**
+**성공**
 
     Response code 200(OK) is returned.
 
-**Errors**
+**오류**
 
-* 400 Bad Request, keyword password is required
-* 403 Permission error, only administrator can perform this action
+* 400 잘못된 요청. 키워드 암호가 필요합니다
+* 403 권한 오류. 관리자만 이 동작을 진행할 수 있습니다
 
-### <a id="delete-account"></a>Delete Account ###
+### <a id="migrate-account"></a>계정 이전###
+
+**POST** https://cloud.seafile.com/api2/accounts/{email}/
+
+**요청 매개변수**
+
+* op
+* to_user 이 사용자는 반드시 있어야합니다
+
+**예제 요청**
+
+    curl -v -d "op=migrate&to_user=user2@mail.com" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/user@mail.com/
+
+**예제 응답**
+
+    ...
+    < HTTP/1.0 200 OK
+    ...
+
+    "success"
+
+**성공**
+
+    Response code 200(OK) is returned.
+
+**오류**
+
+* 400 잘못된 요청, 인자가 빠졌거나 잘못되었습니다
+* 403 권한 오류. 관리자만 이 동작을 진행할 수 있습니다
+
+
+### <a id="delete-account"></a>계정 삭제 ###
 
 **DELETE** https://cloud.seafile.com/api2/accounts/{email}/
 
 
-**Sample request**
+**예제 요청**
 
     curl -v -X DELETE -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/accounts/newaccount@gmail.com/
 
-**Sample response**
+**예제 응답**
 
     "success"
 
-**Errors**
+**오류**
 
-* 403 Permission error, only administrator can perform this action
+* 403 권한 오류. 관리자만 이 동작을 진행할 수 있습니다
 
-## <a id="starred-files"></a>Starred Files ##
+### <a id="server-info"></a>서버 정보 조회 ###
 
-### <a id="list-starred-files"></a>List starred files
+**GET** https://cloud.seafile.com/api2/server-info
+
+*참고*:
+
+- 인증 불필요.
+- Seafile 커뮤니티판 서버 `4.0.5` 또는 전문가판 서버 `4.0.3`에 추가했습니다
+
+**예제 요청**
+
+    curl https://cloud.seafile.com/api2/server-info/
+
+**예제 응답**
+
+Seafile 커뮤니티판 서버 응답 예제:
+
+    {
+        "version": "4.0.6",
+        "features": [
+        "seafile-basic",
+        ]
+    }
+
+Seafile 전문가판 서버 응답 예제:
+
+    {
+        "version": "4.0.6",
+        "features": [
+        "seafile-basic",
+        "seafile-pro",
+        "office-preview",
+        "file-search"
+        ]
+    }
+
+## <a id="starred-files"></a>별표 표시한 파일 ##
+
+### <a id="list-starred-files"></a>별표 표시 파일 조회
 
 **GET** https://cloud.seafile.com/api2/starredfiles/
 
 
-**Sample request**
+**예제 요청**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e6199b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/starredfiles/
 
-**Sample response**
+**예제 응답**
 
     [
     {
@@ -357,20 +457,20 @@ If scope parameter is passed then accounts will be searched inside the specific 
     }
     ]
 
-### <a id="star-a-file"></a>Star A File
+### <a id="star-a-file"></a>파일 별표 표시
 
 **POST** https://cloud.seafile.com/api2/starredfiles/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo_id (post)
 * p (post)
 
-**Sample request**
+**예제 요청**
 
     curl -v -d "repo_id=dae8cecc-2359-4d33-aa42-01b7846c4b32&p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/starredfiles/
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 201 CREATED
@@ -378,140 +478,56 @@ If scope parameter is passed then accounts will be searched inside the specific 
     ...
     "success"
 
-**Success**
+**성공**
 
    Response code is 201(Created) and Location header provides url of starred file list.
 
-**Errors**
+**오류**
 
-* 400 `repo_id` or `p` is missing, or `p` is not valid file path(e.g. /foo/bar/).
+* 400 `repo_id` 또는 `p` 값이 빠지거나, `p`에 부적절한 파일 경로(e.g. /foo/bar/).
 
-### <a id="unstar-a-file"></a>Unstar A File
+### <a id="unstar-a-file"></a>파일
 
 **DELETE** https://cloud.seafile.com/api2/starredfiles/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo_id
 * p
 
-**Sample request**
+**예제 요청**
 
     curl -X DELETE -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' 'https://cloud.seafile.com/api2/starredfiles/?repo_id=dae8cecc-2359-4d33-aa42-01b7846c4b32&p=/foo.md'
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 200 OK
     ...
     "success"
 
-**Success**
+**성공**
 
-   Response code is 200(OK), and a string named "success" is returned.
+   응답 코드는 200(OK) 이며, "success" 문자열을 반환합니다.
 
-**Errors**
+**오류**
 
-* 400 `repo_id` or `p` is missing, or `p` is not valid file path(e.g. /foo/bar/).
-
-## <a id="user-messages"></a>User Messages ##
-
-### <a id="list-user-messages"></a>List User Messages ###
-
-**GET** https://cloud.seafile.com/api2/user/msgs/{id_or_email}/
-
-**Request parameters**
-
-* id_or_email
-
-**Sample request**
-
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/user/msgs/2/"
-
-**Sample response**
-
-    {
-        "to_email": "user@example.com",
-        "next_page": -1,
-        "msgs": [
-            {
-                "attachments": [
-                    {
-                        "path": "/123.md",
-                        "repo_id": "c7436518-5f46-4296-97db-2fcba4c8c8db"
-                    }
-                ],
-                "timestamp": 1398233096,
-                "from_email": "user@example.com",
-                "msgid": 3,
-                "msg": "another test msg",
-                "nickname": "user"
-            },
-            {
-                "attachments": [],
-                "timestamp": 1398233067,
-                "from_email": "user@example.com",
-                "msgid": 2,
-                "msg": "a test msg",
-                "nickname": "user"
-            }
-        ]
-    }
-
-**Errors**
-
-* 404 user not found
-
-### <a id="reply-a-user-message"></a>Reply A User Message ###
-
-**POST** https://cloud.seafile.com/api2/user/msgs/{id_or_email}/
-
-**Request parameters**
-
-* id_or_email
-* message
-
-**Sample request**
-
-    curl -d "message=this is a user msg reply" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/user/msgs/2/"
-
-**Sample response**
-
-    {
-        "msgid": 4
-    }
-
-**Errors**
-
-* 404 user not found
-
-### <a id="count-unseen-messages"></a>Count Unseen Messages ##
-
-**GET** https://cloud.seafile.com/api2/unseen_messages/
+* 400 `repo_id` 또는 `p` 값이 빠지거나, `p`에 부적절한 파일 경로(e.g. /foo/bar/).
 
 
-**Sample request**
 
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/unseen_messages/"
+## <a id="group"></a>그룹 ##
 
-**Sample response**
-
-    {
-        "count": 1
-    }
-
-## <a id="group"></a>Group ##
-
-### <a id="list-groups"></a>List Groups ###
+### <a id="list-groups"></a>그룹 조회 ###
 
 **GET** https://cloud.seafile.com/api2/groups/
 
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/"
 
-**Sample response**
+**예제 응답**
 
     {
         "replynum": 0,
@@ -535,133 +551,133 @@ If scope parameter is passed then accounts will be searched inside the specific 
         ]
     }
 
-### <a id="add-a-group"></a>Add A Group ###
+### <a id="add-a-group"></a>그룹 추가 ###
 
 **PUT** https://cloud.seafile.com/api2/groups/
 
-**Request parameters**
+**요청 매개변수**
 
 * group_name
 
-**Sample request**
+**예제 요청**
 
     curl -X PUT -d "group_name=newgroup" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/"
 
-**Sample response**
+**예제 응답**
 
     {"group_id": 3, "success": true}
 
-**Errors**
+**오류**
 
-* 400 There is already a group with that name.
+* 400 해당 이름을 가진 그룹 존재.
 
-### <a id="delete-group"></a>Delete Group ###
+### <a id="delete-group"></a>그룹 삭제 ###
 
 **DELETE** https://cloud.seafile.com/api2/groups/{group_id}/
 
-**Request parameters**
+**요청 매개변수**
 
-None
+없음
 
-**Sample request**
+**예제 요청**
 
     curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
-    
-**Success**
 
-200 if everything is fine.
+**성공**
 
-**Errors**
+200 모든 동작 정상 처리.
 
-* 400 if ad group id format
-* 404 if Group not found
-* 403 if Forbid to delete group
-* 520 if Failed to remove group (generic error)
+**오류**
 
-### <a id="rename-group"></a>Rename Group
+* 400 AD 그룹이 ID 형식임
+* 404 그룹 없음
+* 403 그룹 삭제 금지
+* 520 그룹 제거 실패(일반 오류)
+
+### <a id="rename-group"></a>그룹 이름 바꾸기
 
 **POST** https://cloud.seafile.com/api2/groups/{group_id}/
 
-**Request parameters**
+**요청 매개변수**
 
-* operation (value must be 'rename')
-* newname (the new name for the group)
+* operation('rename' 이어야 함)
+* newname(그룹의 새 이름)
 
-**Sample request**
+**예제 요청**
 
     curl -d "operation=rename&newname=pinkfloyd_lovers" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/"
 
-**Success**
+**성공**
 
-   200 if everything is fine.
+   200 모든 동작 정상 처리.
 
-**Errors**
+**오류**
 
-* 404 if Group not found
-* 403 if Forbid to rename group
-* 400 if Newname is missing or if Group name is not valid of if There is already a group with that name or Operation can only be rename.
+* 404 그룹 없음
+* 403 그룹 이름 바꾸기 금지
+* 400 newname 값이 빠졌거나 이미 그룹이 있을 경우 그룹 이름이 적절하지 않거나 이름 바꾸기 동작일 경우.
 
-### <a id="group-member"></a>Group Member ###
+### <a id="group-member"></a>그룹 구성원 ###
 
-#### <a id="add-a-group-member"></a>Add A Group Member ####
+#### <a id="add-a-group-member"></a>그룹 구성원 추가 ####
 
 **PUT** https://cloud.seafile.com/api2/groups/{group_id}/members/
 
-**Request parameters**
+**요청 매개변수**
 
 * user_name
 
-**Sample request**
+**예제 요청**
 
     curl -X PUT -d "user_name=user@example.com"-H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/members/"
 
-**Sample response**
+**예제 응답**
 
     {"success": true}
 
-**Errors**
+**오류**
 
-* 400 invalid group id
-* 403 only administrators can add group members
-* 404 unable to find group
+* 400 잘못된 그룹 ID
+* 403 관리자만 그룹 구성원 추가 가능
+* 404 그룹을 찾을 수 없음
 
-#### <a id="delete-a-group-member"></a>Delete A Group Member ####
+#### <a id="delete-a-group-member"></a>그룹 구성원 삭제 ####
 
 **DELETE** https://cloud.seafile.com/api2/groups/{group_id}/members/
 
-**Request parameters**
+**요청 매개변수**
 
 * user_name
 
-**Sample request**
+**예제 요청**
 
     curl -X DELETE -d "user_name=user@example.com" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groups/1/members/"
 
-**Sample response**
+**예제 응답**
 
     {"success": true}
 
-**Errors**
+**오류**
 
-* 400 invalid group id
-* 403 only administrators can remove group members
-* 404 unable to find group
+* 400 잘못된 그룹 ID
+* 403 관리자만 그룹 구성원 제거 가능
+* 404 그룹을 찾을 수 없음
 
-### <a id="group-message"></a>Group Message ###
+### <a id="group-message"></a>그룹 메시지 ###
 
-#### <a id="get-group-messages"></a>Get Group Messages ####
+#### <a id="get-group-messages"></a>그룹 메시지 확인 ####
 
 **GET** https://cloud.seafile.com/api2/group/msgs/{group_id}/
 
-**Request parameters**
+**요청 매개변수**
 
 * group_id
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/group/msgs/1/"
 
-**Sample response**
+**예제 응답**
 
     {
         "next_page": -1,
@@ -678,20 +694,20 @@ None
         ]
     }
 
-#### <a id="get-group-message-detail"></a>Get Group Message Detail ####
+#### <a id="get-group-message-detail"></a>그룹 메시지 세부정보 확인 ####
 
 **GET** https://cloud.seafile.com/api2/group/{group_id}/msg/{msg_id}/
 
-**Request parameters**
+**요청 매개변수**
 
 * group_id
 * msg_id
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/group/1/msg/1/"
 
-**Sample response**
+**예제 응답**
 
     {
         "reply_cnt": 2,
@@ -718,65 +734,65 @@ None
         "nickname": "user"
     }
 
-**Errors**
+**오류**
 
-* 404 message not found
+* 404 메시지 없음
 
-#### <a id="send-a-group-message"></a>Send A Group Message ####
+#### <a id="send-a-group-message"></a>그룹 메시지 보내기 ####
 
 **POST** https://cloud.seafile.com/api2/group/msgs/{group_id}/
 
-**Request parameters**
+**요청 매개변수**
 
 * message
 * group_id
-* repo_id(optional)
-* path(optional)
+* repo_id(선택)
+* path(선택)
 
-**Sample request**
+**예제 요청**
 
     curl -d "message=this is another test&repo_id=c7436518-5f46-4296-97db-2fcba4c8c8db&path=/123.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/group/msgs/1/"
 
-**Sample response**
+**예제 응답**
 
     {
         "msgid": 3
     }
 
-#### <a id="reply-a-group-message"></a>Reply A Group Message ####
+#### <a id="reply-a-group-message"></a>그룹 메시지 답장 ####
 
 **POST** https://cloud.seafile.com/api2/group/{group_id}/msg/{msg_id}
 
-**Request parameters**
+**요청 매개변수**
 
 * group_id
 * msg_id
 * message
 
-**Sample request**
+**예제 요청**
 
     curl -d "message=this is a reply" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/group/1/msg/1/"
 
-**Sample response**
+**예제 응답**
 
     {
         "msgid": 3
     }
 
-**Errors**
+**오류**
 
-* 404 message not found
+* 404 메시지 없음
 
-#### <a id="get-group-message-replies"></a>Get Group Message Replies ####
+#### <a id="get-group-message-replies"></a>그룹 메시지 답장 확인 ####
 
 **GET** https://cloud.seafile.com/api2/new_replies/
 
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/new_replies/"
 
-**Sample response**
+**예제 응답**
 
     [
         {
@@ -804,305 +820,286 @@ None
         }
     ]
 
-## <a id="share"></a>Share
+## <a id="share"></a>공유
 
-### <a id="file-share-link"></a>File Share Link ###
+### <a id="file-share-link"></a>파일 공유 링크 ###
 
-#### <a id="list-file-share-links"></a>List File Share Links ####
+#### <a id="list-file-share-links"></a>파일 공유 링크 조회 ####
 
 **GET** https://cloud.seafile.com/api2/shared-links/
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-links/"
 
-**Sample response**
+**예제 응답**
 
     {"fileshares": [{"username": "user@example.com", "repo_id": "a582d3bc-bcf5-421e-9125-741fa56d18d4", "ctime": null, "s_type": "d", "token": "e410827494", "view_cnt": 0, "path": "/123/"}, {"username": "user@example.com", "repo_id": "affc837f-7fdd-4e91-b88a-32caf99897f2", "ctime": null, "s_type": "f", "token": "0ae587a7d1", "view_cnt": 0, "path": "/lian123.md"}]}
 
-#### <a id="create-file-share-link"></a>Create File Share Link ####
+#### <a id="create-file-share-link"></a>파일 공유 링크 만들기 ####
 
 **PUT** https://cloud.seafile.com/api2/repos/{repo-id}/file/shared-link/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
-* type
-* p (Path to the file)
+* p (파일 경로)
+* share_type (선택, `download`/`upload`, 기본값 `download`)
+* password (선택)
+* expire (선택)
 
-**Sample request**
+**예제 요청**
 
-Create download link for file
+파일 다운로드 링크를 만듭니다
 
-    curl -v  -X PUT -d "type=f&p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
+    curl -v  -X PUT -d "p=/foo.md" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
 
-Create download link for directory
+디렉터리 다운로드 링크에 암호를 걸고 유효 기간을 설정하여 만듭니다
 
-    curl -v  -X PUT -d "type=d&p=/123/" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
+    curl -v  -X PUT -d "password=password&expire=6&p=/123/" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
 
-**Sample response**
+디렉터리 업로드 링크를 만듭니다
+
+    curl -v -X PUT -d "share_type=upload&p=/123/" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/afc3b694-7d4c-4b8a-86a4-89c9f3261b12/file/shared-link/
+
+**예제 응답**
 
     ...
     < HTTP/1.0 201 CREATED
     < Location: https://cloud.seafile.com/f/9b437a7e55/
     ...
 
-**Success**
+**성공**
 
-    Response code 201(Created) is returned and the Location header provides shared link.
+    응답 코드 201(만듬)를 반환하며 Location 헤더에 공유 링크를 제공합니다.
 
-**Errors**
+**오류**
 
-* 400 Path is missing
-* 500 Internal server error
+* 400 경로 빠짐
+* 400 암호(링크를 암호화 했다면) 빠짐
+* 500 내부 서버 오류
 
-#### <a id="delete-file-share-link"></a>Delete File Share Link ####
+#### <a id="delete-file-share-link"></a>파일 공유 링크 삭제 ####
 
 **DELETE** https://cloud.seafile.com/api2/shared-links/?t=0ae587a7d1
 
-**Request parameters**
+**요청 매개변수**
 
 * t
 
-**Sample request**
+**예제 요청**
 
     curl -v -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-links/?t=0ae587a7d1"
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 200 OK
     ...
 
-### <a id="shared-libs"></a>Shared Libraries ###
+#### <a id="send-share-link-email"></a>공유 링크 전자메일로 보내기 ####
 
-#### <a id="list-shared-libs"></a>List Shared Libraries ####
+**POST** https://cloud.seafile.com/api2/send-share-link/
+
+**요청 매개변수**
+
+* token
+* email
+* extra_msg (필요하지 않음)
+
+**예제 요청**
+
+    curl -d "email=sample@eamil.com,invalid-email&token=4cbd625c5e" -H 'Authorization: Token ef12bf1e66a1aa797a1d6556fdc9ae84f1e9249f' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/send-share-link/
+
+**예제 응답**
+
+```
+{
+    "failed": [
+        {
+            "email": "invalid-email",
+            "error_msg": "email invalid."
+        }
+    ],
+    "success": [
+        "sample@eamil.com"
+    ]
+}
+```
+
+**오류**
+
+* 400 잘못된 토큰/repo_id invalid
+* 403 권한 거부.
+* 403 공유 링크 전송 실패. 전자메일 서비스를 제대로 설정하지 않았으니 관리자에게 연락하십시오.
+* 404 토큰/라이브러리 없음
+
+#### <a id="send-upload-link-email"></a>업로드 링크 전자메일로 보내기 ####
+
+**POST** https://cloud.seafile.com/api2/send-upload-link/
+
+**요청 매개변수**
+
+* token
+* email
+* extra_msg (필요하지 않음)
+
+**예제 요청**
+
+    curl -d "email=sample@eamil.com,invalid-email&token=4cbd625c5e" -H 'Authorization: Token ef12bf1e66a1aa797a1d6556fdc9ae84f1e9249f' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/send-upload-link/
+
+**예제 응답**
+
+```
+{
+    "failed": [
+        {
+            "email": "invalid-email",
+            "error_msg": "email invalid."
+        }
+    ],
+    "success": [
+        "sample@eamil.com"
+    ]
+}
+```
+* 400 잘못된 토큰/repo_id invalid
+* 403 권한 거부.
+* 403 공유 링크 전송 실패. 전자메일 서비스를 제대로 설정하지 않았으니 관리자에게 연락하십시오.
+* 404 토큰/라이브러리 없음
+
+#### <a id="list-direntry-in-dir-download-link"></a>디렉터리 다운로드 링크의 디렉터리 항목 조회 ####
+
+**GET** https://cloud.seafile.com/api2/d/{token}/dir/
+
+**요청 매개변수**
+
+* token (업로드 링크 토큰)
+* p (하위 폴더 경로)
+* 암호(링크를 암호화 했다면)
+
+**예제 요청**
+
+    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/d/3af7c46595/dir/?p=/subfolder/"
+
+**예제 응답**
+
+    [{"mtime": 1436846750, "type": "dir", "name": "sadof", "id": "1806dbdb700b7bcd49e6275107c7ccf7b3ea1776"}, {"id": "bdb06f6de972c42893fda590ac954988b562429c", "mtime": 1436431020, "type": "file", "name": "test.mdert", "size": 20}]
+
+### <a id="shared-libs"></a>공유 라이브러리 ###
+
+#### <a id="list-shared-libs"></a>공유 라이브러리 조회 ####
 
 **GET** https://cloud.seafile.com/api2/shared-repos/
 
-**Sample request**
+**예제 요청**
 
     curl -v -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/shared-repos/
 
-**Sample response**
+**예제 응답**
 
     [{"repo_id": "7d42522b-1f6f-465d-b9c9-879f8eed7c6c", "share_type": "personal", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1361072500, "repo_desc": "ff", "group_id": 0, "repo_name": "\u6d4b\u8bd5\u4e2d\u6587pdf"}, {"repo_id": "79bb29cd-b683-4844-abaf-433952723ca5", "share_type": "group", "permission": "rw", "encrypted": false, "user": "user@example.com", "last_modified": 1359182468, "repo_desc": "test", "group_id": 1, "repo_name": "test_enc"}]
 
-#### <a id="list-be-shared-libs"></a>List Be Shared Libraries ####
+#### <a id="list-be-shared-libs"></a>공유한 라이브러리 조회 ####
 
 **GET** https://cloud.seafile.com/api2/beshared-repos/
 
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/beshared-repos/"
 
-**Sample response**
+**예제 응답**
 
     "[{"user": "user@example.com", "repo_id": "989e3952-9d6f-4427-ab16-4bf9b53212eb", "share_type": "personal", "permission": "rw", "encrypted": false, "repo_desc": "lib shared to imwhatiam", "enc_version": false, "last_modified": 1398218747, "is_virtual": false, "group_id": 0, "repo_name": "lib shared to imwhatiam"}]"
 
-#### <a id="share-a-library"></a>Share A Library ####
+#### <a id="share-a-library"></a>라이브러리 공유 ####
 
 **PUT** https://cloud.seafile.com/api2/shared-repos/{repo-id}/
 
-**Request parameters**
+**요청 매개변수**
 
-* share_type ('personal', 'group' or 'public')
-* user (or users)
+* share_type ('personal', 'group', 'public')
+* user (또는 users)
 * group_id
 * permission
 
-If share_type is 'personal' then 'user' or 'users' param are required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.
+share_type이 'personal'이면 'user' 또는 'users' 매개변수가 필요하며, share_type이 'group'이면 'group_id' 매개변수가 필요합니다. share_type이 'public'이면 필요한 다른 매개 변수는 없습니다.
 
-'user' or 'users' parameters can be a comma separated list of emails, in this case the share will be done for more users at the same time. If a problem is encountered during multiple users sharing then the sharing process is aborted.
+'user' 또는 'users' 매개 변수는 전자메일 주소를 쉼표로 구분할 수 있으며, 이 경우 더 많은 사용자에게 동시에 공유할 수 있습니다. 다중 사용자 공유에 문제가 발생하면 공유 처리 과정을 중단합니다.
 
-**Sample request**
+**예제 요청**
 
     curl -X PUT -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-repos/7d42522b-1f6f-465d-b9c9-879f8eed7c6c/?share_type=group&user=user@example.com&group_id=1&permission=rw"
 
-**Sample response**
+**예제 응답**
 
     "success"
 
-#### <a id="unshare-a-library"></a>Unshare A Library ####
+#### <a id="unshare-a-library"></a>라이브러리 공유 해제 ####
 
 **DELETE** https://cloud.seafile.com/api2/shared-repos/{repo-id}/
 
-**Request parameters**
+**요청 매개변수**
 
-* share_type ('personal', 'group' or 'public')
+* share_type ('personal', 'group', 'public')
 * user
 * group_id
 
-If share_type is 'personal' then 'user' param is required, if share_type is 'group' then 'group_id' parameter is required. If share_type is 'public' no other params is required.
+share_type이 'personal'이면 'user' 매개변수가 필요하며, share_type이 'group'이면 'group_id' 매개변수가 필요합니다. share_type이 'public'이면 필요한 다른 매개 변수는 없습니다.
 
-**Sample request**
+**예제 요청**
 
     curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-repos/7d42522b-1f6f-465d-b9c9-879f8eed7c6c/?share_type=personal&user=user@example.com&group_id=0"
 
-**Sample response**
+**예제 응답**
 
     "success"
 
-### <a id="shared-files"></a>Shared Files ###
 
-#### <a id="list-shared-files"></a>List Shared Files ####
+## <a id="library"></a>라이브러리 ##
 
-**GET** https://cloud.seafile.com/api2/shared-files/
+### <a id="library-1"></a>라이브러리
 
-**Sample request**
-
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-files/"
-
-**Sample response**
-
-    {"priv_share_in": [{"s_type": "f", "repo_id": "989e3952-9d6f-4427-ab16-4bf9b53212eb", "permission": "r", "to_user": "user@example.com", "token": "94aace406a", "from_user": "user@example.com", "path": "/lib.md"}], "priv_share_out": [{"s_type": "f", "repo_id": "affc837f-7fdd-4e91-b88a-32caf99897f2", "permission": "r", "to_user": "user@example.com", "token": "b7b31bc39b", "from_user": "user@example.com", "path": "/lian123.md"}]}
-
-#### <a id="download-shared-file"></a>Download Shared File ####
-
-**GET** https://cloud.seafile.com/api2/f/{token}/
-
-**Request parameters**
-
-* token(file share token)
-
-**Sample request**
-
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/f/ad93cd0d66/"
-
-**Sample response**
-
-    "http://192.168.1.101:8082/files/89223601/lib.md"
-
-**Errors**
-
-* 404 repo/token/file not found
-* 520 OPERATION FAILED, fail to get file id by path
-
-#### <a id="get-shared-file-detail"></a>Get Shared File Detail ####
-
-**GET** https://cloud.seafile.com/api2/f/{token}/detail/
-
-**Request parameters**
-
-* token(file share token)
-
-**Sample request**
-
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/f/ad93cd0d66/detail/"
-
-**Sample response**
-
-    {"repo_id": "989e3952-9d6f-4427-ab16-4bf9b53212eb", "name": "lib.md", "mtime": 1398218747, "path": "/lib.md", "type": "file", "id": "0000000000000000000000000000000000000000", "size": 0}
-
-**Errors**
-
-* 404 repo/token/file not found
-* 520 OPERATION FAILED, fail to get file id by path
-
-#### <a id="delete-shared-file"></a>Delete Shared File ####
-
-**DELETE** https://cloud.seafile.com/api2/shared-files/?t=0ae587a7d1
-
-**Request parameters**
-
-* t
-
-**Sample request**
-
-    curl -v -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/shared-files/?t=94aace406a"
-
-**Sample response**
-
-    ...
-    < HTTP/1.0 200 OK
-    ...
-
-#### <a id="download-private-shared-file"></a>Download Private Shared File ####
-
-**GET** https://cloud.seafile.com/api2/s/f/{token}/
-
-**Request parameters**
-
-* token(private file share token)
-
-**Sample request**
-
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/s/f/c5aa5f0219/"
-
-**Sample response**
-
-    "http://192.168.1.101:8082/files/6960d5a4/lib.md"
-
-**Errors**
-
-* 404 repo/token/file not found
-* 520 OPERATION FAILED, fail to get file id by path
-
-#### <a id="get-private-shared-file-detail"></a>Get Private Shared File Detail ###
-
-**GET** https://cloud.seafile.com/api2/s/f/{token}/detail/
-
-**Request parameters**
-
-* token(private file share token)
-
-**Sample request**
-
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/s/f/c5aa5f0219/detail/"
-
-**Sample response**
-
-    {"repo_id": "989e3952-9d6f-4427-ab16-4bf9b53212eb", "name": "lib.md", "shared_by": "user@example.com", "mtime": 1398218747, "path": "/lib.md", "type": "file", "id": "0000000000000000000000000000000000000000", "size": 0}
-
-**Errors**
-
-* 404 repo/token/file not found
-* 520 OPERATION FAILED, fail to get file id by path
-
-## <a id="library"></a>Library ##
-
-### <a id="library-1"></a>Library
-
-#### <a id="get-default-lib"></a>Get Default Library ###
+#### <a id="get-default-lib"></a>기본 라이브러리 확인 ###
 
 **GET** https://cloud.seafile.com/api2/default-repo/
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/default-repo/"
 
-**Sample response**
+**예제 응답**
 
     {
         "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e",
         "exists": true
     }
 
-#### <a id="create-default-lib"></a>Create Default Library ###
+#### <a id="create-default-lib"></a>기본 라이브러리 만들기 ###
 
 **POST** https://cloud.seafile.com/api2/default-repo/
 
-**Sample request**
+**예제 요청**
 
     curl -X POST -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/default-repo/"
 
-**Sample response**
+**예제 응답**
 
     {
         "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e",
         "exists": true
     }
 
-#### <a id="list-libraries"></a>List Libraries ###
+#### <a id="list-libraries"></a>라이브러리 조회 ###
 
 **GET** https://cloud.seafile.com/api2/repos/
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/
 
-**Sample response**
+**예제 응답**
 
     [
     {
@@ -1133,19 +1130,19 @@ If share_type is 'personal' then 'user' param is required, if share_type is 'gro
     }
     ]
 
-#### <a id="get-library-info"></a>Get Library Info ###
+#### <a id="get-library-info"></a>라이브러리 정보 확인 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 
-**Sample request**
+**예제 요청**
 
     curl -G -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/632ab8a8-ecf9-4435-93bf-f495d5bfe975/
 
-**Sample response**
+**예제 응답**
 
     {
     "encrypted": false,
@@ -1160,59 +1157,59 @@ If share_type is 'personal' then 'user' param is required, if share_type is 'gro
     "type": "repo"
     }
 
-#### <a id="get-library-owner"></a>Get Library Owner ###
+#### <a id="get-library-owner"></a>라이브러리 소유자 확인 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/owner/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/owner/
 
-**Sample response**
+**예제 응답**
 
     {
     "owner": "user@example.com"
     }
 
-**Errors**
+**오류**
 
-* 403 Permission error, only administrator can perform this action
+* 403 권한 오류. 관리자만 이 동작을 진행할 수 있습니다
 
-#### <a id="get-library-history"></a>Get Library History ###
+#### <a id="get-library-history"></a>라이브러리 기록 확인 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/history/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/history/
 
-**Sample response**
+**예제 응답**
 
     {"commits": [{"rev_file_size": 0, "rev_file_id": null, "ctime": 1398045167, "creator_name": "imwhatiam123@gmail.com", "creator": "0000000000000000000000000000000000000000", "root_id": "ca2625da6be6e211ddd584615ef3bfaa531e66aa", "rev_renamed_old_path": null, "parent_id": "205c469f0830df09b13024601524058757a43128", "new_merge": false, "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e", "desc": "Modified \"api.md\"", "id": "eb62721812e0c3122889b5facde971b353ad176b", "conflict": false, "second_parent_id": null}, {"rev_file_size": 0, "rev_file_id": null, "ctime": 1398045158, "creator_name": "imwhatiam123@gmail.com", "creator": "0000000000000000000000000000000000000000", "root_id": "0b7a31adf4ea8b29ad5a5920420b548da11dd32f", "rev_renamed_old_path": null, "parent_id": "2ba85ee6072efea51a3483843ea7de9b6d1d1eb2", "new_merge": false, "repo_id": "691b3e24-d05e-43cd-a9f2-6f32bd6b800e", "desc": "Added \"api.md\"", "id": "205c469f0830df09b13024601524058757a43128", "conflict": false, "second_parent_id": null}], "page_next": false}
 
-#### <a id="create-library"></a>Create Library ###
+#### <a id="create-library"></a>라이브러리 만들기 ###
 
 **POST** https://cloud.seafile.com/api2/repos/
 
-**Request parameters**
+**요청 매개변수**
 
 * name
-* desc (defaults to "new repo")
-* passwd (needed by encrypt library)
+* desc (기본값 "새 저장소")
+* passwd (암호화 라이브러리에서 필요함)
 
-**Sample request**
+**예제 요청**
 
     curl -v -d "name=foo&desc=new library" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/
 
-**Sample response**
+**예제 응답**
 
     {
     "encrypted": "",
@@ -1229,150 +1226,170 @@ If share_type is 'personal' then 'user' param is required, if share_type is 'gro
     "repo_name": "foo"
     }
 
-**Success**
+**성공**
 
-   Response code 200 and newly created library information are returned.
+   응답 코드 200를 반환하고 새로 만든 라이브러리 정보를 반환합니다.
 
-**Errors**
+**오류**
 
-* 400 Library name missing.
-* 520 Operation failed.
+* 400 라이브러리 이름 빠짐.
+* 520 처리 실패.
 
-#### <a id="check/create-sub-library"></a>Check/Create Sub Library ###
+#### <a id="check/create-sub-library"></a>하위 라이브러리 검사/만들기 ###
 
-check if a dir has a corresponding sub_repo, if it does not have, create one
+각각의 sub_repo에 디렉터리가 있는지 확인하고, 없으면 새로 만듭니다
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/dir/sub_repo/?p=/\&name=sub_lib
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 * p
 * name
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/sub_repo/?p=/\&name=sub_lib
 
-**Sample response**
+**예제 응답**
 
     {"sub_repo_id": "c0a3283c-013c-4a7c-8f68-006f06fa6dec"}
 
-**Errors**
+**오류**
 
-* 400 Argument missing
-* 500 INTERNAL SERVER ERROR
+* 400 인자 빠짐
+* 500 내부 서버 오류
 
-#### <a id="delete-library"></a>Delete Library ###
+#### <a id="delete-library"></a>라이브러리 삭제 ###
 
 **DELETE** https://cloud.seafile.com/api2/repos/{repo-id}/
 
-**Sample request**
+**예제 요청**
 
     curl -v -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/
 
-**Sample response**
+**예제 응답**
 
 "success"
 
-**Errors**
+**오류**
 
-* 400 Library does not exist.
+* 400 라이브러리 없음.
 
-* 403 Only library owner can perform this operation.
+* 403 라이브러리 소유자만 동작 수행 가능.
 
-#### <a id="decrypt-library"></a>Decrypt Library ###
+#### <a id="rename-library"></a>라이브러리 이름 바꾸기 ###
+
+**POST** https://cloud.seafile.com/api2/repos/{repo-id}/?op=rename
+
+**예제 요청**
+
+    curl -d "repo_name=new-repo-name"  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/op=rename
+
+**예제 응답**
+
+"success"
+
+**오류**
+
+* 404 라이브러리 없음.
+
+* 403 라이브러리 이름 바꾸기 권한 없음.
+
+* 500 라이브러리 이름 바꿀 수 없음
+
+#### <a id="decrypt-library"></a>라이브러리 해독 ###
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/
 
-**Request parameters**
+**요청 매개변수**
 
 * password
 
-**Sample request**
+**예제 요청**
 
     curl -v -d "password=123" -H 'Authorization: Token e6a33d61954f219a96b60f635cf02717964e4385' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/0c2465a5-4753-4660-8a22-65abec9ec8d0/
 
-**Sample response**
+**예제 응답**
 
 "success"
 
-**Errors**
+**오류**
 
-* 400 Incorrect password
-* 409 Repo is not encrypt
-* 500 Internal server error
+* 400 잘못된 암호
+* 409 암호화 하지 않은 Repo
+* 500 내부 서버 오류
 
 
-#### <a id="create-public-lib"></a>Create Public Library ###
+#### <a id="create-public-lib"></a>공개 라이브러리 만들기 ###
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/public/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 
-**Sample request**
+**예제 요청**
 
     curl -X POST -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/public/
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 200 OK
     ...
 
-**Success**
+**성공**
 
-    Response code is 200(OK), and a string "success" is returned.
+    응답 코드는 200(OK) 이며, "success" 문자열을 반환합니다.
 
-**Errors**
+**오류**
 
-* 404 Repo not found
-* 403 Forbid to access this repo
-* 500 INTERNAL SERVER ERROR, Unable to make repo public
+* 404 Repo 없음
+* 403 이 repo 접근 금지
+* 500 내부 서버 오류, 공개 repo를 만들 수 없음
 
-#### <a id="remove-public-lib"></a>Remove Public Library ###
+#### <a id="remove-public-lib"></a>공개 라이브러리 제거 ###
 
 **DELETE** https://cloud.seafile.com/api2/repos/{repo-id}/public/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 
-**Sample request**
+**예제 요청**
 
     curl -X DELETE -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/public/
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 200 OK
     ...
 
-**Success**
+**성공**
 
-    Response code is 200(OK), and a string "success" is returned.
+    응답 코드는 200(OK) 이며, "success" 문자열을 반환합니다.
 
-**Errors**
+**오류**
 
-* 404 Repo not found
-* 403 Forbid to access this repo
-* 500 INTERNAL SERVER ERROR, Unable to remove public repo
+* 404 Repo 없음
+* 403 이 repo 접근 금지
+* 500 내부 서버 오류, 공개 repo를 제거할 수 없음
 
-#### <a id="fetch-library-download-info"></a>Fetch library download info ###
+#### <a id="fetch-library-download-info"></a>라이브러리 다운로드 정보 가져오기 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/download-info/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/download-info/
 
-**Sample response**
+**예제 응답**
 
     {
     "applet_root": "https://localhost:13420",
@@ -1386,15 +1403,15 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
     "email": "user@example.com"
     }
 
-#### <a id="list-virtual-libraries"></a>List Virtual Libraries ###
+#### <a id="list-virtual-libraries"></a>가상 라이브러리 조회 ###
 
 **GET** https://cloud.seafile.com/api2/virtual-repos/
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/virtual-repos/"
 
-**Sample response**
+**예제 응답**
 
     {"virtual-repos":
         [
@@ -1403,15 +1420,20 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
         ]
     }
 
-#### <a id="search-libraries"></a>Search Libraries ###
+#### <a id="search-libraries"></a>라이브러리 검색 ###
 
 **GET** https://cloud.seafile.com/api2/search/
 
-**Sample request**
+**요청 매개변수**
 
-    curl -G -H ‘Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96’ -H ‘Accept: application/json; indent=4’ https://cloud.seafile.com/api2/search/?q=keyword
+* q
+* per_page (선택)
 
-**Sample response**
+**예제 요청**
+
+    curl -G -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/search/?q=keyword
+
+**예제 응답**
 
     {
         "has_more": false,
@@ -1444,48 +1466,89 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
         ]
     }
 
-**Errors**
+**오류**
 
-* 404 Search not supported.
-* 400 Missing argument q.
+* 404 검색 기능 지원 안함.
+* 400 q 인자 빠짐.
 
-### <a id="file"></a>File ##
+### <a id="file"></a>파일 ##
 
-#### <a id="download-file"></a>Download File  ###
+#### <a id="view-file-through-owa"></a>오피스 웹 앱으로 파일 보기 ###
+
+**GET** https://cloud.seafile.com/api2/repos/{repo-id}/owa-file/?path=/foo.docx
+
+**요청 매개변수**
+
+* repo-id
+* path
+
+**예제 요청**
+
+    curl  -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' 'https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/owa-file/?path=/foo.docx'
+
+**예제 응답**
+
+```
+{
+    "access_token": "7decacff-6e55-4856-9734-01aaab26ef45",
+    "action_url": "http://off1.off.com/wv/wordviewerframe.aspx?WOPIsrc=http%3A%2F%2F192.168.1.124%3A8000%2Fapi2%2Fwopi%2Ffiles%2F2b0750085925fa85238e5f64cfd13ed6f1076bfd%2F",
+    "access_token_ttl": 1456906784000
+}
+```
+
+**응답을 받은 후**
+
+오피스 온라인 프로그램을 예로 들어 설명하자면, 호스트에서 WOPI 동작 URL을 가리키는 iframe 구성 요소가 들어간 개별 HTML 페이지를 만들어야합니다. 다음, form 구성 요소를 활용하여 `access_token` 및 `access_token_ttl`값으로 오피스 온라인에 POST 요청 처리합니다.
+
+자세한 내용은 [공식 문서](http://wopi.readthedocs.org/en/latest/hostpage.html)를 참고할 수 있습니다.
+
+**오류**
+
+* 400 잘못된 경로.
+* 403 권한 거부.
+* 403 라이브러리 암호화함.
+* 403 오피스 웹 앱 기능 활성화 안함.
+* 403 오피스 웹 앱 기능은 전문가판에서만 지원함.
+* 404 파일/라이브러리 없음.
+* 500 내부 서버 오류
+
+
+#### <a id="download-file"></a>파일 다운로드 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 * p
+* reuse(선택): 만든 다운로드 링크를 한시간 이상 접근할 수 있게 하려면 `reuse`를 `1`로 설정하십시오.
 
-**Sample request**
+**예제 요청**
 
-    curl  -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
+    curl  -v  -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' 'https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c&reuse=1'
 
-**Sample response**
+**예제 응답**
 
     "https://cloud.seafile.com:8082/files/adee6094/foo.c"
 
-**Errors**
+**오류**
 
-* 400 Path is missing
-* 404 File not found
-* 520 Operation failed.
+* 400 경로 빠짐
+* 404 파일 없음
+* 520 처리 실패.
 
-#### <a id="get-file-detail"></a>Get File Detail ###
+#### <a id="get-file-detail"></a>파일 세부 정보 확인 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/detail/?p=/foo.c
 
 * repo-id
 * p
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/detail/?p=/foo.c
 
-**Sample response**
+**예제 응답**
 
     {
     "id": "013d3d38fed38b3e8e26b21bb3463eab6831194f",
@@ -1495,25 +1558,25 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
     "size": 22
     }
 
-**Errors**
+**오류**
 
-* 400 Path is missing
-* 520 Operation failed.
+* 400 경로 빠짐
+* 520 처리 실패.
 
-#### <a id="get-file-history"></a>Get File History ###
+#### <a id="get-file-history"></a>파일 기록 확인 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/history/?p=/foo.c
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 * p
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/history/?p=/foo.c
 
-**Sample response**
+**예제 응답**
 
     {
     "commits":
@@ -1555,103 +1618,167 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
         ]
     }
 
-**Errors**
+**오류**
 
-* 400 Path is missing
-* 404 File not found
+* 400 경로 빠짐
+* 404 파일 없음
 
-#### <a id="download-file-revision"></a>Download File From a Revision ###
+#### <a id="download-file-revision"></a>파일 특정 리비전 다운로드 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/file/revision/?p=/foo.c&commit_id=a1ec20709675f4dc8db825cdbca296be245d189b
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 * p
 * commit_id
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/revision/?p=/foo.c\&commit_id=a1ec20709675f4dc8db825cdbca296be245d189b
 
-**Sample response**
+**예제 응답**
 
     "https://cloud.seafile.com:8082/files/adee6094/foo.c"
 
-**Errors**
+**오류**
 
-* 400 Path is missing
-* 404 Revision not found
+* 400 경로 빠짐
+* 404 리비전 없음
 
-#### <a id="create-file"></a>Create File  ###
+#### <a id="create-file"></a>파일 만들기 ###
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo.c
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 * p
 * operation
 
-**Sample request**
+**예제 요청**
 
     curl -v -d "operation=create" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.1 201 CREATED
     ...
     "success"
 
-**Success**
+**성공**
 
-   Response code is 201, and a string `"success"` is returned.
+   응답 코드는 201이며, `"success"` 문자열을 반환합니다.
 
-**Errors**
+**오류**
 
-* 403 FORBIDDEN, You do not have permission to move file
-* 520 OPERATION FAILED, fail to create file
+* 403 금지된 동작, 파일 이동 권한 없음
+* 520 처리 실패, 파일 만들기 실패
 
-#### <a id="rename-file"></a>Rename File  ###
+#### <a id="rename-file"></a>파일 이름 바꾸기 ###
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo.c
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 * p
-* operation
+* operation=rename
 * newname
 
-**Sample request**
+**예제 요청**
 
     curl -v -d "operation=rename&newname=newfoo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.1 301 MOVED PERMANENTLY
     ...
     "success"
 
-**Success**
+**성공**
 
-   Response code is 301, and a string `"success"` is returned.
+   응답 코드는 301이며, `"success"` 문자열을 반환합니다.
 
-**Errors**
+**오류**
 
-* 400 BAD REQUEST, Path is missing or invalid(e.g. p=/) or newname is missing(newname too long)
-* 403 FORBIDDEN, You do not have permission to rename file
-* 404 NOT FOUND, repo not found
-* 409 CONFLICT, the newname is the same to the old
-* 520 OPERATION FAILED, fail to rename file
+* 400 잘못된 요청, 경로가 빠졌거나 잘못되었거나(예: p=/) 새 이름이 빠짐(새 이름이 너무 김)
+* 403 금지됨, 파일 이름 바꾸기 권한 없음
+* 404 찾을 수 없음, repo 없음
+* 409 중복, 새 이름이 기존 이름과 동일
+* 520 처리 실패, 파일 이름 바꾸기 실패
 
-#### <a id="move-file"></a>Move File  ###
+#### <a id="lock-file"></a>파일 잠금 ###
+
+**PUT** https://cloud.seafile.com/api2/repos/{repo-id}/file/
+
+**요청 매개변수**
+
+* repo-id
+* p
+* operation
+
+**예제 요청**
+
+    curl -v -X PUT -d "operation=lock&p=/foo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/
+
+**예제 응답**
+
+    ...
+    < HTTP/1.0 200 OK
+    ...
+    "success"
+
+**성공**
+
+   응답 코드는 200이며, `"success"` 문자열을 반환합니다.
+
+**오류**
+
+* 400 잘못된 요청, 경로가 빠졌거나 잘못됨(예: p=/)
+* 403 금지된 동작, 파일 잠금 권한 없음
+* 404 찾을 수 없음, repo 없음
+* 520 처리 실패, 파일 잠금 실패
+
+#### <a id="unlock-file"></a>파일 잠금 해제 ###
+
+**PUT** https://cloud.seafile.com/api2/repos/{repo-id}/file/
+
+**요청 매개변수**
+
+* repo-id
+* p
+* operation
+
+**예제 요청**
+
+    curl -v -X PUT -d "operation=unlock&p=/foo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/
+
+**예제 응답**
+
+    ...
+    < HTTP/1.0 200 OK
+    ...
+    "success"
+
+**성공**
+
+   응답 코드는 200이며, `"success"` 문자열을 반환합니다.
+
+**오류**
+
+* 400 잘못된 요청, 경로가 빠졌거나 잘못됨(예: p=/)
+* 403 금지된 동작, 파일 잠금 권한 없음
+* 404 찾을 수 없음, repo 없음
+* 520 처리 실패, 파일 잠금 해제 실패
+
+#### <a id="move-file"></a>파일 이동 ###
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo.c
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 * p
@@ -1659,69 +1786,76 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 * dst_repo
 * dst_dir
 
-**Sample request**
+**예제 요청**
 
     curl -v -d "operation=move&dst_repo=affc837f-7fdd-4e91-b88a-32caf99897f2&dst_dir=/" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.1 301 MOVED PERMANENTLY
     ...
     "success"
 
-**Success**
+**성공**
 
-   Response code is 301, and a string `"success"` is returned.
+   응답 코드는 301이며, `"success"` 문자열을 반환합니다.
 
-**Errors**
+**오류**
 
-* 400 BAD REQUEST, Path is missing or invalid(e.g. p=/)
-* 403 FORBIDDEN, You do not have permission to move file
-* 404 NOT FOUND, repo not found
-* 500 INTERNAL SERVER ERROR
+* 400 잘못된 요청, 경로가 빠졌거나 잘못됨(예: p=/)
+* 403 금지된 동작, 파일 이동 권한 없음
+* 404 찾을 수 없음, repo 없음
+* 500 내부 서버 오류
 
-#### <a id="copy-file"></a>Copy File ###
+#### <a id="copy-file"></a>파일 복사 ###
 
-**POST** https://cloud.seafile.com/api2/repos/{repo_id}/fileops/copy/
+**POST** https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo.c
 
-**Request parameters**
+**요청 매개변수**
 
-* p: source folder path, defaults to `"/"`
-* file_names: list of file/folder names to copy. Multiple file/folder names can be seperated by `:`.
-* dst_repo: the destination repo id
-* dst_dir: the destination folder in `dst_repo`
+* repo-id
+* p
+* operation
+* dst_repo
+* dst_dir
 
-**Sample request**
+**예제 요청**
 
-    curl -d "dst_repo=73ddb2b8-dda8-471b-b7a7-ca742b07483c&dst_dir=/&file_names=foo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/fileops/copy/
+    curl -v -d "dst_repo=73ddb2b8-dda8-471b-b7a7-ca742b07483c&dst_dir=/&file_names=foo.c" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/file/?p=/foo.c
 
-**Sample response**
+**예제 응답**
 
+    ...
+    < HTTP/1.1 200 OK
+    ...
     "success"
 
-**Errors**
+**성공**
 
-* 400 missing argument
-* 403 You do not have permission to copy file
-* 404 repo not found
-* 502 failed to copy file
+   응답 코드는 200이며, `"success"` 문자열을 반환합니다.
 
-#### <a id="revert-file"></a>Revert File ###
+**오류**
+
+* 400 잘못된 요청, 경로가 빠졌거나 잘못됨(예: p=/)
+* 403 금지된 동작, 파일 복사 권한 없음
+* 500 내부 서버 오류
+
+#### <a id="revert-file"></a>파일 복원 ###
 
 **PUT** https://cloud.seafile.com/api2/repos/{repo_id}/file/revert/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo_id
 * p
 * commit_id
 
-**Sample request**
+**예제 요청**
 
     curl -v -X PUT -d "commit_id=a1ec20709675f4dc8db825cdbca296be245d189b&p=/foo.c" -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/8f5f2222-72a8-454f-ac40-8397c5a556a8/file/revert/
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 200 OK
@@ -1729,199 +1863,206 @@ check if a dir has a corresponding sub_repo, if it does not have, create one
 
     {"ret": 0}
 
-**Success**
+**성공**
 
     Response code 200(OK) is returned.
 
-**Errors**
+**오류**
 
-* 400 Path is missing
+* 400 경로 빠짐
 
-#### <a id="delete-file"></a>Delete File ###
+#### <a id="delete-file"></a>파일 삭제 ###
 
 **DELETE** https://cloud.seafile.com/api2/repos/{repo-id}/file/?p=/foo
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 * p
 
-**Sample request**
+**예제 요청**
 
     curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/file/?p=/foo.c
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 200 OK
     ...
     "success"
 
-**Errors**
+**오류**
 
-* 400 Path is missing
-* 520 Operation failed.
+* 400 경로 빠짐
+* 520 처리 실패.
 
-**Note**
+**참고**
 
-   This can also be used to delete directory.
+   디렉터리를 삭제할 수도 있습니다.
 
-#### <a id="upload-file"></a>Upload File ###
+#### <a id="upload-file"></a>파일 업로드 ###
 
-##### <a id="get-upload-link"></a>Get Upload Link
+##### <a id="get-upload-link"></a>업로드 링크 확인
 
-**GET** https://cloud.seafile.com/api2/repos/{repo-id}/upload-link/
+**GET** https://cloud.seafile.com/api2/repos/{repo-id}/upload-link/?p=/upload-dir
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
+* p ('/'를 기본값으로 사용)
 
-**Sample request**
+**예제 요청**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/upload-link/
 
-**Sample response**
+**예제 응답**
 
-    "http://cloud.seafile.com:8082/upload-api/ef881b22"
+    "http://cloud.seafile.com:8082/upload-api/73c5d117-3bcf-48a0-aa2a-3f48d5274ae3"
 
-**Errors**
+**오류**
 
-    500 Run out of quota
+    403 권한 거부.
+    500 제한 용량 초과
 
-##### <a id="upload-file-1"></a>Upload File
+##### <a id="upload-file-1"></a>파일 업로드
 
-After getting the upload link, POST to this link for uploading files.
+업로드 링크를 확인하고 나면, 업로드할 파일에 이 링크로 POST 요청을 보냅니다.
 
-**POST** http://cloud.seafile.com:8082/upload-api/ef881b22
+**POST** http://cloud.seafile.com:8082/upload-api/73c5d117-3bcf-48a0-aa2a-3f48d5274ae3
 
-**Errors**
+**오류**
 
-    400 Bad request
-    440 Invalid filename
-    441 File already exists
-    500 Internal server error
+    400 잘못된 요청
+    440 잘못된 파일 이름
+    500 내부 서버 오류
 
-**Sample request**
+**예제 요청**
 
-    curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F parent_dir=/ http://cloud.seafile.com:8082/upload-api/ef881b22
+    curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F parent_dir=/ http://cloud.seafile.com:8082/upload-api/73c5d117-3bcf-48a0-aa2a-3f48d5274ae3
 
-**Sample response**
+**예제 응답**
 
     "adc83b19e793491b1c6ea0fd8b46cd9f32e592fc"
 
-**Note**
+**참고**
 
-For python client uploading, see <https://cloud.seafile.com/f/1b0ade6edc/>
+- 이미 상위 디렉터리에 'test.txt'가 있으면 새로 업로드한 파일 이름은 'test(1).txt'가 됩니다
 
-#### <a id="update-file"></a>Update file ###
+- 파이썬 클라이언트 업로딩은 <https://github.com/haiwen/webapi-examples/blob/master/python/upload-file.py>, 더 쉽고 우아한 [python-requests 라이브러리](http://docs.python-requests.org/en/latest/)로 처리할 수 있습니다. <https://github.com/haiwen/webapi-examples/blob/master/python/upload-file2.py>를 참고하십시오.
 
-##### <a id="get-update-link"></a>Get Update Link
+#### <a id="update-file"></a>파일 업데이트 ###
 
-**GET** https://cloud.seafile.com/api2/repos/{repo-id}/update-link/
+##### <a id="get-update-link"></a>업데이트 링크 확인
 
-**Request parameters**
+**GET** https://cloud.seafile.com/api2/repos/{repo-id}/update-link/?p=/update-dir
+
+**요청 매개변수**
 
 * repo-id
+* p ('/'를 기본값으로 사용)
 
-**Sample request**
+**예제 요청**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/update-link/
 
-**Sample response**
+**예제 응답**
 
-    "http://cloud.seafile.com:8082/update-api/ef881b22"
+    "http://cloud.seafile.com:8082/update-api/e69e5ee7-9329-4f42-bf1b-12879bd72c28"
 
-**Errors**
+**오류**
 
-    500 Run out of quota
+    403 권한 거부.
+    500 제한 용량 초과
 
-##### <a id="update-file-1"></a>Update File
+##### <a id="update-file-1"></a>파일 업데이트
 
-After getting the upload link, POST to this link for uploading files.
+업데이트 링크를 확인하고 나면, 업데이트할 파일에 이 링크로 POST 요청을 보냅니다.
 
-**POST** http://cloud.seafile.com:8082/update-api/ef881b22
+**POST** http://cloud.seafile.com:8082/update-api/e69e5ee7-9329-4f42-bf1b-12879bd72c28
 
-**Request parameters**
+**요청 매개변수**
 
 * target_file
 
-**Sample request**
+**예제 요청**
 
-    curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F target_file=/test.txt http://cloud.seafile.com:8082/upload-api/ef881b22
+    curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" -F file=@test.txt -F filename=test.txt -F target_file=/test.txt http://cloud.seafile.com:8082/update-api/e69e5ee7-9329-4f42-bf1b-12879bd72c28
 
-**Returns**
+**반환**
 
-The id of the updated file
+업데이트한 파일의 ID
 
-**Sample response**
+**예제 응답**
 
     "adc83b19e793491b1c6ea0fd8b46cd9f32e592fc"
 
-**Errors**
+**오류**
 
-- 400 Bad request
-- 440 Invalid filename
-- 500 Internal server error
+- 400 잘못된 요청
+- 440 잘못된 파일 이름
+- 500 내부 서버 오류
 
-#### <a id="get-upload-blks-link"></a>Get Upload Blocks Link
+#### <a id="get-upload-blks-link"></a>블록 업로드 링크 확인
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/upload-blks-link/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 
-**Sample request**
+**예제 요청**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/upload-blks-link/
 
-**Sample response**
+**예제 응답**
 
-    "https://cloud.seafile.com/seafhttp/upload-blks-api/c1e6823d"
+    "https://cloud.seafile.com/seafhttp/upload-blks-api/569213db-7297-457a-907d-e2259a277c05"
 
-**Errors**
+**오류**
 
-- 403 Can not access repo
-- 520 above quota
+- 403 repo에 접근할 수 없음
+- 520 제한 용량 초과
 
-#### <a id="get-update-blks-link"></a>Get Update Blocks Link
+#### <a id="get-update-blks-link"></a>블록 업데이트 링크 확인
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/update-blks-link/
 
-**Request parameters**
+**요청 매개변수**
 
 * repo-id
 
-**Sample request**
+**예제 요청**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd" https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/update-blks-link/
 
-**Sample response**
+**예제 응답**
 
-    "https://cloud.seafile.com/seafhttp/update-blks-api/c1e6823d"
+    "https://cloud.seafile.com/seafhttp/update-blks-api/402c6d48-fe52-4592-97dd-85f462f03d66"
 
-**Errors**
+**오류**
 
-- 403 Can not access repo
-- 520 above quota
+- 403 repo에 접근할 수 없음
+- 520 제한 용량 초과
 
-### <a id="directory">Directory ##
+### <a id="directory">디렉터리 ##
 
-#### <a id="list-directory-entries"></a>List Directory Entries ###
+#### <a id="list-directory-entries"></a>디렉터리 항목 조회 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
 
 * repo-id
-* p (optional): The path to a directory. If `p` is missing, then defaults to '/' which is the top directory.
-* oid (optional)
+* p(선택): 디렉터리 경로. `p`가 빠지면, 최상단 디렉터리 '/' 값을 기본값으로 설정합니다.
+* oid(선택): 디렉터리의 객체 ID. 객체 ID는 디렉터리 내용의 체크섬입니다.
+* t(선택): `t` 인자를 `f`로 설정하면 파일 항목만,  `d`로 설정하면 디렉터리 항목만 반환합니다.
+* recursive (optional): `t` 인자를 `d`로 설정 **하고** `recursive` 인자를 `1`로 설정하면, 모든 디렉터리 항목을 재귀적으로 찾아 반환합니다
 
-**Sample request**
+**예제 요청**
 
     curl -H "Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d9b477fd" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/99b758e6-91ab-4265-b705-925367374cf0/dir/?p=/foo
 
-**Sample response**
+**예제 응답**
 
-   If oid is the latest oid of the directory, returns `"uptodate"` , else returns
+   OID가 현재 디렉터리의 OID와 동일하면 `"uptodate"` 를, 그렇지 않으면 다음을 반환합니다
 
     [
     {
@@ -1937,13 +2078,13 @@ The id of the updated file
     }
     ]
 
-**Errors**
+**오류**
 
-* 404 The path is not exist.
-* 440 Repo is encrypted, and password is not provided.
-* 520 Operation failed..
+* 404 경로 없음.
+* 440 암호화 한 Repo에 암호 제시 안함.
+* 520 처리 실패.
 
-#### <a id="create-new-directory"></a>Create New Directory ###
+#### <a id="create-new-directory"></a>새 디렉터리 만들기 ###
 
 **POST** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
 
@@ -1951,11 +2092,11 @@ The id of the updated file
 * p
 * operation=mkdir (post)
 
-**Sample request**
+**예제 요청**
 
     curl -d  "operation=mkdir" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 201 CREATED
@@ -1964,146 +2105,228 @@ The id of the updated file
 
     "success"
 
-**Success**
+**성공**
 
-   Response code 201(Created) is returned, and Location header provides the url of created directory.
+   응답 코드 201(Created)를 반환하고, Location 헤더에 만든 디렉터리 주소를 제공합니다.
 
-**Errors**
+**오류**
 
-* 400 Path is missing or invalid(e.g. p=/)
-* 520 Operation failed.
+* 400 경로가 빠졌거나 잘못됨(e.g. p=/)
+* 520 처리 실패.
 
-**Notes**
+**참고**
 
-   Newly created directory will be renamed if the name is duplicated.
-   
-#### <a id="rename-directory"></a>Rename Directory ###
+   같은 이름을 가진 디렉터리가 있으면 새로 만든 디렉터리 이름을 바꿉니다.
 
-**POST** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
+#### <a id="rename-directory"></a>디렉터리 이름 바꾸기 ###
 
-**Parameters**
+**POST** https://cloud.seafile.com/api2/repos/{repo-id}/dir/?p=/foo
 
-* p (path)
-* operation=rename (post)
-* newname (the new name for directory)
+**매개변수**
 
-**Sample request**
+* repo-id
+* p (경로)
+* operation=rename
+* newname (디렉터리 새 이름)
+
+**예제 요청**
 
     curl -d  "operation=rename&newname=pinkfloyd_newfolder" -v  -H 'Authorization: Tokacd9c6ccb8133606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
 
-**Success**
+**성공**
 
-   Response code 200 if everything is ok
+   응답 코드 200, 모든 동작 정상 처리
 
-**Errors**
+**오류**
 
-* 403 if You do not have permission to rename a folder
-* 400 if newname is not given
-* 520 if Failed to rename directory (generic problem)
+* 403 폴더 이름 바꾸기 권한 없음
+* 400 새 이름 설정 안함
+* 520 디렉터리 이름 바꾸기 실패(일반적인 문제)
 
-**Notes**
+**참고**
 
-   If the new name is the same of the old name no operation will be done.
+   이전 이름과 새 이름이 같으면 동작을 수행하지 않습니다.
 
-#### <a id="delete-directory"></a>Delete Directory ###
+#### <a id="delete-directory"></a>디렉터리 삭제 ###
 
 **DELETE** https://cloud.seafile.com/api2/repos/{repo-id}/dir/
 
 * repo-id
 * p
 
-**Sample request**
+**예제 요청**
 
     curl -X DELETE -v  -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
 
-**Sample response**
+**예제 응답**
 
     ...
     < HTTP/1.0 200 OK
     ...
     "success"
 
-**Success**
+**성공**
 
-   Response code is 200(OK), and a string `"success"` is returned.
+   응답 코드는 200(OK) 이며, `"success"` 문자열을 반환합니다.
 
-**Errors**
+**오류**
 
-* 400 Path is missing or invalid(e.g. p=/)
-* 520 Operation failed.
+* 400 경로가 빠졌거나 잘못됨(e.g. p=/)
+* 520 처리 실패.
 
-**Note**
+**참고**
 
-   This can also be used to delete file.
+   파일을 삭제할 때도 사용할 수 있습니다.
 
-#### <a id="Download-directory"></a>Download Directory ###
+#### <a id="Download-directory"></a>디렉터리 다운로드 ###
 
 **GET** https://cloud.seafile.com/api2/repos/{repo-id}/dir/download/?p=/foo
 
 * repo-id
 * p
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/?p=/foo
 
-**Sample response**
+**예제 응답**
 
     "https://cloud.seafile.com:8082/files/adee6094/foo"
 
-**Errors**
+**오류**
 
-* 400 Path is missing or invalid(e.g. p=/), or unable to download directory, size is too large
-* 404 Repo(path) not found(exist)
-* 520 Operation failed.
+* 400 경로가 빠졌거나 잘못되었거나(예: p=/), 크기가 너무 커서 디렉터리를 다운로드할 수 없음
+* 404 Repo(path) 없음
+* 520 처리 실패.
 
-#### <a id="share-directory"></a>Share Directory ###
+#### <a id="share-directory"></a>디렉터리 공유 ###
 
-**POST** https://cloud.seafile.com/api2/repos/{repo-id}/dir/share/
+**PUT** https://cloud.seafile.com/api2/repos/{repo-id}/dir/shared_items/?p={path}
 
 * repo-id
-* emails
-* s_type
 * path
-* perm
+* permission, `r`/`rw`
+* share_type, `user`/`group`
+* username, share_type이 user면 필요합니다
+* group_id, share_type이 group이면 필요합니다
 
-**Sample request**
+**사용자 대상 폴더 공유 요청 예제**
 
-    curl -v -X POST -d "emails=user@example.com&s_type=d&path=/dir&perm=r" -H 'Authorization: Token f2210dacd3606d94ff8e61d99b477fd' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/dae8cecc-2359-4d33-aa42-01b7846c4b32/dir/share/
+    curl -X PUT -d "username=2@1.com&share_type=user&&perm=r" -H 'Authorization: Token ef12bf1e66a1aa797a1d6556fdc9ae84f1e9249f' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/78c620ee-2989-4427-8eff-7748f4fbebc0/dir/shared_items/?p=/q
 
-**Sample response**
+**사용자 대상 폴더 공유 응답 예제**
 
-    ...
-    < HTTP/1.0 200 OK
-    ...
+    {"failed": [], "success": [{"user_info": {"nickname": "2", "name": "2@1.com"}, "share_type": "user", "permission": "r"}]}
 
-**Success**
+**그룹 대상 폴더 공유 요청 예제**
 
-   Response code is 200(OK).
+    curl -X PUT -d "group_id=772&share_type=group&&perm=rw" -H 'Authorization: Token ef12bf1e66a1aa797a1d6556fdc9ae84f1e9249f' -H 'Accept: application/json; charset=utf-8; indent=4' https://cloud.seafile.com/api2/repos/78c620ee-2989-4427-8eff-7748f4fbebc0/dir/shared_items/?p=/q
 
-#### <a id="batch-delete"></a>Batch Delete ###
+**그룹 대상 폴더 공유 응답 예제**
 
-Pipelining over HTTP/1.1 can be used to delete multiple files and directories without losing performance.
+    {"failed": [], "success": [{"group_info": {"id": 772, "name": "group-2"}, "share_type": "group", "permission": "r"}]}
 
-A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos/{repo-id}/dir/?p=/foo http://cloud.seafile.com/api2/repos/{repo-id}/dir/?p=/bar`. This code snippet shows how to use Python client to batch delete multiple files and directories. See <http://cloud.seafile.com/f/f7fd5d5b9d/>
+**오류**
 
+* 400 잘못된 share_type/permission/group_id 값.
+* 403 권한 거부.
+* 404 라이브러리/폴더/그룹 없음.
+* 500 하위 repo 확인 실패.
 
-## <a id="get-avatar"></a>Get Avatar ##
+### <a id="multiple-files-directories">다중 파일 / 디렉터리 ##
 
-### <a id="get-user-avatar"></a>Get User Avatar ##
+#### <a id="multiple-files-directories-copy"></a>복사 ###
+
+**POST** https://cloud.seafile.com/api2/repos/{repo_id}/fileops/copy/
+
+**요청 매개변수**
+
+* p: 원본 폴더 경로. 기본값 `"/"`
+* file_names: 복사할 파일/폴더 목록. 다중 파일/폴더 이름을 `:`으로 구분할 수 있습니다.
+* dst_repo: 대상 repo ID
+* dst_dir: `dst_repo`의 대상 폴더
+
+**예제 요청**
+
+    curl -d "dst_repo=73ddb2b8-dda8-471b-b7a7-ca742b07483c&dst_dir=/&file_names=foo.c:bar.c:dir1:dir2" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/fileops/copy/
+
+**예제 응답**
+
+    "success"
+
+**오류**
+
+* 400 인자 빠짐
+* 403 파일 복사 권한 없음
+* 404 repo 없음
+* 502 파일 복사 실패
+
+#### <a id="multiple-files-directories-move"></a>이동 ###
+
+**POST** https://cloud.seafile.com/api2/repos/{repo_id}/fileops/move/
+
+**요청 매개변수**
+
+* p: 원본 폴더 경로. 기본값 `"/"`
+* file_names: 옮길 파일/폴더 이름 목록. 다중 파일/폴더 이름은 세미콜론으로 구분할 수 있습니다.
+* dst_repo: 대상 repo ID
+* dst_dir: `dst_repo`의 대상 폴더
+
+**예제 요청**
+
+    curl -d "dst_repo=73ddb2b8-dda8-471b-b7a7-ca742b07483c&dst_dir=/&file_names=foo.c:bar.c:dir1:dir2" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/fileops/move/
+
+**예제 응답**
+
+    "success"
+
+**오류**
+
+* 400 인자 빠짐
+* 403 파일 이동 권한 없음
+* 404 repo 없음
+* 502 파일 이동 실패
+
+#### <a id="multiple-files-directories-delete"></a>삭제 ###
+
+**POST** https://cloud.seafile.com/api2/repos/{repo_id}/fileops/delete/
+
+**요청 매개변수**
+
+* p: 원본 폴더 경로. 기본값 `"/"`
+* file_names: 삭제할 파일/폴더 이름 목록. 다중 파일/폴더 이름은 세미콜론으로 구분할 수 있습니다.
+
+**예제 요청**
+
+    curl -d "file_names=foo.c:bar.c:dir1:dir2" -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' https://cloud.seafile.com/api2/repos/c7436518-5f46-4296-97db-2fcba4c8c8db/fileops/delete/
+
+**예제 응답**
+
+    "success"
+
+**오류**
+
+* 400 인자 빠짐
+* 403 파일 삭제 권한 없음
+* 404 repo 없음
+* 502 파일 삭제 실패
+
+## <a id="avatar"></a>아바타 ##
+
+### <a id="get-user-avatar"></a>사용자 아바타 확인 ##
 
 **GET** https://cloud.seafile.com/api2/avatars/user/{user}/resized/{size}/
 
-**Request parameters**
+**요청 매개변수**
 
 * user
 * size
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/avatars/user/user@example.com/resized/80/
 
-**Sample response**
+**예제 응답**
 
     {
         "url": "http://127.0.0.1:8000/media/avatars/default.png",
@@ -2111,20 +2334,20 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
         "mtime": 0
     }
 
-### <a id="get-group-avatar"></a>Get Group Avatar ##
+### <a id="get-group-avatar"></a>그룹 아바타 확인 ##
 
 **GET** https://cloud.seafile.com/api2/avatars/group/{group_id}/resized/{size}/
 
-**Request parameters**
+**요청 매개변수**
 
 * group_id
 * size
 
-**Sample request**
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/avatars/group/1/resized/80/
 
-**Sample response**
+**예제 응답**
 
     {
         "url": "http://127.0.0.1:8000/media/avatars/groups/default.png",
@@ -2132,51 +2355,67 @@ A sample request looks like `curl -X DELETE https://cloud.seafile.com/api2/repos
         "mtime": 0
     }
 
-## <a id="list-group-and-contacts"></a>List Group And Contacts ##
-
-**GET** https://cloud.seafile.com/api2/groupandcontacts/
-
-**Sample request**
-
-    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/groupandcontacts/"
-
-**Sample response**
-
-    {
-        "contacts": [
-            {
-                "msgnum": 0,
-                "mtime": 0,
-                "lastmsg": null,
-                "email": "user@example.com",
-                "name": "123"
-            }
-        ],
-        "umsgnum": 0,
-        "replynum": 0,
-        "groups": [
-            {
-                "ctime": 1398134171327948,
-                "creator": "user@example.com",
-                "msgnum": 0,
-                "mtime": 0,
-                "lastmsg": null,
-                "id": 1,
-                "name": "lian"
-            }
-        ],
-        "gmsgnum": 0,
-        "newreplies": []
-    }
-
-## <a id="get-file-events"></a>Get File Activities ##
+### <a id="get-file-activities"></a>파일 활동 확인 ###
 
 **GET** https://cloud.seafile.com/api2/events/
 
-**Sample request**
+**요청 매개변수**
+
+이 API는 전체 활동 내역 레코드 중 첫 15개만 반환합니다. 더 많은 레코드를 가져오려면 `start` 매개변수 값을 전달하십시오
+
+* start (기본값 0)
+
+**예제 요청**
 
     curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/events/"
 
-**Sample response**
+**예제 응답**
 
-     {"more_offset": 16, "events":[{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398078909, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-cli_3.0.2_i386.tar.gz\"."},{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398075540, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-server_3.0.0_x86-64.tar.gz\"."}], "more": false}
+
+     {"more_offset": 15, "events":[{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398078909, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-cli_3.0.2_i386.tar.gz\"."},{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398075540, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-server_3.0.0_x86-64.tar.gz\"."}], "more": false}
+
+**더 많은 활동 요청 예제**
+
+    curl -H 'Authorization: Token f2210dacd9c6ccb8133606d94ff8e61d99b477fd' "https://cloud.seafile.com/api2/events/?start=15"
+
+**더 많은 활동 응답 예제**
+
+     {"more_offset": 30, "events":[{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398078909, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-cli_3.0.2_i386.tar.gz\"."},{"repo_id": "6f3d28a4-73ae-4d01-a727-26774379dcb9", "author": "mysnowls@163.com", "nick": "lins05", "time": 1398075540, "etype": "repo-update", "repo_name": "Downloads", "desc": "Added \"seafile-server_3.0.0_x86-64.tar.gz\"."}], "more": false}
+
+### <a id="get-thumbnail-image"></a>썸네일 그림 확인 ##
+
+**GET** https://cloud.seafile.com/api2/repos/{repo_id}/thumbnail/
+
+**요청 매개변수**
+
+* repo_id
+* p
+* size
+
+**예제 요청**
+
+    curl -H 'Authorization: Token 40f9a510a0629430865dc199a3880898ad2e48fc' https://cloud.seafile.com/api2/repos/fbead5d0-4817-4446-92f3-7ac8e6a8e5f5/thumbnail/?p=/5.jpg\&size=123 > thumbnail.png
+
+## <a id="add-organization"></a>조직 추가 ##
+
+이 API는 seaclud.cc에서 조직 계정을 만들때만 내부적으로 사용합니다.
+
+**POST** https://cloud.seafile.com/api2/organization/
+
+**요청 매개변수**
+
+* username
+* password
+* org_name
+* prefix
+* quota
+* member_limit
+
+**예제 요청**
+
+    curl -v -X POST -d "username=example@example.com&password=example&org_name=example&prefix=example&quota=100&member_limit=10" -H "Authorization: Token ccdff90e4d1efe76b2b3d91c06b027a5cff189d4" -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/organization/
+
+**예제 응답**
+
+    "success"
+

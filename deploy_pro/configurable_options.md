@@ -1,7 +1,14 @@
-# Configurable Options
-In the file `/data/haiwen/pro-data/seafevents.conf`:
+# 설정 항목
+
+**참고**: Seafile 서버 5.0.0부터 모든 설정 파일은 **conf** 폴더로 한 곳에 옮겨 모아둡니다. [더 읽어보십시오](../deploy/new_directory_layout_5_0_0.md).
+
+`seafevents.conf` 파일에서:
 
 ```
+[Audit]
+## Audit log is disabled default.
+enabled = true
+
 [INDEX FILES]
 ## must be "true" to enable search
 enabled = true
@@ -13,45 +20,47 @@ interval=10m
 ## Note: If you change this option from "false" to "true", then you need to clear the search index and update the index again. See the FAQ for details.
 index_office_pdf=false
 
+[SEAHUB EMAIL]
+
+## must be "true" to enable user email notifications when there are new new unread notifications
+enabled = true
+
+## interval of sending seahub email. Can be s(seconds), m(minutes), h(hours), d(days)
+interval = 30m
+
+
 [OFFICE CONVERTER]
 
 ## must be "true" to enable office/pdf file online preview
 enabled = true
 
-## How many libreoffice worker process to run concurrenlty
+## How many libreoffice worker processes to run concurrenlty
 workers = 1
 
-## where to store the converted office/pdf files
+## where to store the converted office/pdf files. Deafult is /tmp/.
 outputdir = /tmp/
 
 ## how many pages are allowed to be previewed online. Default is 50 pages
 max-pages = 50
 
 ## the max size of documents to allow to be previewed online, in MB. Default is 2 MB
+## Preview a large file (for example >30M) online will freeze the browser.
 max-size = 2
-
-[SEAHUB EMAIL]
-
-## must be "true" to enable user email notifications when there are new messages
-enabled = true
-
-## interval of sending seahub email. Can be s(seconds), m(minutes), h(hours), d(days)
-interval = 30m
 
 ```
 
-### <a id="wiki-options-you-may-want-to-modify"></a>Options you may want to modify
+### <a id="wiki-options-you-may-want-to-modify"></a>수정할 설정 항목
 
-The section above listed all the options in `/data/haiwen/pro-data/seafevents.conf`. Most of the time you can use the default settings. But you may want to modify some of them to fit your own use case. 
+위 섹션에서는 `seafevents.conf`에 있는 모든 옵션을 언급했습니다. 대부분의 경우 기본 설정을 활용할 수 있습니다. 하지만 개별 상황에 맞추어 일부 설정을 수정해야 할 때도 있습니다.
 
-We list them in the following table, as well as why we choose the default value.
+다음 표를 통해 설정 항목을 나열하고 왜 기본값을 사용해야 하는지 언급하겠습니다.
 
 <table>
 <tr>
-<th>section</th>
-<th>option</th>
-<th>default value</th>
-<th>description</th>
+<th>섹션</th>
+<th>설정항목</th>
+<th>기본값</th>
+<th>설명</th>
 </tr>
 
 <tr>
@@ -59,16 +68,16 @@ We list them in the following table, as well as why we choose the default value.
 <td>index_office_pdf</td>
 <td>false</td>
 <td>
-The full text search of office/pdf documents is not enabled by default. This is because it may consume quite some space for the search index. To turn it on, set this value to "true" and recreate the search index. See the [[FAQ For Seafile Professional Server]] for detail.
+오피스/pdf 문서의 전체 단어 검색은 기본적으로 활성화 상태가 아닙니다. 검색 색인에 약간의 저장장치 공간을 차지하기 때문입니다. 활성화하려면, 이 값을 "true"로 설정하고 검색 색인을 다시 만드십시오. 자세한 내용은 [Seafile 전문가판 서버 자주 묻는 질문](faq_for_seafile_pro_server.md)을 참고하십시오.
 </td>
 </tr>
 
 <tr>
 <td>OFFICE CONVERTER</td>
 <td>max-size</td>
-<td>2MB</td>
+<td>2</td>
 <td>
-The max file size allowed to be previewed online is 2MB. The preview is converted office/pdf to HTML and display it in the browser. If the file size is too large, the conversion may take too long time and consume much space
+온라인 미리보기 파일 최대 허용 크기는 2MB입니다. 미리보기 기능은 오피스/pdf 파일을 HTML로 변환하고 브라우저에 보여줍니다. 파일 크기가 너무 크면 변환에 시간이 오래 걸리고 상당한 용량을 소비합니다
 </td>
 </tr>
 
@@ -77,37 +86,9 @@ The max file size allowed to be previewed online is 2MB. The preview is converte
 <td>max-pages</td>
 <td>50</td>
 <td>
-When previewing a office/pdf document online, the pages displayed is the first 50 pages. If the value is too large, the conversion may take too long time and consume much space.
+오피스/pdf 문서를 온라인에서 미리 볼 때, 첫 50 페이지를 보여줍니다. 값이 너무 크면 변환에 시간이 오래 걸리고 상당한 용량을 소비합니다.
 </td>
 </tr>
 
 </table>
-
-In the file `/data/haiwen/seahub_settings.py`:
-
-<pre>
-
-# Enable add users as guests or not, defaults to ``False``. Guests are only able to use libraries shared to him/her.
-ENABLE_GUEST = True
-
-# Force user input strong password or not, defaults to ``False``.
-USER_STRONG_PASSWORD_REQUIRED = True
-
-# Replace default from email with user's email or not, defaults to ``False``
-REPLACE_FROM_EMAIL = True
-
-# Set reply-to header to user's email or not, defaults to ``False``. For details,
-# please refer to http://www.w3.org/Protocols/rfc822/
-ADD_REPLY_TO_HEADER = True
-
-</pre>
-
-**Note**:
-
-* You need to restart seahub so that your changes take effect.
-* If your changes don't take effect, You may need to delete 'seahub_setting.pyc'. (A cache file)
-
-<pre>
-./seahub.sh restart
-</pre>
 

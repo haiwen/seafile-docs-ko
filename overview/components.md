@@ -1,29 +1,15 @@
-# Components Overview
+# 구성 요소 둘러보기
 
-Seafile server and client consists of several components. Understanding how they work together will save you a lot time in deploying and maintaining Seafile.
+Seafile 서버는 다음 항목으로 구성되어 있습니다:
 
-## Server
+- **Seahub**(장고)：웹사이트입니다.  Seafile 서버에는 웹 사이트를 제공하는 경량 파이썬 HTTP 서버 구니콘이 있습니다. 기본적으로 Seahub는 구니콘의 프로그램으로 동작합니다. nginx 또는 아파치 뒤에서 fast-cgi 모드로 Seahub를 실행하도록 설정할 수 있습니다.
+- **Seafile server** (``seaf-server``)：원시 파일의 업로드/다운로드/동기화를 처리하는 데이터 서비스 데몬입니다. Seafile 서버는 기본적으로 8082 포트에서 요청을 대기합니다. nginx/아파치를 설정하여 로컬 8082 포트로 요청을 우회하도록 설정할 수 있습니다.
+- **ccnet server** (``ccnet-server``)： 다중 구성요소간 통신을 활성화하는 RPC 서비스 데몬입니다. ccnet은 자체 내부 통신용으로만 사용합니다.
 
-- **Seahub** (django)：the website. Seafile server package contains a light-weight Python HTTP server gunicorn that serves the website. Seahub runs as an application within gunicorn.
-- **FileServer** (``fileserver``) (It is called HttpServer before version 3.1): handles raw file upload/download functions for Seahub. Due to Gunicorn being poor at handling large files, so we wrote this "FileServer" in the C programming language to serve raw file upload/download.
-- **Seafile server** (``seaf-server``)：data service daemon
-- **Ccnet server** (``ccnet-server``)：networking service daemon. In our initial design, Ccnet worked like a traffic bus. All the network traffic between client, server and internal traffic between different components would go through Ccnet. After further development we found that file transfer is improved by utilizing the Seafile daemon component directly.
+다음 그림은 nginx/아파치 뒤에서 Seafile을 가동하도록 설정했을 때 Seafile 클라이언트의 파일 접근 방식을 나타냅니다.
 
-The picture below shows how Seafile desktop client syncs files with Seafile server:
+![Seafile 동기화](../images/seafile-arch-new-http.png)
 
-![Seafile Sync](../images/seafile-sync-arch.png)
-
-The picture below shows how Seafile mobile client interacts with Seafile server:
-
-![How mobile clients connect Seafile](../images/mobile-arch.png)
-
-The picture below shows how Seafile mobile client interacts with Seafile server if the server is configured behind Nginx/Apache:
-
-![How seafile configured behind Nginx/Apache](../images/mobile-nginx-arch.png)
-
-## Client
-
-- **Applet** (`seafile-applet`): The GUI front-end
-- **Seafile daemon** (``seafile``): data service daemon for client
-- **Ccnet daemon** (``ccnet``): networking service daemon for client
+- Seafile 서비스의 모든 접근(Seahub 및 Seafile 서버 포함) 설정은 nginx 또는 아파치 웹 서버 뒤에서 동작하도록 설정할 수 있습니다. 이 방식으로 서비스로 전달할 모든 네트워크 트래픽을 HTTPS 방식으로 암호화할 수 있습니다.
+- 사용자가 Seahub로 접근하면, Seahub는 ccnet RPC를 통해 Seafile 서버의 데이터로 접근합니다.
 

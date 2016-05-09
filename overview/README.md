@@ -1,7 +1,9 @@
-# Overview
+# 둘러보기
 
-* [Seafile Components](components.md)
-* [FAQ](../faq.md)
+* [Seafile 구성요소](components.md)
+* [파일 권한 관리](file_permission_management.md)
+* [자주 묻는 질문](../faq.md)
 * [Changelog](../changelog.md)
-* [Roadmap](../roadmap.md)
-* [Contribution](../contribution.md)
+* [로드맵](../roadmap.md)
+* [기여하기](../contribution.md)
+

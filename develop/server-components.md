@@ -1,25 +1,26 @@
-# Components of Seafile Server
+# Seafile 서버 구성 요소
 
-Seafile server comprises of the following services.
+Seafile 서버는 다음 서비스로 이루어져있습니다.
 
-* **Ccnet daemon** (ccnet for client side or ccnet-server for server side)：networking service daemon. In our initial design, Ccnet worked like a traffic bus. All the network traffic between client, server and internal traffic between different components would go through Ccnet. After further development we found that file transfer is improved by utilizing the Seafile daemon component directly.
-* **Seafile daemon**：data service daemon
-* **Seahub**：the website. Seafile server package contains a light-weight Python HTTP server `gunicorn` that serves the website. Seahub runs as an application within gunicorn.
-* **FileServer**: handles raw file upload/download functions for Seahub. Due to Gunicorn being poor at handling large files, so we wrote this "FileServer" in the C programming language to serve raw file upload/download.
-* **Controller**: monitors ccnet and Seafile daemons, restarts them if necessary.
+* **Ccnet 데몬** (클라이언트용 ccnet 또는 서버용 ccnet-server)：네트워크 서비스 데몬. 초기 설계에서는, 트래픽 버스처럼 동작했습니다. 클라이언트, 서버, 각각의 구성요소간 자체 트래픽은 ccnet으로 처리합니다. 차후 개발 과정에서 Seafile 데몬 구성요소를 직접 활용하여 파일 전송을 개선할 수 있다는 점을 알아냈습니다.
+* **Seafile 데몬**：데이터 서비스 데몬
+* **Seahub**：웹사이트. Seafile 서버 꾸러미에는 웹사이트 서비스를 제공하는 경량 파이썬 HTTP 서버 `gunicorn`이 있습니다. Seahub는 gunicorn에서 프로그램을 실행합니다.
+* **FileServer**: Seahub의 원시 파일 업로드/다운로드 기능을 처리합니다. gunicorn이 대형 파일 처리 성능이 딸리기 때문에, 원사 피알 업로드/다운로드 기능은 C 프로그래밍 언어로 "FileServer"로 작성했습니다.
+* **Controller**: ccnet과 Seafile 데몬 감시 프로그램이며, 필요할 때 다시 시작합니다.
 
-**The picture below shows how Seafile desktop client syncs files with Seafile server**:
+**하단 그림은 Seafile 서버와 Seafile 데스크톱 클라이언트가 어떻게 파일을 동기화하는지 보여줍니다**:
 
 ![seafile-sync-arch](../images/seafile-sync-arch.png)
 
 <br/>
 
-**The picture below shows how Seafile mobile client interacts with Seafile server**:
+**아래 그림은 Seafile 모바일 클라이언트가 Seafile 서버와 서로 동작하는 방식을 보여줍니다**:
 
 ![mobile-arch](../images/mobile-arch.png)
 
 <br/>
 
-**The picture below shows how Seafile mobile client interacts with Seafile server if the server is configured behind Nginx/Apache**:
+**하단 그림에서는 Nginx/Apache 후부에 Seafile 서버가 있을 경우 Seafile 모바일 클라이언트와 동작하는 방식을 보여줍니다**:
 
 ![mobile-nginx-arch](../images/mobile-nginx-arch.png)
+

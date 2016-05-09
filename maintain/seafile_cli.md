@@ -102,3 +102,4 @@ desync
 Desynchronize a library from seafile server
 
     seaf-cli desync -d <existing-folder>
+

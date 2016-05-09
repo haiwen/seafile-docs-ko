@@ -1,37 +1,33 @@
-# Data Model
+# 데이터 모델
 
-Seafile internally uses a data model similar to GIT's. It consists of `Repo`, `Branch`, `Commit`, `FS`, and `Block`.
+Seafile은 내부적으로 git과 유사한 데이터 모델을 사용합니다 `Repo`, `Branch`, `Commit`, `FS`, `Block`으로 이루어져있습니다.
 
 ## Repo
 
-A repo is also called a library. Every repo has an unique id (UUID), and attributes like description, creator, password.
+repo는 라이브러리라고 합니다. 모든 repo에는 고유 ID(UUID)가 있고, 설명, 작성자, 암호 속성이 있습니다.
 
-## Branch
+## 브랜치
 
-Unlike git, only two predefined branches is used, i.e., `local` and `master`.
+git와는 다르게 `local` 및 `master`와 같이 사전 정의한 두 개의 브랜치만 있습니다.
 
-In PC client, modifications will first be committed to the `local` branch.
-Then the `master` branch is downloaded from server, and merged into `local` branch.
-After that the `local` branch will be uploaded to server. Then the server will fast-forward
-its `master` branch to the head commit of the just uploaded branch.
+PC 클라이언트에서는 바뀐 내용을 `local` 브랜치에 우선 커밋합니다.
+그 다음 서버에서 `master` 브랜치를 다운로드하고, `local` 브랜치에 병합합니다.
+그 다음 `local` 브랜치를 서버에 업로드합니다. 서버는 방금 업로드한 브랜치의 최근 커밋으로 `master` 브랜치의 최근 표식을 옮겨둡니다.
 
-When users update a repo on the web, modifications will first be committed to temporary branch
-on the server, then merged into the `master` branch.
+사용자가 웹으로 repo를 업데이트하면, 바뀐 내용을 서버의 임시 브랜치로 우선 커밋하고, `master` 브랜치에 병합합니다.
 
-## Commit
+## 커밋
 
-Like in GIT.
+git와 비슷합니다.
 
 ## FS
 
-There are two types of FS objects, `SeafDir Object` and `Seafile Object`.
-`SeafDir Object` represents a directory, and `Seafile Object` represents a file.
+FS 객체는 `SeafDir 객체`, `Seafile 객체` 두가지 종류가 있습니다.
+`SeafDir 객체`는 디렉터리를 나타내며, `Seafile 객체`는 파일을 나타냅니다.
 
-## Block
+## 블록
 
-A file is further divided into blocks with variable lengths. We use Content Defined Chunking algorithm to
-divide file into blocks. A clear overview of this algorithm can be found at http://pdos.csail.mit.edu/papers/lbfs:sosp01/lbfs.pdf.
-On average, a block's size is around 1MB.
+또한 파일은 다양한 길이를 가진 블록으로 나뉩니다. 컨텐트 정의 단편화 알고리즘을 활용하여 파일을 블록으로 쪼갭니다. 이 알고리즘의 개요는 http://pdos.csail.mit.edu/papers/lbfs:sosp01/lbfs.pdf 에서 볼 수 있습니다. 블록 크기는 1MB 내외입니다.
 
-This mechanism makes it possible to deduplicate data between different versions of frequently updated files,
-improving storage efficiency. It also enables transferring data to/from multiple servers in parallel.
+이 기술은 자주 올리는 파일의 각기 다른 버전에서 중복되는 데이터를 줄여 저장소 효율성을 증대할 수 있습니다. 또한 여러 서버로 데이터를 동시에 전송할 수 있습니다. 또한 여러대 서버를 대상으로 동시에 데이터를 전송할 수 있습니다.
+

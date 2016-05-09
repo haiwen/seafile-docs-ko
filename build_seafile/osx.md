@@ -1,123 +1,111 @@
 # Mac OS X
 
-Setup homebrew environment
-----------------------------
-1. Install xcode
+## 선택지 1: Homebrew (macports와 겹침)
 
-  - Download Xcode from [website](https://developer.apple.com/xcode/downloads/) or
-    [App Store](http://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12)
-  - Xcode Command Line Utilities might be sufficient to build seafile, but it is left
-untested yet.
+### homebrew 환경 설정
 
-2. Install homebrew
+1. xcode를 설치하십시오
 
-  - Make sure you don't have macports installed or uninstalled completely
-  - Execute this from Terminal
-  ``ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"``
+  - [웹 사이트](https://developer.apple.com/xcode/downloads/) 또는 [App Store](http://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12)에서 Xcode를 다운로드하십시오
+  - Seafile을 빌드할 때 Xcode 명령행 유틸리티로 충분할 수 있지만, 아직 시험해보진 않았습니다.
 
-Then install seafile from homebrew
+2. homebrew를 설치하십시오
+
+  - 아래 명령을 터미널에서 실행하십시오
+  ``ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+  - 초기 homebrew 환경을 갖췄는지 확인하십시오. ``brew doctor``명령으로 다시 확인해볼 수 있습니다
+
+> 기타 정보는 http://brew.sh/ 주소를 방문하십시오
+
+그 다음 homebrew로 Seafile을 설치하십시오
   ```
-  brew tap homebrew/dupes
   brew tap Chilledheart/seafile
-  brew install libsearpc
-  brew install ccnet
-  brew install seafile --HEAD
-  brew install seafile-client --HEAD
+  brew install seafile-client
   ```
 
-If you face any installation issue, please report it with your homebrew logs
-- [Homebrew Troubleshooting](https://github.com/Homebrew/homebrew/wiki/Troubleshooting)
+설치상 문제가 있다면 homebrew 로그를 보내주십시오.
+- [Homebrew 문제 해결](https://github.com/Homebrew/homebrew/wiki/Troubleshooting)
 
-If it is an issue while using homebrewed seafile, please report it with your seafile logs
-- [Seafile FAQ](../faq.md)
+homebrew로 설치한 Seafile에 문제가 있다면 Seafile 로그를 보내주십시오.
+- [Seafile 자주 묻는 질문](../faq.md)
 
-Setup macports environment
------------------------------
+## 선택지 2: Macports (homebrew와 겹침)
 
-1. Install xcode
-  - Download Xcode from [website](https://developer.apple.com/xcode/downloads/) or
-  [App Store](http://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12)
+### macports 환경 설정
 
-2. Install macports
-  - Visit macports [website](https://www.macports.org/)
+1. xcode를 설치하십시오
+  - [웹 사이트](https://developer.apple.com/xcode/downloads/) 또는 [App Store](http://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12)에서 Xcode를 다운로드하십시오
 
-3. Install following libraries and tools using `port`
+2. macports를 설치하십시오
 
-        sudo port install autoconf intltool automake pkgconfig libtool glib2 \
-        ossp-uuid libevent vala openssl git qt4-mac python27 jansson gsed
+  - https://www.macports.org/install.php에서 간단하게 시작
 
-4. Install python
+> 더 많은 내용은 https://www.macports.org/ 주소에 있습니다
 
+3. `port`로 다음 라이브러리 및 도구를 설치하십시오
+
+        sudo port install autoconf automake pkgconfig libtool glib2 \
+        libevent vala openssl git qt4-mac jansson
+
+4. 파이썬을 설치하십시오
+
+        sudo port install python27
         sudo port select --set python python27
-        sudo port install py27-pip
 
-5. Set pkg config environment
+        sudo port install py27-pip
+        sudo port select --set pip pip27
+
+5. pkg config 환경을 설정하십시오
 
         export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:/usr/local/lib/pkgconfig
         export LIBTOOL=glibtool
-        export LBITOOLIZE=glibtoolize
-        export SED=gsed
-        export LDFLAGS="-L/opt/local/lib -luuid -L/usr/local/lib -Wl,-headerpad_max_install_names"
+        export LIBTOOLIZE=glibtoolize
+        export CPPFLAGS="-I/opt/local/include"
+        export LDFLAGS="-L/opt/local/lib -L/usr/local/lib -Wl,-headerpad_max_install_names"
 
 
-Compiling libsearpc
+libsearpc 컴파일
 ------------------
 
-Download [libsearpc](https://github.com/haiwen/libsearpc), then:
+[libsearpc](https://github.com/haiwen/libsearpc)를 다운로드한 후:
 
         ./autogen.sh
         ./configure
         make
         sudo make install
 
-Compiling ccnet
+ccnet 컴파일
 ---------------
 
-Download [ccnet](https://github.com/haiwen/ccnet), then:
+[ccnet](https://github.com/haiwen/ccnet)을 다운로드한 후:
 
         ./autogen.sh
-        CFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib -luuid -L/usr/local/lib -Wl,-headerpad_max_install_names" ./configure
+        ./configure
         make
         sudo make install
 
-Compiling seafile
+seafile 컴파일
 -----------------
 
-1. Download [seafile](https://github.com/haiwen/seafile)
-2. Compile
+1. [seafile](https://github.com/haiwen/seafile)을 다운로드하십시오
+2. 컴파일 하십시오
 
         ./autogen.sh
-        SED=sed CFLAGS="-I/opt/local/include" LDFLAGS="-L/opt/local/lib -luuid -L/usr/local/lib -Wl,-headerpad_max_install_names" ./configure
+        ./configure --disable-fuse
         make
         sudo make install
 
-Compiling seafile-client and packaging it
+seafile-client 컴파일 및 꾸러미 생성
 ---------
 
-1. prepare for building:
+1. 빌드 스크립트를 실행하십시오:
 
-        ./genapp.sh xcode
+        ./scripts/build.py
 
-    Generate xcode project from qmake
+2. Go to Release directory and see if `seafile-applet.app` can run correctly.
 
-2. Compile seafile.app：
-
-        ./genapp.sh build
-
-    If you are told build failed, you might try to use HEAD version of
-    seafile-client, or any tag which ends up with "mac"
-
-3. Package seafile.app:
-        ./genapp.sh otool
-        ./genapp.sh package
-        ./genapp.sh dmg
-
-    This will copy ccnet, seaf-daemon and other libraries to seafile-client, and use `install_name_tool` to modify the library paths in ccnet, seaf-daemon.
-    After compiling, it will copy seafile.app to `${top_dir}/../seafile-${VERSION}`. You can also compiling seafile.app in xcode.
-
-4. Go to seafile-applet.app and see if it can run correctly.
-
-Problem you may encounter
+직면할 수 있는 문제
 -------------------------
-1. If `install_name_tool` reports "malformed object" "unknown load command", It may be the version of xcode command line tools incompatible with `install_name_tool`.
-2. If xcode can't find glib, Corrects xcode's "build settings/search paths/header search".
+1. `install_name_tool`에서 "malformed object" "unknown load command" 메시지를 출력했다면, xcode 명령행 도구의 해당 버전이 `install_name_tool`와 맞지 않기 때문일 수도 있습니다.
+2. xcode에서 glib를 찾지 못했다면, xcode의 "build settings/search paths/header search" 설정을 올바르게 고치십시오.
+

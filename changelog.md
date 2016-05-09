@@ -1,14 +1,16 @@
 # Changelog
 
-####v3.0.4 Server
+### 이 설명서의 Changelog
 
- - [API] Add replace if exist into upload-api
- - Show detailed error message when Gunicorn failed to start
- - Improve object and block writting performance
- - Add retry when failed getting database connection
+* 2015.11.20: 다중 파일/폴더 삭제/복사/이동 목적으로 파일 복사 및 문서 추가로 문서를 업데이트함
+* 2015.11.18: [데이터베이스 정리](maintain/clean_database.md) 문서 추가.
 
-#### Previous changelog
 
-- [changelog of server](http://seacloud.cc/group/3/wiki/server-changelog/)
-- [changelog of client](http://seacloud.cc/group/3/wiki/client-changelog/)
-- [changelog of 2-x](https://seacloud.cc/group/3/wiki/server-changelog-%28freeplant@gmail.com-2014-01-07-08-29-55%29/)
+### Changelog
+
+- [Seafile 커뮤니티판](https://seacloud.cc/group/3/wiki/server-changelog/)
+- [Seafile 전문가판](https://seacloud.cc/group/3/wiki/changelog-for-seafile-professional-server/)
+- [Seafile 클라이언트](https://seacloud.cc/group/3/wiki/client-changelog/)
+- [Android 클라이언트](https://seacloud.cc/group/3/wiki/android-client-changelog/)
+- [iOS 클라이언트](https://seacloud.cc/group/3/wiki/ios-client-changelog/)
+
